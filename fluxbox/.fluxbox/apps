@@ -1,0 +1,33 @@
+[app] (name=fbrun)
+  [Position]	(CENTER)	{0 0}
+  [Layer]	{2}
+[end]
+[app] (synapse)
+  [Position]  (CENTER)  {0 0}
+[end]
+[app] (dockx)
+  [Hidden] {yes}
+  [Layer] {4}
+[end]
+[app] (name=file-jpeg) (class=Gimp-2.8)
+  [Position]  (CENTER)  {0 0}
+  [Layer] {2}
+[end]
+[group]
+ [app] (name=empathy-accounts) (class=Empathy) (role=accounts)
+ [app] (name=empathy) (class=Empathy)
+ [app] (name=empathy-chat) (class=Empathy) (role=chat)
+ [app] (name=empathy) (class=Empathy) (role=contact_list)
+  [Dimensions]	{700 450}
+[end]
+[group]
+  [app] (name=Pidgin) (class=Pidgin)
+[end]
+[group]
+ [app] (name=audacious) (class=Audacious)
+ [app] (name=tomahawk) (class=Tomahawk)
+ [app] (name=spotify) (class=Spotify)
+[end]
+[app] (name=marlin) (class=Marlin)
+  [Dimensions]	{750 536}
+[end]

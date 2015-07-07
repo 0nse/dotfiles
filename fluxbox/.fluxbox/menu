@@ -1,0 +1,21 @@
+[begin] (fluxbox)
+#[include] (/etc/X11/fluxbox/fluxbox-menu)
+  [submenu] (System)
+    [exit] (Log out)
+    [exec] (Shutdown) {dbus-send --system --print-reply --dest="org.freedesktop.ConsoleKit" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop}
+    [exec] (Restart) {dbus-send --system --print-reply --dest="org.freedesktop.ConsoleKit" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart}
+    [nop] (--------------)
+    [exec] (Suspend) {dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend}
+    [exec] (Hibernate) {dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Hibernate}
+  [end]
+  [submenu] (Fluxbox)
+    [reconfigure] (Reconfigure)
+    [restart] (Restart)
+     [submenu] (Style) {Which Style?}
+       [stylesdir] (~/.fluxbox/styles)
+       [stylesmenu] (Fluxbox Styles) {/usr/local/share/fluxbox/styles}
+     [end]
+  [end]
+  [exec] (Change wallpaper) {gnome-control-center background}
+  [exec] (Monitor configuration) {arandr}
+[end]

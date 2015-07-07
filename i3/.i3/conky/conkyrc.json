@@ -1,0 +1,125 @@
+# no X output
+out_to_x no
+# don't create own window
+own_window no
+# print to console
+out_to_console yes
+# shorten units
+short_units yes
+update_interval 1.5
+total_run_times 0
+background no
+double_buffer yes
+# default_bar_size 50 5
+# default_gauge_size 20 20
+# imlib_cache_size 0
+# draw_shades no
+no_buffers yes
+# uppercase no
+cpu_avg_samples 2
+override_utf8_locale yes
+# MPD
+mpd_host localhost
+mpd_port 6600
+# mpd_password asdf
+# font
+#use_xft yes
+#xftfont DejaVu Sans:size=8
+
+TEXT
+[\
+{\
+"full_text": "${freq_g}GHz ${acpitemp}°C",\
+"min_width": 90,\
+"align": "center",\
+"color":\
+${if_match ${acpitemp}>65}"\#DC322F"\
+ ${else}"\#586E75"\
+ ${endif}\
+},\
+{\
+"full_text": "¹ ${cpu cpu1}% ² ${cpu cpu2}%",\
+"min_width": 90,\
+"align": "center",\
+"color":\
+${if_match ${cpu cpu1}>65}"\#DC322F"\
+${else}\
+${if_match ${cpu cpu2}>65}"\#DC322F"\
+${else}"\#586E75"\
+${endif}\
+${endif}\
+},\
+{\
+"full_text":\
+${if_match ${swapperc} > 3}"${memperc}% ${swapperc}%",\
+${else}"${memperc}%",\
+${endif}\
+"min_width": 40,\
+"align": "center",\
+"color":\
+${if_match ${memperc} > 85}"\#DC322F"\
+ ${else}"\#586E75"\
+ ${endif}\
+},\
+{\
+"full_text":\
+${if_existing /proc/net/route enp2s0}\
+"${downspeed enp2s0}/s ${upspeed enp2s0}/s",\
+${else}\
+"${downspeed wlp3s0b1}/s ${upspeed wlp3s0b1}/s",\
+${endif}\
+"min_width": 110,\
+"align": "center",\
+"color":\
+${if_match ${downspeedf wlp3s0b1}>300}"\#859900"\
+${else}\
+${if_match ${upspeedf wlp3s0b1}>21}"\#DC322F"\
+${else}"\#586E75"\
+${endif}\
+${endif}\
+},\
+{\
+"full_text":\
+${if_match "${mpd_status}" != "Stopped"}\
+"${exec mpc --format '[%artist%] - [%title%] \[%time%\]' | head -n 1 | sed 's/\"/\\\"/g'}",\
+${else}"",\
+${endif}\
+"align": "left",\
+"color":\
+${if_match "${mpd_status}" == "Playing"}\
+"\#EEE8D5"\
+${else}"\#586E75"\
+${endif}\
+},\
+{\
+"full_text":\
+${if_existing /sys/class/power_supply/BAT1}\
+${if_match "${mpd_vol}" == "-1"}\
+"${battery_percent BAT1}",\
+${else}\
+"🎵 ${mpd_vol}% 🔋 ${battery_percent BAT1}%",\
+${endif}\
+"min_width": 70,\
+"align": "center",\
+"color": "\#EEE8D5"\
+${else}\
+${if_match "${mpd_vol}" == "-1"}\
+"",\
+${else}\
+"${mpd_vol}%",\
+${endif}\
+"min_width": 50,\
+"align": "center",\
+"color": "\#586E75"\
+${endif}\
+},\
+{\
+"full_text": "${time %a, %d. %b %k:%M}",\
+"min_width": 120,\
+"align": "center",\
+"color": "\#586E75"\
+},\
+{\
+"full_text": ""\
+}\
+],

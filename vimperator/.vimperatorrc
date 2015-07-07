@@ -1,0 +1,47 @@
+" scroll faster
+nnoremap j 5j
+nnoremap k 5k
+nnoremap l 5l
+nnoremap h 5h
+
+" change tabs via J/K
+nnoremap J gT
+nnoremap K gt
+
+" hide search bar
+set gui="nonavigation,nobookmarks,nomenu"
+" set gui=nobookmarks,nomenu
+
+colorscheme solarised_dark
+
+" copypaste directly
+noremap <C-c> <C-v><C-c>
+noremap <C-v> <C-v><C-v>
+noremap <C-a> <C-v><C-a>
+noremap <C-x> <C-v><C-x>
+" source code and print directly
+noremap <C-p> i<C-p>
+noremap <C-S-u> i<C-u>
+" incognito like Chromium
+noremap <C-S-n> i<C-S-p>
+" tab groups
+noremap <C-e> i<C-S-e>
+" bookmarks
+noremap <C-S-b> :set gui=bookmarks<CR>
+noremap <C-b> :set gui=nobookmarks<CR>
+
+" noscript
+nnoremap so :noscript popup<CR>
+nnoremap si :noscript info<CR>
+
+" use vim instead of gvim:
+set editor="i3-sensible-terminal -e vim"
+
+" Zotero
+nnoremap za :js ZoteroPane.addItemFromPage();<CR>
+nnoremap zs :js Zotero_Browser.scrapeThisPage();<CR>
+nnoremap goz :js ZoteroPane.show(); ZoteroPane.toggleTab();<CR>
+
+" unmap keys that annoy the fuck out of me
+:nmap <F1> <nop>
+:nmap <C-q> <nop>

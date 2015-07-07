@@ -1,0 +1,344 @@
+set  $ALT              Mod1
+set  $CAPS             Mod3
+set  $CONTROL_R        Mod3
+set  $SUPER            Mod4
+# layout independent keys as seen from de-layouts
+set  $DEAD_CIRCUMFLEX  49
+set  $ODIAERESIS       47
+set  $Z                29
+set  $EXCLAM           10
+set  $QUOTEDBL         11
+set  $SECTION          12
+set  $DOLLAR           13
+set  $PERCENT          14
+set  $AMPERSAND        15
+set  $SLASH            16
+set  $PARENLEFT        17
+set  $PARENRIGHT       18
+set  $EQUAL            19
+
+set $SCRIPT_DIR $HOME/.i3/scripts
+set $CONKY_DIR $HOME/.i3/conky
+
+# define colours
+set  $C_BASE_BROWN_BLACK   #002B36
+set  $C_BASE_BLACK         #073642
+set  $C_BASE_BROWN_GREEN   #586E75
+set  $C_BASE_BROWN_YELLOW  #657B83
+set  $C_BASE_BROWN_BLUE    #839496
+set  $C_BASE_BROWN_CYAN    #93A1A1
+set  $C_BASE_WHITE         #EEE8D5
+set  $C_BASE_BROWN_WHITE   #FDF6E3
+set  $C_YELLOW             #B58900
+set  $C_ORANGE             #CB4B16
+set  $C_RED                #DC322F
+set  $C_MAGENTA            #D33682
+set  $C_VIOLET             #6C71C4
+set  $C_BLUE               #268BD2
+set  $C_CYAN               #2AA198
+set  $C_GREEN              #859900
+
+# startup: set resolution and enable keyboard mouse navigation.
+# This has to be done after resolution changes or else keynav
+# will be using a wrong resolution.
+exec --no-startup-id $SCRIPT_DIR/setDisplays.sh off && keynav &
+exec --no-startup-id xflux
+
+# font for window titles. ISO 10646 = Unicode
+# font -misc-fixed-medium-r-normal--12-120-75-75-C-70-iso10646-1
+# font xft:Source Sans Pro 10
+# font xft: DejaVu Sans 10
+# font -xos4-terminus-medium-*-*-*-12-*-*-*-*-iso10646-*
+# font -gnu-unifont-medium-r-normal--16-160-75-75-c-80-iso10646-1
+font xft:Roboto 8
+# font xft:LED BOARD REVERSED 9
+# font -misc-ubuntu-medium-r-normal-*-0-0-0-0-p-0-iso10646-1
+# font -artwiz-anorexia-medium-r-normal--11-110-75-75-p-90-iso8859-1 # also works with cure and nu
+# font -artwiz-smoothansi.de-medium-r-normal--13-130-75-75-n-60-iso10646-1
+# font -artwiz-drift-*-*-*-*-*-*-*-*-*-*-iso10646-1
+
+# add or remove laptop display (plus is listed twice to also work on en layouts)
+bindsym  $SUPER+Shift+plus  exec  $SCRIPT_DIR/setDisplays.sh  right
+bindsym  $SUPER+plus        exec  $SCRIPT_DIR/setDisplays.sh  right
+bindsym  $SUPER+minus       exec  $SCRIPT_DIR/setDisplays.sh  off
+
+# Use Mouse+$SUPER to drag floating windows to their wanted position
+floating_modifier $SUPER
+
+# start a terminal
+bindsym  $SUPER+Return    exec  i3-sensible-terminal
+bindsym  $SUPER+KP_Enter  exec  i3-sensible-terminal
+
+# kill focused window
+bindsym $SUPER+Shift+Q kill
+
+# start dmenu (a program launcher)
+bindsym $SUPER+d exec dmenu_run -nb '$C_BASE_BROWN_BLACK' -nf '$C_BASE_BROWN_BLUE' -sb '$C_BASE_BROWN_BLACK' -sf '$C_BASE_WHITE'
+
+# emulate mouse:
+bindsym  $ALT+h            exec  --no-startup-id  xdotool   mousemove_relative  --         -20     0
+bindsym  $ALT+j            exec  --no-startup-id  xdotool   mousemove_relative  0          20
+bindsym  $ALT+k            exec  --no-startup-id  xdotool   mousemove_relative  --         0       -20
+bindsym  $ALT+l            exec  --no-startup-id  xdotool   mousemove_relative  20         0
+bindsym  $ALT+space        exec  --no-startup-id  xdotool   click               1          #       left    click
+bindsym  $CAPS+space       exec  --no-startup-id  xdotool   click               2          #       middle  click
+# mapping backspace not working (mapping mod1+n neither):
+# bindsym  $ALT+backspace    exec  xdotool          click     2                   #          middle  click
+# bindsym  $ALT+22           exec  xdotool          click     2                   #          middle  click
+bindsym  $ALT+Shift+space  exec  --no-startup-id  xdotool   click               3          #       right   click
+
+# emulate pok3r:
+bindcode  --release  $CAPS+$DEAD_CIRCUMFLEX  exec  --no-startup-id  xdotool  key  `
+bindsym   --release  $CAPS+h                 exec  --no-startup-id  xdotool  key  Left
+bindsym   --release  $CAPS+j                 exec  --no-startup-id  xdotool  key  Down
+bindsym   --release  $CAPS+k                 exec  --no-startup-id  xdotool  key  Up
+bindsym   --release  $CAPS+l                 exec  --no-startup-id  xdotool  key  Right
+bindsym   --release  $CAPS+'                 exec  --no-startup-id  xdotool  key  Delete
+
+# change focus
+bindsym  $SUPER+h  focus  left
+bindsym  $SUPER+j  focus  down
+bindsym  $SUPER+k  focus  up
+bindsym  $SUPER+l  focus  right
+
+# alternatively, you can use the cursor keys:
+bindsym  $SUPER+Left   focus  left
+bindsym  $SUPER+Down   focus  down
+bindsym  $SUPER+Up     focus  up
+bindsym  $SUPER+Right  focus  right
+
+# move focused window
+bindsym  $SUPER+Shift+H  move  left
+bindsym  $SUPER+Shift+J  move  down
+bindsym  $SUPER+Shift+K  move  up
+bindsym  $SUPER+Shift+L  move  right
+
+# alternatively, you can use the cursor keys:
+bindsym  $SUPER+Shift+Left   move  left
+bindsym  $SUPER+Shift+Down   move  down
+bindsym  $SUPER+Shift+Up     move  up
+bindsym  $SUPER+Shift+Right  move  right
+
+# split in horizontal orientation
+bindcode $SUPER+$ODIAERESIS split h
+
+# split in vertical orientation
+bindsym $SUPER+v split v
+
+# enter fullscreen mode for the focused container
+bindsym  $SUPER+Shift+f  fullscreen
+# enter pseudo fullscreen mode, where we place the window onto a free workspace to keep i3bar visible
+bindsym  $SUPER+f        move container to workspace 🐧; workspace 🐧
+
+
+# change container layout (stacked, tabbed, default)
+bindsym $SUPER+s layout stacking
+bindsym $SUPER+w layout tabbed
+bindsym $SUPER+e layout default
+
+# toggle tiling / floating
+bindsym $SUPER+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $SUPER+space focus mode_toggle
+
+# focus the parent container
+bindsym $SUPER+a focus parent
+
+# focus the child container
+bindsym $SUPER+y focus child
+
+# switch to workspace
+bindsym   $SUPER+1                 workspace  1
+bindsym   $SUPER+2                 workspace  2
+bindsym   $SUPER+3                 workspace  3
+bindsym   $SUPER+4                 workspace  4
+bindsym   $SUPER+5                 workspace  5
+bindsym   $SUPER+6                 workspace  6
+bindsym   $SUPER+7                 workspace  7
+bindsym   $SUPER+8                 workspace  8
+bindsym   $SUPER+9                 workspace  9
+bindsym   $SUPER+0                 workspace  10
+bindsym   $SUPER+ctrl+1            workspace  11
+bindsym   $SUPER+ctrl+2            workspace  12
+bindsym   $SUPER+ctrl+3            workspace  🎵
+bindsym   $SUPER+ctrl+4            workspace  14
+bindsym   $SUPER+ctrl+5            workspace  📨
+bindsym   $SUPER+ctrl+6            workspace  16
+bindsym   $SUPER+ctrl+7            workspace  💬
+bindsym   $SUPER+ctrl+8            workspace  18
+bindsym   $SUPER+ctrl+9            workspace  19
+bindsym   $SUPER+ctrl+0            workspace  🐧
+bindcode  $SUPER+$DEAD_CIRCUMFLEX  workspace  back_and_forth
+bindsym   $SUPER+Escape            workspace  back_and_forth
+
+# move focused container to workspace
+bindcode  $SUPER+Shift+$EXCLAM      move container to workspace  1
+bindcode  $SUPER+Shift+$QUOTEDBL    move container to workspace  2
+bindcode  $SUPER+Shift+$SECTION     move container to workspace  3
+bindcode  $SUPER+Shift+$DOLLAR      move container to workspace  4
+bindcode  $SUPER+Shift+$PERCENT     move container to workspace  5
+bindcode  $SUPER+Shift+$AMPERSAND   move container to workspace  6
+bindcode  $SUPER+Shift+$SLASH       move container to workspace  7
+bindcode  $SUPER+Shift+$PARENLEFT   move container to workspace  8
+bindcode  $SUPER+Shift+$PARENRIGHT  move container to workspace  9
+bindcode  $SUPER+Shift+$EQUAL       move container to workspace  10
+
+# reload the configuration file
+bindsym $SUPER+Shift+C reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $SUPER+Shift+R restart
+# exit i3 (logs you out of your X session)
+bindsym $ALT+ctrl+Delete exit
+# shutdown
+bindsym $ALT+ctrl+End exec $SCRIPT_DIR/i3exit shutdown
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+  # These bindings trigger as soon as you enter the resize mode
+
+  # Pressing left will shrink the window’s width.
+  # Pressing right will grow the window’s width.
+  # Pressing up will shrink the window’s height.
+  # Pressing down will grow the window’s height.
+  bindsym  h  resize  shrink  width   10  px  or  10  ppt
+  bindsym  j  resize  grow    height  10  px  or  10  ppt
+  bindsym  k  resize  shrink  height  10  px  or  10  ppt
+  bindsym  l  resize  grow    width   10  px  or  10  ppt
+
+  # same bindings, but for the arrow keys
+  bindsym  113  resize  shrink  width   10  px  or  10  ppt
+  bindsym  116  resize  grow    height  10  px  or  10  ppt
+  bindsym  111  resize  shrink  height  10  px  or  10  ppt
+  bindsym  114  resize  grow    width   10  px  or  10  ppt
+
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $SUPER+r mode "resize"
+# lock
+bindsym $ALT+ctrl+l exec $SCRIPT_DIR/i3lock-wrapper
+# sleep
+bindsym  XF86Sleep     exec  $SCRIPT_DIR/i3exit  suspend
+bindsym  $CONTROL_R+Z  exec  $SCRIPT_DIR/i3exit  suspend
+
+# caffeine and sleeping pill
+bindsym  $CONTROL_R+minus  exec  --no-startup-id  $SCRIPT_DIR/caffeine.sh off
+bindsym  $CONTROL_R+plus   exec  --no-startup-id  $SCRIPT_DIR/caffeine.sh on
+
+# screenshot
+bindsym Print          exec  scrot -m -e 'mv $0 $HOME/Pictures/Screenshots'
+bindsym $SUPER+c       exec  i3-sensible-terminal -e vim ~/.i3/config
+bindsym $SUPER+Shift+v exec  x11vnc -display :0 -passwd `cat $HOME/.vnc_passwd`
+
+# volume control
+bindsym  XF86AudioLowerVolume  exec  pactl   --  set-sink-volume  1     -5%     &&      paplay  /usr/share/sounds/bell.oga
+bindsym  XF86AudioRaiseVolume  exec  pactl   --  set-sink-volume  1     +5%     &&      paplay  /usr/share/sounds/bell.oga
+bindsym  XF86AudioMute         exec  amixer  -D  pulse            sset  Master  toggle  &&      paplay                      /usr/share/sounds/bell.oga
+# volume control without media keys:
+bindsym  $CONTROL_R+q          exec  pactl   --  set-sink-volume  1     -5%     &&      paplay  /usr/share/sounds/bell.oga
+bindsym  $CONTROL_R+e          exec  pactl   --  set-sink-volume  1     +5%     &&      paplay  /usr/share/sounds/bell.oga
+bindsym  $CONTROL_R+w          exec  amixer  -D  pulse            sset  Master  toggle  &&      paplay                      /usr/share/sounds/bell.oga
+
+
+# MPD controls
+bindsym  XF86AudioPlay  exec  mpc  toggle
+bindsym  XF86AudioNext  exec  mpc  next
+bindsym  XF86AudioPrev  exec  mpc  prev
+bindsym  XF86AudioStop  exec  mpc  stop
+# MPD controls without media keys:
+bindsym  $CONTROL_R+s  exec  mpc  toggle
+bindsym  $CONTROL_R+d  exec  mpc  next
+bindsym  $CONTROL_R+a  exec  mpc  prev
+
+# update
+bindsym  $SUPER+u        exec  i3-sensible-terminal -e sudo pacman -Syu
+bindsym  $SUPER+Shift+u  exec  i3-sensible-terminal -e yaourt -Syua
+
+# adjustable borders
+bindsym   $SUPER+t   border  normal
+bindcode  $SUPER+$Z  border  1pixel
+bindsym   $SUPER+g   border  none
+# no borders by default
+new_window 1pixel
+# remove borders adjacent to the screen edges
+hide_edge_borders both
+
+# popup in fullscreen if from same application
+popup_during_fullscreen smart
+
+# get back to former workspace
+workspace_auto_back_and_forth yes
+# move workspaces
+bindsym  $SUPER+ctrl+h      move workspace to output left
+bindsym  $SUPER+ctrl+l      move workspace to output right
+bindsym  $SUPER+ctrl+left   move workspace to output left
+bindsym  $SUPER+ctrl+right  move workspace to output right
+
+# scratchpad
+bindsym  $SUPER+p  move        scratchpad
+bindsym  $SUPER+o  scratchpad  show
+
+floating_minimum_size 70 x 30
+# float all popups but when they are from Chromium:
+for_window  [window_role="pop-up"   class="[^(Chromium)]"]                 floating enable
+for_window  [class="Qjackctl"]                                             floating enable
+for_window  [class="Google-chrome"  title="Task Manager - Google Chrome"]  floating enable
+for_window  [class="Zotero"         title="Document Preferences"]          floating enable
+for_window  [class="Zotero"         title="Quick Format Citation"]         floating enable
+for_window  [class="Zotero"         title="Edit Bibliography"]             floating enable
+for_window  [class="Zotero"         title="Zotero Preferences"]            floating enable
+# float Chromium task manager:
+for_window  [instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"]              floating enable
+for_window  [instance="Enigmail"]                                          floating enable
+# set size for floats and start on scratchpad
+for_window [class="Pidgin" window_role="conversation"]                     floating enable, resize shrink height 9001 px, resize grow height 300 px, resize shrink width 9001 px, resize grow width 600 px, move scratchpad, scratchpad show
+# fix a displaying bug:
+for_window  [class="Firefox"]                                              fullscreen, fullscreen
+# disable floating or it will be of size 1x1
+for_window  [class="sun-awt-X11-XDialogPeer"]                              floating disable
+# for_window [class="XTerm" instance="xtermTop"] floating enable
+# launch certain programs on predefined workspaces
+assign [class="Thunderbird"]                                               📨
+assign [class="Pidgin"              window_role="buddy_list"]              💬
+# Spotify:
+assign [instance="crx_cnkjkdjlofllcpbemipjbcpfnglbgieh"]                   🎵
+
+# fluxbox launch combinations
+bindsym  $ALT+1        exec  spacefm -n
+# bindsym $ALT+1 exec nautilus -w
+bindsym  ctrl+2        exec  firefox
+bindsym  $ALT+2        exec  tor-browser-en
+bindsym  $ALT+Shift+2  exec  chromium
+bindsym  ctrl+3        exec  i3-sensible-terminal -e ncmpcpp
+bindsym  ctrl+4        exec  i3-sensible-terminal -e vim
+bindsym  ctrl+5        exec  thunderbird
+bindsym  ctrl+7        exec  pidgin
+
+# top
+bindsym  ctrl+Shift+Escape  exec  i3-sensible-terminal -e top
+bindsym  $ALT+Escape        exec  i3-sensible-terminal -e htop
+
+# i3bar
+bar {
+  status_command $CONKY_DIR/conkyJSON.sh
+  position  top
+  colors {
+    background          $C_BASE_BROWN_BLACK
+    separator           $C_BASE_BLACK
+    active_workspace    $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_MAGENTA
+    focused_workspace   $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_WHITE
+  # focused_workspace   $C_BASE_BROWN_BLUE   $C_BASE_BROWN_BLUE   $C_BASE_BROWN_BLACK
+    inactive_workspace  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_GREEN
+    urgent_workspace    $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_ORANGE
+  }
+}
+
+# decoration colours
+client.unfocused         $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_GREEN   $C_BLUE
+client.focused           $C_BASE_BROWN_BLACK  $C_GREEN             $C_BASE_BROWN_YELLOW  $C_MAGENTA
+client.focused_inactive  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_GREEN   $C_RED
+client.urgent            $C_RED               $C_ORANGE            $C_BASE_BROWN_BLACK   $C_BLUE
+client.background        $C_BASE_BROWN_BLACK

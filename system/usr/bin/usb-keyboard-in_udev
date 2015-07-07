@@ -1,0 +1,9 @@
+#!/bin/bash
+# Launches the keyboard loading script in the background
+# so that udev can finish its work.
+#
+# You may test whether udev fires its rule by executing
+# udevadm test /bus/usb/devices/usb2/2-1/2-1.2/2-1.2.4/
+# That is, this device (located under sys) has the given
+# productId and vendorId.
+$HOME/.i3/scripts/loadKeyboardLayout.sh &

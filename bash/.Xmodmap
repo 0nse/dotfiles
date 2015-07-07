@@ -1,0 +1,31 @@
+! @see /usr/share/X11/xkb/symbols/de for symbol names.
+!
+! ensure that altgr is loaded:
+keycode 108=ISO_Level3_Shift
+! put some use into my useless menu key on the laptop:
+keycode 135=Super_L
+! unmap capslock and set it mod3:
+remove Lock = Caps_Lock
+keycode 66 = Hyper_R
+add Mod3 = Hyper_R
+! same for right control:
+remove Control = Control_R
+add Mod3 = Control_R
+! de supports this but other layouts don't. So give me back dots and dash:
+keycode 60 = period greater period greater ellipsis
+keycode 61 = slash question slash question emdash
+! I don't care about the nationality, I need my euros:
+keycode 26 = e E eacute Eacute EuroSign
+! map arrows onto altgr+hjkl
+! keycode 43 = h H h H Left
+! keycode 44 = j J j J Down
+! keycode 45 = k K k K Up
+! keycode 46 = l L l L Right
+! altgr+f,g and b are unused and I want proper accents:
+keycode 41 = f F f F dead_acute
+keycode 42 = g G g G dead_grave
+keycode 56 = b B b B dead_circumflex
+! also, if I have to denote a section of some legal text, I need §:
+keycode 53 = x X x X section
+! invert touchpad/mouse scrolling:
+pointer = 1 2 3 5 4 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24

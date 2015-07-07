@@ -1,0 +1,14 @@
+top's Config File (Linux processes with windows)
+Id:f, Mode_altscr=1, Mode_irixps=1, Delay_time=3,000, Curwin=1
+CPU	fieldscur=¥¨³´»½ÀÄ·º¹Å&')*+,-./012568<>?ABCFGHIJKLMNOPQRSTUVWXYZ[
+	winflags=59956, sortindx=18, maxtasks=0
+	summclr=6, msgsclr=7, headclr=2, taskclr=7
+MEM	fieldscur=¥&¨³´Ä»½'·º¼¹Å)*+,-./012568>?@ABCFGHIJKLMNOPQRSTUVWXYZ[
+	winflags=55860, sortindx=21, maxtasks=0
+	summclr=6, msgsclr=7, headclr=2, taskclr=7
+Mem	fieldscur=¥º»¼½¾¿ÀÁÃÄ³´·Å&'()*+,-./0125689BFGHIJKLMNOPQRSTUVWXYZ[
+	winflags=62756, sortindx=21, maxtasks=0
+	summclr=5, msgsclr=5, headclr=4, taskclr=5
+Usr	fieldscur=¥¦§¨ª°¹·ºÄÅ)+,-./1234568;<=>?@ABCFGHIJKLMNOPQRSTUVWXYZ[
+	winflags=61732, sortindx=3, maxtasks=0
+	summclr=3, msgsclr=3, headclr=2, taskclr=3

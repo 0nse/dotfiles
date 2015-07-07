@@ -1,0 +1,1 @@
+ACTION=="add", ATTRS{idVendor}=="04d9", ATTRS{idProduct}=="0141", RUN+="/usr/bin/usb-keyboard-in_udev"
