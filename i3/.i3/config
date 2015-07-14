@@ -303,8 +303,9 @@ for_window  [class="sun-awt-X11-XDialogPeer"]                              float
 # launch certain programs on predefined workspaces
 assign [class="Thunderbird"]                                               📨
 assign [class="Pidgin"              window_role="buddy_list"]              💬
-# Spotify:
+# Spotify and Deezer:
 assign [instance="crx_cnkjkdjlofllcpbemipjbcpfnglbgieh"]                   🎵
+assign [instance="crx_npfkoakaabdallkcdbpkkhfilkkngakh"]                   🎵
 
 # fluxbox launch combinations
 bindsym  $ALT+1        exec  spacefm -n
@@ -330,15 +331,15 @@ bar {
     separator           $C_BASE_BLACK
     active_workspace    $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_MAGENTA
     focused_workspace   $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_WHITE
-  # focused_workspace   $C_BASE_BROWN_BLUE   $C_BASE_BROWN_BLUE   $C_BASE_BROWN_BLACK
     inactive_workspace  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_GREEN
     urgent_workspace    $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_ORANGE
   }
 }
 
 # decoration colours
-client.unfocused         $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_GREEN   $C_BLUE
-client.focused           $C_BASE_BROWN_BLACK  $C_GREEN             $C_BASE_BROWN_YELLOW  $C_MAGENTA
-client.focused_inactive  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_GREEN   $C_RED
-client.urgent            $C_RED               $C_ORANGE            $C_BASE_BROWN_BLACK   $C_BLUE
+# class                  border               background           text                 indicator
+client.unfocused         $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLUE   $C_YELLOW
+client.focused           $C_BASE_BROWN_BLACK  $C_BLUE              $C_BASE_BROWN_BLACK  $C_YELLOW
+client.focused_inactive  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BLUE              $C_YELLOW
+client.urgent            $C_BASE_BROWN_BLACK  $C_RED               $C_BASE_BROWN_BLACK  $C_YELLOW
 client.background        $C_BASE_BROWN_BLACK
