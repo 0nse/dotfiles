@@ -6,16 +6,17 @@
     -moz-padding-start: 0 !important;
 }
 
-.tabbrowser-tab:hover {
-    color: #839496 !important;
-}
-
 .tabbrowser-tab {
-    color: #586E75 !important;
+    background: #586E75 !important;
+    color: #002B36 !important;
 }
 
-.tabbrowser-tab[selected] .tab-label {
-    color: #EEE8D5 !important;
+.tabbrowser-tab[selected] {
+    background: #EEE8D5 !important;
+}
+
+.tabbrowser-tab:hover {
+    background: #839496 !important;
 }
 
 /* Hide Australis tab styles */
