@@ -28,7 +28,7 @@ noremap <C-S-n> i<C-S-p>
 noremap <C-e> i<C-S-e>
 " bookmarks
 noremap <C-S-b> :set gui=bookmarks<CR>
-noremap <C-b> :set gui=nobookmarks<CR>
+noremap <C-M-b> :set gui=nobookmarks<CR>
 
 " noscript
 nnoremap so :noscript popup<CR>
