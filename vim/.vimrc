@@ -55,6 +55,9 @@ command! W w !sudo tee % > /dev/null
 " Navigate through visible lines, not logical ones
 noremap <silent> j gj
 noremap <silent> k gk
+" End means end of file, beginning means beginning of file
+noremap <silent> G G$
+noremap <silent> gg gg0
 
 " LaTeX
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
