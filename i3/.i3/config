@@ -338,8 +338,8 @@ bar {
 
 # decoration colours
 # class                  border               background           text                 indicator
-client.unfocused         $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLUE   $C_BLUE
-client.focused           $C_BASE_BROWN_BLUE   $C_BASE_BROWN_BLUE   $C_BASE_BROWN_BLACK  $C_BLUE
-client.focused_inactive  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_GREEN  $C_BASE_BROWN_BLACK  $C_BLUE
-client.urgent            $C_BASE_BROWN_BLACK  $C_RED               $C_BASE_BROWN_BLACK  $C_BLUE
+client.unfocused         $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_GREEN  $C_BLUE
+client.focused           $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_WHITE        $C_BLUE
+client.focused_inactive  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLUE  $C_BLUE
+client.urgent            $C_BASE_BROWN_BLACK  $C_ORANGE            $C_BASE_BROWN_BLACK  $C_BLUE
 client.background        $C_BASE_BROWN_BLACK

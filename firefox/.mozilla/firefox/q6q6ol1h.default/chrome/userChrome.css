@@ -7,14 +7,15 @@
 }
 
 .tabbrowser-tab:hover {
-    background: #586E75 !important;
+    color: #839496 !important;
 }
-.tabbrowser-tab[selected] {
-    background: #839496 !important;
+
+.tabbrowser-tab {
+    color: #586E75 !important;
 }
 
 .tabbrowser-tab[selected] .tab-label {
-    color: black !important;
+    color: #EEE8D5 !important;
 }
 
 /* Hide Australis tab styles */
