@@ -258,7 +258,7 @@ bindsym  $CONTROL_R+a  exec  mpc  prev
 
 # update
 bindsym  $SUPER+u        exec  i3-sensible-terminal -e sudo pacman -Syu
-bindsym  $SUPER+Shift+u  exec  i3-sensible-terminal -e yaourt -Syua
+bindsym  $SUPER+Shift+U  exec  i3-sensible-terminal -e yaourt -Syua
 
 # adjustable borders
 bindsym   $SUPER+t   border  normal
@@ -281,8 +281,10 @@ bindsym  $SUPER+ctrl+left   move workspace to output left
 bindsym  $SUPER+ctrl+right  move workspace to output right
 
 # scratchpad
-bindsym  $SUPER+p  move        scratchpad
-bindsym  $SUPER+o  scratchpad  show
+bindsym  $SUPER+p         move scratchpad
+bindsym  $SUPER+o         [class="Pidgin" window_role="conversation"]      scratchpad show
+bindsym  $SUPER+i         [class="XTerm"]                                  scratchpad show
+bindsym  $SUPER+Shift+O   scratchpad show
 
 floating_minimum_size 70 x 30
 # float all popups but when they are from Chromium:
@@ -335,14 +337,14 @@ bar {
     active_workspace    $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_MAGENTA
     focused_workspace   $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_WHITE
     inactive_workspace  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_GREEN
-    urgent_workspace    $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_RED
+    urgent_workspace    $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BLUE
   }
 }
 
 # decoration colours
 # class                  border               background           text                 indicator
-client.unfocused         $C_BASE_BLACK        $C_BASE_BLACK        $C_BASE_BROWN_GREEN  $C_BLUE
-client.focused           $C_BASE_BROWN_BLUE   $C_BASE_BROWN_BLUE   $C_BASE_BROWN_BLACK  $C_BLUE
-client.focused_inactive  $C_BASE_BROWN_GREEN  $C_BASE_BROWN_GREEN  $C_BASE_BROWN_BLACK  $C_BLUE
-client.urgent            $C_RED               $C_RED               $C_BASE_BROWN_BLUE   $C_BLUE
+client.unfocused         $C_BASE_BLACK        $C_BASE_BLACK        $C_BASE_BROWN_GREEN  $C_GREEN
+client.focused           $C_BASE_BROWN_BLUE   $C_BASE_BROWN_BLUE   $C_BASE_BROWN_BLACK  $C_GREEN
+client.focused_inactive  $C_BASE_BROWN_GREEN  $C_BASE_BROWN_GREEN  $C_BASE_BROWN_BLACK  $C_GREEN
+client.urgent            $C_BLUE              $C_BLUE              $C_BASE_BROWN_BLUE   $C_GREEN
 client.background        $C_BASE_BROWN_BLACK
