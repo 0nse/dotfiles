@@ -149,40 +149,40 @@ bindsym $SUPER+a focus parent
 bindsym $SUPER+y focus child
 
 # switch to workspace
-bindsym   $SUPER+1                 workspace  1
-bindsym   $SUPER+2                 workspace  2
-bindsym   $SUPER+3                 workspace  3
-bindsym   $SUPER+4                 workspace  4
-bindsym   $SUPER+5                 workspace  5
-bindsym   $SUPER+6                 workspace  6
-bindsym   $SUPER+7                 workspace  7
-bindsym   $SUPER+8                 workspace  8
-bindsym   $SUPER+9                 workspace  9
-bindsym   $SUPER+0                 workspace  10
-bindsym   $SUPER+ctrl+1            workspace  11
-bindsym   $SUPER+ctrl+2            workspace  12
+bindsym   $SUPER+1                 workspace  number 1
+bindsym   $SUPER+2                 workspace  number 2
+bindsym   $SUPER+3                 workspace  number 3
+bindsym   $SUPER+4                 workspace  number 4
+bindsym   $SUPER+5                 workspace  number 5
+bindsym   $SUPER+6                 workspace  number 6
+bindsym   $SUPER+7                 workspace  number 7
+bindsym   $SUPER+8                 workspace  number 8
+bindsym   $SUPER+9                 workspace  number 9
+bindsym   $SUPER+0                 workspace  number 10
+bindsym   $SUPER+ctrl+1            workspace  number 11
+bindsym   $SUPER+ctrl+2            workspace  number 12
 bindsym   $SUPER+ctrl+3            workspace  🎵
-bindsym   $SUPER+ctrl+4            workspace  14
+bindsym   $SUPER+ctrl+4            workspace  number 14
 bindsym   $SUPER+ctrl+5            workspace  📨
-bindsym   $SUPER+ctrl+6            workspace  16
+bindsym   $SUPER+ctrl+6            workspace  number 16
 bindsym   $SUPER+ctrl+7            workspace  💬
-bindsym   $SUPER+ctrl+8            workspace  18
-bindsym   $SUPER+ctrl+9            workspace  19
+bindsym   $SUPER+ctrl+8            workspace  number 18
+bindsym   $SUPER+ctrl+9            workspace  number 19
 bindsym   $SUPER+ctrl+0            workspace  🐧
 bindcode  $SUPER+$DEAD_CIRCUMFLEX  workspace  back_and_forth
 bindsym   $SUPER+Escape            workspace  back_and_forth
 
 # move focused container to workspace
-bindcode  $SUPER+Shift+$EXCLAM      move container to workspace  1
-bindcode  $SUPER+Shift+$QUOTEDBL    move container to workspace  2
-bindcode  $SUPER+Shift+$SECTION     move container to workspace  3
-bindcode  $SUPER+Shift+$DOLLAR      move container to workspace  4
-bindcode  $SUPER+Shift+$PERCENT     move container to workspace  5
-bindcode  $SUPER+Shift+$AMPERSAND   move container to workspace  6
-bindcode  $SUPER+Shift+$SLASH       move container to workspace  7
-bindcode  $SUPER+Shift+$PARENLEFT   move container to workspace  8
-bindcode  $SUPER+Shift+$PARENRIGHT  move container to workspace  9
-bindcode  $SUPER+Shift+$EQUAL       move container to workspace  10
+bindcode  $SUPER+Shift+$EXCLAM      move container to workspace  number 1
+bindcode  $SUPER+Shift+$QUOTEDBL    move container to workspace  number 2
+bindcode  $SUPER+Shift+$SECTION     move container to workspace  number 3
+bindcode  $SUPER+Shift+$DOLLAR      move container to workspace  number 4
+bindcode  $SUPER+Shift+$PERCENT     move container to workspace  number 5
+bindcode  $SUPER+Shift+$AMPERSAND   move container to workspace  number 6
+bindcode  $SUPER+Shift+$SLASH       move container to workspace  number 7
+bindcode  $SUPER+Shift+$PARENLEFT   move container to workspace  number 8
+bindcode  $SUPER+Shift+$PARENRIGHT  move container to workspace  number 9
+bindcode  $SUPER+Shift+$EQUAL       move container to workspace  number 10
 
 # reload the configuration file
 bindsym $SUPER+Shift+C reload
@@ -192,6 +192,9 @@ bindsym $SUPER+Shift+R restart
 bindsym $ALT+ctrl+Delete exit
 # shutdown
 bindsym $ALT+ctrl+End exec $SCRIPT_DIR/i3exit shutdown
+
+# name workspace
+bindsym $SUPER++n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -332,14 +335,14 @@ bar {
     active_workspace    $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_MAGENTA
     focused_workspace   $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_WHITE
     inactive_workspace  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_GREEN
-    urgent_workspace    $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_ORANGE
+    urgent_workspace    $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_RED
   }
 }
 
 # decoration colours
 # class                  border               background           text                 indicator
-client.unfocused         $C_BASE_BROWN_GREEN  $C_BASE_BROWN_GREEN  $C_BASE_BROWN_BLACK  $C_BLUE
-client.focused           $C_BASE_WHITE        $C_BASE_WHITE        $C_BASE_BROWN_BLACK  $C_BLUE
-client.focused_inactive  $C_BASE_BROWN_BLUE   $C_BASE_BROWN_BLUE   $C_BASE_BROWN_BLACK  $C_BLUE
-client.urgent            $C_RED               $C_ORANGE            $C_BASE_BROWN_BLACK  $C_BLUE
+client.unfocused         $C_BASE_BLACK        $C_BASE_BLACK        $C_BASE_BROWN_GREEN  $C_BLUE
+client.focused           $C_BASE_BROWN_BLUE   $C_BASE_BROWN_BLUE   $C_BASE_BROWN_BLACK  $C_BLUE
+client.focused_inactive  $C_BASE_BROWN_GREEN  $C_BASE_BROWN_GREEN  $C_BASE_BROWN_BLACK  $C_BLUE
+client.urgent            $C_RED               $C_RED               $C_BASE_BROWN_BLUE   $C_BLUE
 client.background        $C_BASE_BROWN_BLACK

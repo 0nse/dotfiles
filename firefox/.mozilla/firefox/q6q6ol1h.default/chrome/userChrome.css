@@ -7,16 +7,18 @@
 }
 
 .tabbrowser-tab {
-    background: #586E75 !important;
-    color: #002B36 !important;
+    background: #073642 !important;
+    color: #586E75 !important;
 }
 
 .tabbrowser-tab[selected] {
-    background: #EEE8D5 !important;
+    background: #839496!important;
+    color: #002B36 !important;
 }
 
 .tabbrowser-tab:hover {
-    background: #839496 !important;
+    background: #586E75 !important;
+    color: #002B36 !important;
 }
 
 /* Hide Australis tab styles */
