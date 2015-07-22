@@ -6,4 +6,10 @@
 # udevadm test /bus/usb/devices/usb2/2-1/2-1.2/2-1.2.4/
 # That is, this device (located under sys) has the given
 # productId and vendorId.
-$HOME/.i3/scripts/loadKeyboardLayout.sh &
+#
+# This will obviously only work, if the first user is
+# the user you want to make this script work. On a
+# single user system, with that user logged in, it is
+# no problem though.
+userName=`users | awk '{print $1}'`
+/home/$userName/.i3/scripts/loadKeyboardLayout.sh &
