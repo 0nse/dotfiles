@@ -133,3 +133,7 @@ noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljz
 
 " append export.bib's content to the currently focused file
 let @b = ":sp $HOME/Desktop/export.bibyG:qGp"
+
+" Instantly better vim 2013 by Damian Conway
+" Highlight overlong lines
+call matchadd('ColorColumn', '\%81v', 100)
