@@ -16,7 +16,7 @@ pulseaudio --start
 eval $(gpg-agent --daemon) &
 
 # Hide mouse when not needed:
-unclutter -idle 2 -noevents &
+unclutter -idle 2 -noevents -grab &
 
 # i3:
 exec dbus-launch --exit-with-session i3
