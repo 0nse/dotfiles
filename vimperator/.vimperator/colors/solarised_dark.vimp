@@ -26,46 +26,46 @@
 " green     #859900  2/2 green     64 #5f8700 60 -20  65 133 153   0  68 100  60
 
 
-hi Hint font-family: monospace; font-size: 11px; font-weight: normal; color: #dc322f; background-color: #002b36; border-color: #839496; border-width: 0px; border-style: solid; padding: 0px 5px 0px 5px; text-transform: uppercase;
-hi HintElem background-color: #073642; color: #b58900;
-hi HintActive background-color: #dc322f; color: #073642;
-hi -append Hint         background-color: rgb(253, 246, 227); border: 1px solid #fdf6e3; -moz-border-radius: 4px; -moz-box-shadow: 0px 0px 1px black;
-hi -append HintElem     text-decoration: none; -moz-border-radius: 4px; -moz-box-shadow: 0 0 2px #002b36;
-hi -append HintActive   text-decoration: none; -moz-border-radius: 4px; -moz-box-shadow: 0 0 2px #002b36;
+hi  Hint                font-family:        monospace;         font-size:      11px;                font-weight:     normal;           color:      #dc322f;    background-color:  #002b36;             border-color:  #839496;          border-width:  0px;  border-style:  solid;  padding:  0px  5px  0px  5px;  text-transform:  uppercase;
+hi  HintElem            background-color:   #073642;           color:          #b58900;
+hi  HintActive          background-color:   #dc322f;           color:          #073642;
 
-hi StatusLine     color: #93a1a1; background: #002b36; font-weight: normal; font-size: 9pt;
-" hi StatusLineBroken   color:  #93a1a1; background: #ffffd7; font-weight: normal; font-size: 9pt;
-" hi StatusLineExtended color:  #93a1a1; background: #af005f; font-weight: normal; font-size: 9pt;
-" hi StatusLineSecure   color:  #93a1a1; background: #b58900; font-weight: normal; font-size: 9pt;
+hi  -append             Hint                background-color:  rgb(253,        246,                 227);            border:           1px         solid       #fdf6e3;           -moz-border-radius:  4px;           -moz-box-shadow:  0px            0px   1px            black;
+hi  -append             HintElem            text-decoration:   none;           -moz-border-radius:  4px;             -moz-box-shadow:  0           0           2px                #002b36;
+hi  -append             HintActive          text-decoration:   none;           -moz-border-radius:  4px;             -moz-box-shadow:  0           0           2px                #002b36;
+hi  StatusLine          color:              #93a1a1;           background:     #002b36;             font-weight:     normal;           font-size:  9pt;
+"   hi                  StatusLineBroken    color:             #93a1a1;        background:          #ffffd7;         font-weight:      normal;     font-size:  9pt;
+"   hi                  StatusLineExtended  color:             #93a1a1;        background:          #af005f;         font-weight:      normal;     font-size:  9pt;
+"   hi                  StatusLineSecure    color:             #93a1a1;        background:          #b58900;         font-weight:      normal;     font-size:  9pt;
 
-hi Normal     color:  #93a1a1;  background: #002b36; font-size: 9pt;
-hi CmdLine    color:  #93a1a1;  background: #002b36; font-size: 10pt;
-hi InfoMsg    color:  #93a1a1;  background: #002b36; font-size: 9pt;
-hi ModeMsg    color:  #93a1a1;  background: #002b36; font-size: 9pt;
-hi MoreMsg    color:  #859900; background: #002b36;
-hi LineNr   color:  #dc322f; background: #002b36; font-size: 9pt;
-hi Question   color: #b58900;  background: #002b36;  font-size: 9pt;
-hi WarningMsg   color: #dc322f;  background: #002b36;  font-size: 9pt;
-hi ErrorMsg   color: #002b36;  background: red;  font-size: 9pt;
-hi NonText    background: #000;
-hi Null     color: CornflowerBlue;
-hi Tag      color: CornflowerBlue;
-hi Number   color: CornflowerBlue;
+hi  Normal              color:              #93a1a1;           background:     #002b36;             font-size:       9pt;
+hi  CmdLine             color:              #93a1a1;           background:     #002b36;             font-size:       10pt;
+hi  InfoMsg             color:              #93a1a1;           background:     #002b36;             font-size:       9pt;
+hi  ModeMsg             color:              #93a1a1;           background:     #002b36;             font-size:       9pt;
+hi  MoreMsg             color:              #859900;           background:     #002b36;
+hi  LineNr              color:              #dc322f;           background:     #002b36;             font-size:       9pt;
+hi  Question            color:              #b58900;           background:     #002b36;             font-size:       9pt;
+hi  WarningMsg          color:              #dc322f;           background:     #002b36;             font-size:       9pt;
+hi  ErrorMsg            color:              #002b36;           background:     red;                 font-size:       9pt;
+hi  NonText             background:         #000;
+hi  Null                color:              CornflowerBlue;
+hi  Tag                 color:              CornflowerBlue;
+hi  Number              color:              CornflowerBlue;
 
-hi CompTitle    background: #1c1c1c;
-hi CompTitle>*  color: #cb4b16; border-bottom: 1px solid #3c3c3f; padding: 1px 0.5ex;
-hi CompItem[selected] color: cyan;  background: #333;
-hi CompDesc   color: #d33682;
+hi  CompTitle           background:         #1c1c1c;
+hi  CompTitle>*         color:              #cb4b16;           border-bottom:  1px                  solid            #3c3c3f;          padding:    1px         0.5ex;
+hi  CompItem[selected]  color:              cyan;              background:     #333;
+hi  CompDesc            color:              #d33682;
 
-hi Title    color:  #002b36;
-hi Indicator    color:  #b58900;
-hi String   color:  #002b36;
-hi Number   color:  #002b36;
-hi Object   color: #2aa198;
-hi Function   color:  #268bd2;
-hi URL    color:  #859900;
+hi  Title               color:              #002b36;
+hi  Indicator           color:              #b58900;
+hi  String              color:              #002b36;
+hi  Number              color:              #002b36;
+hi  Object              color:              #2aa198;
+hi  Function            color:              #268bd2;
+hi  URL                 color:              #859900;
 
-hi TabNumber  color: #002b36; font-weight: bold; font-size:10pt;
+hi  TabNumber           color:              #002b36;           font-weight:    bold;                font-size:10pt;
 
 style -name tab chrome://* <<EOM
   .tabbrowser-strip {
