@@ -42,7 +42,7 @@ set smartindent
 :nnoremap <F8> :setl noai nocin nosi inde=<CR>
 
 " set spellcheck for ... with F10
-:nnoremap <F10> :setlocal spell spelllang=
+:nnoremap <F10> :setlocal spell! spelllang=
 
 " Set title of window to file name
 set title
@@ -130,9 +130,14 @@ set undoreload=10000        " number of lines to save for undo
 
 " two column view mode
 noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
+" multi column view
+noremap <silent> <Leader>ef :vsplit<bar>wincmd l<bar>exe "norm! Ljz<c-v><cr>"<cr>:set scb<cr>:wincmd h<cr> :set scb<cr>
 
 " append export.bib's content to the currently focused file
 let @b = ":sp $HOME/Desktop/export.bibyG:qGp"
+
+" add pdb
+let @p = "oimport pdb; pdb.set_trace()"
 
 " Instantly better vim 2013 by Damian Conway
 " Highlight overlong lines
