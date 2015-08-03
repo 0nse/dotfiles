@@ -284,7 +284,7 @@ bindsym  $SUPER+ctrl+right  move workspace to output right
 bindsym  $SUPER+p         move scratchpad
 bindsym  $SUPER+o         [class="Pidgin" window_role="conversation"]      scratchpad show
 bindsym  $SUPER+i         [class="XTerm"]                                  scratchpad show
-bindsym  $SUPER+Shift+O   scratchpad show
+bindsym  $SUPER+Shift+P   scratchpad show
 
 floating_minimum_size 70 x 30
 # float all popups but when they are from Chromium:
@@ -343,7 +343,7 @@ bar {
 
 # decoration colours
 # class                  border               background           text                 indicator
-client.unfocused         $C_BASE_BLACK        $C_BASE_BLACK        $C_BASE_BROWN_GREEN  $C_GREEN
+client.unfocused         $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_GREEN  $C_GREEN
 client.focused           $C_BASE_BROWN_BLUE   $C_BASE_BROWN_BLUE   $C_BASE_BROWN_BLACK  $C_GREEN
 client.focused_inactive  $C_BASE_BROWN_GREEN  $C_BASE_BROWN_GREEN  $C_BASE_BROWN_BLACK  $C_GREEN
 client.urgent            $C_BLUE              $C_BLUE              $C_BASE_BROWN_BLUE   $C_GREEN
