@@ -1,31 +1,29 @@
-" set cursorline
-
-" two spaces instead of tabs
+" Two spaces instead of tabs
 set expandtab
 set tabstop=2
 set shiftwidth=2
 retab
 
-" switch to 8 color mode to let the terminal override colors
+" Switch to 8 color mode to let the terminal override colors
 set t_Co=8
 
-" show linenumbers
+" Show linenumbers
 set nu
 
-" syntax highlighting
+" Syntax highlighting
 syntax on
 
-" colours
+" Colours
 set background=dark
 colorscheme solarized
 
-" highlighted search
+" Highlighted search
 set hlsearch
 
-" enable mouse
+" Enable mouse
 set mouse=a
 
-" incremental search
+" Incremental search
 set incsearch
 
 " Remove any trailing whitespace contained within any lines
@@ -38,11 +36,13 @@ set showmatch
 set autoindent
 set smartindent
 
-" disable automatic indentation with F8
-:nnoremap <F8> :setl noai nocin nosi inde=<CR>
+" Toggle automatic indentation for pasting
+nnoremap <F8> :set invpaste paste?<CR>
+set pastetoggle=<F8>
+set showmode
 
-" set spellcheck for ... with F10
-:nnoremap <F10> :setlocal spell! spelllang=
+" Set spellcheck for ... with F10
+nnoremap <F10> :setlocal spell! spelllang=
 
 " Set title of window to file name
 set title
@@ -79,35 +79,34 @@ let g:Tex_ViewRule_ps='zathura'
 let g:Imap_FreezeImap=1
 
 
-" stack windows with CTRL and k / l
-map <C-J> <C-W>k<C-W>_
-map <C-K> <C-W>l<C-W>_
-
 " set window height to zero
 set wmh=0
 
-" quickly resize windows with a vertical split
+" Quickly resize windows with a vertical split
 map - <C-W>-
 map + <C-W>+
 
-" resize vertical windows quickly with ALT-SHIFT-[<>]
+" Resize vertical windows quickly with ALT-SHIFT-[<>]
 map <M-<> <C-W><
 map <M->> <C-W>>
 
-" highlight focussed line
-":setlocal cursorline
-":hi CursorLine ctermbg=black ctermfg=grey
+" Highlight focussed line
+" setlocal cursorline
+
+" Reduce the performance impact of cursorline (and other tasks that redraw the
+" terminal)
+set lazyredraw
 
 " Activate syntax highlighting for octave
 augroup filetypedetect
   au! BufRead,BufNewFile *.m,*.oct set filetype=octave
 augroup END
 
-" Restore cursor position for all files (*):
+" Restore cursor position for all files (*)
 au BufWinLeave *.* mkview
 au BufWinEnter *.* silent loadview
 
-" add odd file extension syntax highlighting
+" Add odd file extension syntax highlighting
 au BufRead,BufNewFile *.zcml set filetype=xml
 au BufRead,BufNewFile *.pt set filetype=html
 
@@ -115,29 +114,36 @@ au BufRead,BufNewFile *.pt set filetype=html
 " breaks. So change it if necessary
 set backspace=indent,eol,start
 
-" expand menu
+" Expand menu
 set wildmode=longest,list,full
 set wildmenu
 
-" use the + register (X Window Clipboard)
+" Use the + register (X Window Clipboard)
 " set clipboard=unnamedplus
 
-" undo-persistence
+" Undo-persistence
 set undodir=$HOME/.vim/undo " where to save undo histories
 set undofile                " Save undo's after file closes
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
-" two column view mode
+" Two column view mode
 noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
-" multi column view
+" Multi column view
 noremap <silent> <Leader>ef :vsplit<bar>wincmd l<bar>exe "norm! Ljz<c-v><cr>"<cr>:set scb<cr>:wincmd h<cr> :set scb<cr>
 
-" append export.bib's content to the currently focused file
+" Append export.bib's content to the currently focused file
 let @b = ":sp $HOME/Desktop/export.bibyG:qGp"
 
-" add pdb
+" Add pdb
 let @p = "oimport pdb; pdb.set_trace()"
+
+
+" vim-sensible by Tim Pope: https://github.com/tpope/vim-sensible
+" Delete comment character when joining commented lines
+if v:version > 703 || v:version == 703 && has("patch541")
+  set formatoptions+=j
+endif
 
 " Instantly better vim 2013 by Damian Conway
 " Highlight overlong lines
