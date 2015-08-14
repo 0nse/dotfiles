@@ -67,10 +67,13 @@ I recommend using [GNU Stow](https://www.gnu.org/software/stow/). With this appl
 * system
   * Enable Magic SysRQ key
   * Set journal max size
-  * Don't sleep laptop if lid is closed
+  * Don't suspend to RAM when laptop lid is closed
   * Load keyboard configuration automatically, when pok3r is connected
   * Enable British, US and German locales
-  * Set console layout to something ANSI like with the possibility for Umlauts etc.
+  * Set console layout to something ANSI-like with the possibility for Umlauts etc.
+  * [iptables](https://git.netfilter.org/iptables/) rules
+    * Hardening to reduce potential external connections
+    * Allow connections in a local network to some socket addresses needed by various applications
 * [top](http://linux.about.com/od/commands/l/blcmdl1_top.htm)
   * 4 panels
 * [vim](http://www.vim.org/)
