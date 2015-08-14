@@ -288,6 +288,7 @@ function connectViaEthernet {
 
 # Kill any currently running DHCP daemon, activate WiFi and
 # wpa_supplicant.
+# TODO: we do not necessarily know what id belongs to WiFI. Thus, we would have to make the rfkill more dynamic
 function connectViaWiFi {
   sudo pkill dhcpcd
   sudo rfkill unblock 0 # activate WiFi

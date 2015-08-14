@@ -23,9 +23,9 @@ xset s $1 # switch X fallback screensaver
 xset ${xsetValue}dpms # switch DPMS
 
 if [[ $1 == "on" ]]; then
-  textMessage="Inducing caffeine. Have a productive day!"
+  textMessage="Slumber pills: The effect has worn off."
 else
-  textMessage="Taking slumber pills. Good night!"
+  textMessage="Key induced slumber."
 fi
 
 notify-send "${textMessage}" -u low -t 500 -a "Caffeine"
