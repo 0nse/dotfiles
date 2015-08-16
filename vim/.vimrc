@@ -34,7 +34,6 @@ set showmatch
 
 " Set automatic indentation
 set autoindent
-set smartindent
 
 " Toggle automatic indentation for pasting
 nnoremap <F8> :set invpaste paste?<CR>
@@ -48,6 +47,9 @@ nnoremap <F10> :setlocal spell! spelllang=
 set title
 " and reset title to cwd on exit via xterm
 let &titleold=getcwd()
+" Always display the status line as by default, my wm configuration will not
+" display window titles
+set laststatus=2
 
 " CTRL+W for sudo save
 command! W w !sudo tee % > /dev/null
