@@ -209,12 +209,6 @@ mode "resize" {
   bindsym  k  resize  shrink  height  10  px  or  10  ppt
   bindsym  l  resize  grow    width   10  px  or  10  ppt
 
-  # same bindings, but for the arrow keys
-  bindsym  113  resize  shrink  width   10  px  or  10  ppt
-  bindsym  116  resize  grow    height  10  px  or  10  ppt
-  bindsym  111  resize  shrink  height  10  px  or  10  ppt
-  bindsym  114  resize  grow    width   10  px  or  10  ppt
-
   # back to normal: Enter or Escape
   bindsym Return mode "default"
   bindsym Escape mode "default"
@@ -244,7 +238,6 @@ bindsym  XF86AudioMute         exec  amixer  -D  pulse            sset  Master  
 bindsym  $CONTROL_R+q          exec  pactl   --  set-sink-volume  1     -5%     &&      paplay  /usr/share/sounds/bell.oga
 bindsym  $CONTROL_R+e          exec  pactl   --  set-sink-volume  1     +5%     &&      paplay  /usr/share/sounds/bell.oga
 bindsym  $CONTROL_R+w          exec  amixer  -D  pulse            sset  Master  toggle  &&      paplay                      /usr/share/sounds/bell.oga
-
 
 # MPD controls
 bindsym  XF86AudioPlay  exec  mpc  toggle
@@ -316,8 +309,8 @@ assign [instance="crx_npfkoakaabdallkcdbpkkhfilkkngakh"]                   🎵
 bindsym  $ALT+1        exec  spacefm -n
 # bindsym $ALT+1 exec nautilus -w
 bindsym  ctrl+2        exec  firefox
-bindsym  $ALT+2        exec  tor-browser-en
-bindsym  $ALT+Shift+2  exec  chromium
+bindsym  $ALT+2        exec  chromium
+bindsym  $ALT+Shift+2  exec  tor-browser-en
 bindsym  ctrl+3        exec  i3-sensible-terminal -e ncmpcpp
 bindsym  ctrl+4        exec  i3-sensible-terminal -e vim
 bindsym  ctrl+5        exec  thunderbird

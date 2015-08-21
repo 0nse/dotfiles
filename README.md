@@ -53,8 +53,19 @@ I recommend using [GNU Stow](https://www.gnu.org/software/stow/). With this appl
   * Configuration for GTK 2 and 3
 * [i3](http://i3wm.org/)
   * i3 configuration (uses, but does not include, [i3-exit](https://github.com/ashinkarov/i3-extras/blob/master/i3-exit) and [i3lock-wrapper](https://github.com/ashinkarov/i3-extras/blob/master/i3lock-wrapper))
-  * Somewhat [solarised theme](http://ethanschoonover.com/solarized)
+    * [Solarised theme](http://ethanschoonover.com/solarized)
+    * Pidgin will spawn on a separate messenger workspace
+    * Spotify and Deezer as Chromium apps spawn on a music workspace
+    * Pidgin chat windows will be moved to scratchpad and can be brought into foreground by using `M^o`
+    * Popup windows like `Enigmail` are being floated
+    * Volume control with audio feedback (sound file is not included)
+    * Locale-less keyboard configuration so that it should work both with German and ANSI keyboard layouts
+    * Penguin workspace for fullscreen windows that don't hide the i3bar
+    * Half-heartedly emulate my pok3r keybindings by using `xdotool`
+    * MPD controls
   * Conky JSON configuration for use with MPD
+    * Unobtrusive colours for regular values
+    * Colour accents for unusual/important values (e.g. high CPU or RAM usage)
   * Scripts
     * En-/disable display timeout
     * Load ANSI altgr intl keyboard layout and custom keys (if any)
