@@ -30,7 +30,7 @@ I recommend using [GNU Stow](https://www.gnu.org/software/stow/). With this appl
     * Disable caps key
     * Ensure altgr is loaded
     * Add `—`, `…`, `§`
-    * Add `\``, `'`, `^`
+    * Add `'`, `^`, \`
     * Invert scrolling direction
   * [Solarised colours](http://ethanschoonover.com/solarized) and other configuration for [xterm](http://invisible-island.net/xterm/)
 * [Dunst](https://github.com/knopwob/dunst)
