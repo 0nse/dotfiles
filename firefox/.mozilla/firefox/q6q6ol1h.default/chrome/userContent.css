@@ -19,6 +19,11 @@
 }
 
 @font-face {
+  font-family: 'Calibri';
+  src: local('Roboto');
+}
+
+@font-face {
   font-family: 'DejaVu Sans Mono';
   src: local('Ubuntu Mono');
 }
