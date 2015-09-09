@@ -226,7 +226,7 @@ bindsym  $CONTROL_R+minus  exec  --no-startup-id  $SCRIPT_DIR/caffeine.sh off
 bindsym  $CONTROL_R+plus   exec  --no-startup-id  $SCRIPT_DIR/caffeine.sh on
 
 # screenshot
-bindsym Print          exec  scrot -m -e 'mv $0 $HOME/Pictures/Screenshots'
+bindsym Print          exec  scrot -m -e 'mv $f ~/Pictures/Screenshots/.'
 bindsym $SUPER+c       exec  i3-sensible-terminal -e vim ~/.i3/config
 bindsym $SUPER+Shift+v exec  x11vnc -display :0 -passwd `cat $HOME/.vnc_passwd`
 
