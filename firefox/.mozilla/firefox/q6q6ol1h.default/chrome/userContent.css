@@ -25,7 +25,7 @@
 
 @font-face {
   font-family: 'DejaVu Sans Mono';
-  src: local('Ubuntu Mono');
+  src: local('Source Code Pro');
 }
 
 @font-face {
@@ -43,3 +43,10 @@
   src: local('Source Code Pro');
 }
 
+/* Solarise inputs so that we don't end up with white text on white background */
+textarea,
+input[type="password"],
+input[type="text"] {
+  color: #657B83 !important;
+  background-color: #002B36 !important;
+}
