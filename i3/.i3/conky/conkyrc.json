@@ -42,9 +42,9 @@ ${if_match ${acpitemp}>65}"\#DC322F"\
 "min_width": 90,\
 "align": "center",\
 "color":\
-${if_match ${cpu cpu1}>65}"\#DC322F"\
+${if_match ${cpu cpu1} > 65}"\#DC322F"\
 ${else}\
-${if_match ${cpu cpu2}>65}"\#DC322F"\
+${if_match ${cpu cpu2} > 65}"\#DC322F"\
 ${else}"\#586E75"\
 ${endif}\
 ${endif}\
@@ -71,9 +71,9 @@ ${endif}\
 "min_width": 110,\
 "align": "center",\
 "color":\
-${if_match ${downspeedf wlp3s0b1}>300}"\#859900"\
+${if_match ${downspeedf wlp3s0b1} > 300}"\#859900"\
 ${else}\
-${if_match ${upspeedf wlp3s0b1}>21}"\#DC322F"\
+${if_match ${upspeedf wlp3s0b1} > 21}"\#DC322F"\
 ${else}"\#586E75"\
 ${endif}\
 ${endif}\
@@ -101,7 +101,10 @@ ${else}\
 ${endif}\
 "min_width": 70,\
 "align": "center",\
-"color": "\#EEE8D5"\
+"color":\
+${if_match ${battery_percent BAT1} < 10}"\#DC322F"\
+${else}"\#EEE8D5"\
+${endif}\
 ${else}\
 ${if_match "${mpd_vol}" == "-1"}\
 "",\
