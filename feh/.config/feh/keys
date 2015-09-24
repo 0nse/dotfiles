@@ -11,8 +11,8 @@ scroll_right      l
 # image manipulation
 orient_3          H
 orient_1          L
-flip              _
-mirror            |
+flip              underscore
+mirror            bar
 
 # zoom controls
 zoom_in           plus
