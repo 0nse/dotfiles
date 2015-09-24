@@ -17,12 +17,10 @@
 # prevent a bug with unclutter -grab:
 pkill unclutter
 
-file1=$(mktemp --tmpdir i3lock-wrapper-XXXXXXXXXX.png)
-file2=$(mktemp --tmpdir i3lock-wrapper-XXXXXXXXXX.png)
+tmpFile=$(mktemp --tmpdir i3lock-wrapper-XXXXXXXXXX.png)
 
-scrot -d0 "$file1"
-convert "$file1" -blur 0x3 "$file2"
-rm "$file1"
-i3lock -i "$file2"
+scrot -d0 "${tmpFile}"
+convert "${tmpFile}" -blur 0x3 "${tmpFile}"
+i3lock -i "${tmpFile}"
 unclutter -idle 2 -noevents -grab &
-rm "$file2"
+rm "${tmpFile}"

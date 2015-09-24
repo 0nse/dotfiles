@@ -216,7 +216,7 @@ mode "resize" {
 
 bindsym $SUPER+r mode "resize"
 # lock
-bindsym $ALT+ctrl+l exec $SCRIPT_DIR/i3lock-wrapper
+bindsym $ALT+ctrl+l exec     $SCRIPT_DIR/i3lock-wrapper.sh
 # sleep
 bindsym  XF86Sleep     exec  $SCRIPT_DIR/i3exit  suspend
 bindsym  $CONTROL_R+Z  exec  $SCRIPT_DIR/i3exit  suspend

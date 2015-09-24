@@ -7,10 +7,12 @@ if [[ $1 == "on" ]]; then
   binaryValue=0
   xsetValue="+"
   pkill xflux-bin
+  $1="off"
 elif [[ $1 == "off" ]]; then
   binaryValue=10
   xsetValue="-"
   xflux &
+  $1="on"
 else
   echo "Allowed values are 'on' and 'off'."
   exit 1
