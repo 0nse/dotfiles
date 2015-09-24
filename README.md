@@ -36,6 +36,8 @@ I recommend using [GNU Stow](https://www.gnu.org/software/stow/). With this appl
 * [Dunst](https://github.com/knopwob/dunst)
   * Position dunst notifications on top of the i3bar
   * [Solarised colours](http://ethanschoonover.com/solarized)
+* [feh](http://feh.finalrewind.org/)
+  * Add `hjkl` style navigation
 * [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/products/)
   * UI customisations (no close button, rectangular tabs…)
   * CSS rules to replace some fonts for clearer rendering
