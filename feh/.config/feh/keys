@@ -1,0 +1,27 @@
+# image navigation
+prev_img          J
+next_img          K
+
+# image movement
+scroll_up         k
+scroll_down       j
+scroll_left       h
+scroll_right      l
+
+# image manipulation
+orient_3          H
+orient_1          L
+flip              _
+mirror            |
+
+# zoom controls
+zoom_in           plus
+zoom_out          minus
+zoom_fit          s
+zoom_default      f
+
+# save image
+save_image        S
+
+# miscellaneous (unbind v)
+toggle_fullscreen
