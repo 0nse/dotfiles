@@ -23,5 +23,10 @@ zoom_default      f
 # save image
 save_image        S
 
-# miscellaneous (unbind v)
+# miscellaneous (unbind conflicts)
 toggle_fullscreen
+toggle_pause
+toggle_keep_vp
+save_filelist
+reload_plus
+reload_minus
