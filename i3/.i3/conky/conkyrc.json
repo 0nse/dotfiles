@@ -95,9 +95,9 @@ ${endif}\
 "full_text":\
 ${if_existing /sys/class/power_supply/BAT1}\
 ${if_match "${mpd_vol}" == "-1"}\
-"${battery_percent BAT1}",\
+" ${battery_percent BAT1}",\
 ${else}\
-"🎵${mpd_vol}% 🔋${battery_percent BAT1}%",\
+" ${mpd_vol}%  ${battery_percent BAT1}%",\
 ${endif}\
 "min_width": 70,\
 "align": "center",\

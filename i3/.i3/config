@@ -38,6 +38,13 @@ set  $C_BLUE               #268BD2
 set  $C_CYAN               #2AA198
 set  $C_GREEN              #859900
 
+# define workspaces
+set $WS1   1:
+set $WS13  
+set $WS15  
+set $WS17  
+set $WS20  
+
 # startup: set resolution and enable keyboard mouse navigation.
 # This has to be done after resolution changes or else keynav
 # will be using a wrong resolution.
@@ -50,7 +57,8 @@ exec --no-startup-id xflux
 # font xft: DejaVu Sans 10
 # font -xos4-terminus-medium-*-*-*-12-*-*-*-*-iso10646-*
 # font -gnu-unifont-medium-r-normal--16-160-75-75-c-80-iso10646-1
-font xft:Roboto 8
+# font xft:Roboto 8
+font pango:FontAwesome, xft:Roboto 8
 # font xft:LED BOARD REVERSED 9
 # font -misc-ubuntu-medium-r-normal-*-0-0-0-0-p-0-iso10646-1
 # font -artwiz-anorexia-medium-r-normal--11-110-75-75-p-90-iso8859-1 # also works with cure and nu
@@ -73,7 +81,9 @@ bindsym  $SUPER+KP_Enter  exec  i3-sensible-terminal
 bindsym $SUPER+Shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $SUPER+d exec dmenu_run -nb '$C_BASE_BROWN_BLACK' -nf '$C_BASE_BROWN_BLUE' -sb '$C_BASE_BROWN_BLACK' -sf '$C_BASE_WHITE'
+bindsym $SUPER+d       exec rofi -show run -font "Roboto 9" -bgalt "$C_BASE_BLACK"
+bindsym $SUPER+Shift+d exec rofi -show ssh -font "Roboto 9" -bgalt "$C_BASE_BLACK"
+bindsym $SUPER+Tab     exec rofi -show window -font "Roboto 9" -bgalt "$C_BASE_BLACK"
 
 # emulate mouse:
 bindsym  $ALT+h            exec  --no-startup-id  xdotool   mousemove_relative  --         -20     0
@@ -128,7 +138,7 @@ bindsym $SUPER+v split v
 # enter fullscreen mode for the focused container
 bindsym  $SUPER+Shift+f  fullscreen
 # enter pseudo fullscreen mode, where we place the window onto a free workspace to keep i3bar visible
-bindsym  $SUPER+f        move container to workspace 🐧; workspace 🐧
+bindsym  $SUPER+f        move container to workspace $WS20; workspace $WS20
 
 
 # change container layout (stacked, tabbed, default)
@@ -149,7 +159,7 @@ bindsym $SUPER+a focus parent
 bindsym $SUPER+y focus child
 
 # switch to workspace
-bindsym   $SUPER+1                 workspace  number 1
+bindsym   $SUPER+1                 workspace  $WS1
 bindsym   $SUPER+2                 workspace  number 2
 bindsym   $SUPER+3                 workspace  number 3
 bindsym   $SUPER+4                 workspace  number 4
@@ -161,19 +171,19 @@ bindsym   $SUPER+9                 workspace  number 9
 bindsym   $SUPER+0                 workspace  number 10
 bindsym   $SUPER+ctrl+1            workspace  number 11
 bindsym   $SUPER+ctrl+2            workspace  number 12
-bindsym   $SUPER+ctrl+3            workspace  🎵
+bindsym   $SUPER+ctrl+3            workspace  $WS13
 bindsym   $SUPER+ctrl+4            workspace  number 14
-bindsym   $SUPER+ctrl+5            workspace  📨
+bindsym   $SUPER+ctrl+5            workspace  $WS15
 bindsym   $SUPER+ctrl+6            workspace  number 16
-bindsym   $SUPER+ctrl+7            workspace  💬
+bindsym   $SUPER+ctrl+7            workspace  $WS17
 bindsym   $SUPER+ctrl+8            workspace  number 18
 bindsym   $SUPER+ctrl+9            workspace  number 19
-bindsym   $SUPER+ctrl+0            workspace  🐧
+bindsym   $SUPER+ctrl+0            workspace  $WS20
 bindcode  $SUPER+$DEAD_CIRCUMFLEX  workspace  back_and_forth
 bindsym   $SUPER+Escape            workspace  back_and_forth
 
 # move focused container to workspace
-bindcode  $SUPER+Shift+$EXCLAM      move container to workspace  number 1
+bindcode  $SUPER+Shift+$EXCLAM      move container to workspace  $WS1
 bindcode  $SUPER+Shift+$QUOTEDBL    move container to workspace  number 2
 bindcode  $SUPER+Shift+$SECTION     move container to workspace  number 3
 bindcode  $SUPER+Shift+$DOLLAR      move container to workspace  number 4
@@ -299,11 +309,12 @@ for_window  [class="Firefox"]                                              fulls
 for_window  [class="sun-awt-X11-XDialogPeer"]                              floating disable
 # for_window [class="XTerm" instance="xtermTop"] floating enable
 # launch certain programs on predefined workspaces
-assign [class="Thunderbird"]                                               📨
-assign [class="Pidgin"              window_role="buddy_list"]              💬
+assign [class="Firefox"]                                                   $WS1
+assign [class="Thunderbird"]                                               $WS15
+assign [class="Pidgin"              window_role="buddy_list"]              $WS17
 # Spotify and Deezer:
-assign [instance="crx_cnkjkdjlofllcpbemipjbcpfnglbgieh"]                   🎵
-assign [instance="crx_npfkoakaabdallkcdbpkkhfilkkngakh"]                   🎵
+assign [instance="crx_cnkjkdjlofllcpbemipjbcpfnglbgieh"]                   $WS13
+assign [instance="crx_npfkoakaabdallkcdbpkkhfilkkngakh"]                   $WS13
 
 # fluxbox launch combinations
 bindsym  $ALT+1        exec  spacefm -n
