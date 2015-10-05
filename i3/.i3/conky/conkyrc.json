@@ -93,27 +93,34 @@ ${endif}\
 },\
 {\
 "full_text":\
-${if_existing /sys/class/power_supply/BAT1}\
 ${if_match "${mpd_vol}" == "-1"}\
-" ${battery_percent BAT1}",\
+"",\
 ${else}\
-" ${mpd_vol}%  ${battery_percent BAT1}%",\
+" ${mpd_vol}%",\
 ${endif}\
-"min_width": 70,\
+"align": "center",\
+"color": "\#586E75"\
+},\
+{\
+"full_text":\
+${if_existing /sys/class/power_supply/BAT1}\
+${if_match ${battery_percent BAT1} > 15}\
+${if_match ${battery_percent BAT1} > 40}\
+${if_match ${battery_percent BAT1} > 65}\
+${if_match ${battery_percent BAT1} > 90}" ",\
+${else}" ",\
+${endif}\
+${else}" ",\
+${endif}\
+${else}" ",\
+${endif}\
+${else}" ",\
+${endif}\
+${endif}\
 "align": "center",\
 "color":\
 ${if_match ${battery_percent BAT1} < 10}"\#DC322F"\
 ${else}"\#EEE8D5"\
-${endif}\
-${else}\
-${if_match "${mpd_vol}" == "-1"}\
-"",\
-${else}\
-"${mpd_vol}%",\
-${endif}\
-"min_width": 50,\
-"align": "center",\
-"color": "\#586E75"\
 ${endif}\
 },\
 {\
