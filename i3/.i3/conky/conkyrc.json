@@ -1,32 +1,15 @@
-# no X output
-out_to_x no
-# don't create own window
-own_window no
-# print to console
-out_to_console yes
-# shorten units
-short_units yes
-update_interval 1.5
-total_run_times 0
-background no
-double_buffer yes
-# default_bar_size 50 5
-# default_gauge_size 20 20
-# imlib_cache_size 0
-# draw_shades no
-no_buffers yes
-# uppercase no
-cpu_avg_samples 2
-override_utf8_locale yes
-# MPD
-mpd_host localhost
-mpd_port 6600
-# mpd_password asdf
-# font
-#use_xft yes
-#xftfont DejaVu Sans:size=8
-
-TEXT
+conky.config = {
+  own_window = false,
+  out_to_x = false,
+  out_to_console  = true,
+  update_interval = 1.5,
+  background = false,
+  no_buffers = true,
+  cpu_avg_samples = 2,
+  mpd_host = localhost,
+  mpd_port = 6600
+}
+conky.text=[[\
 [\
 {\
 "full_text": "${freq_g}GHz ${acpitemp}°C",\
@@ -34,8 +17,8 @@ TEXT
 "align": "center",\
 "color":\
 ${if_match ${acpitemp}>65}"\#DC322F"\
- ${else}"\#586E75"\
- ${endif}\
+${else}"\#586E75"\
+${endif}\
 },\
 {\
 "full_text": "¹ ${cpu cpu1}% ² ${cpu cpu2}%",\
@@ -108,15 +91,16 @@ ${if_match ${battery_percent BAT1} > 15}\
 ${if_match ${battery_percent BAT1} > 40}\
 ${if_match ${battery_percent BAT1} > 65}\
 ${if_match ${battery_percent BAT1} > 90}" ",\
-${else}" ",\
+${else}" "
 ${endif}\
-${else}" ",\
+${else}" "
 ${endif}\
-${else}" ",\
+${else}" "
 ${endif}\
-${else}" ",\
+${else}" "
 ${endif}\
-${endif}\
+${else}""
+${endif},\
 "align": "center",\
 "color":\
 ${if_match ${battery_percent BAT1} < 10}"\#DC322F"\
@@ -128,8 +112,6 @@ ${endif}\
 "min_width": 120,\
 "align": "center",\
 "color": "\#586E75"\
-},\
-{\
-"full_text": ""\
 }\
-],
+],\
+]]
