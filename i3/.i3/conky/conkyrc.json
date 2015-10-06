@@ -47,9 +47,9 @@ ${if_match ${memperc} > 85}"\#DC322F"\
 {\
 "full_text":\
 ${if_existing /proc/net/route enp2s0}\
-"${downspeed enp2s0}/s ${upspeed enp2s0}/s",\
+" ${downspeed enp2s0} ${upspeed enp2s0}",\
 ${else}\
-"${downspeed wlp3s0b1}/s ${upspeed wlp3s0b1}/s",\
+" ${downspeed wlp3s0b1} ${upspeed wlp3s0b1}",\
 ${endif}\
 "min_width": 110,\
 "align": "center",\
