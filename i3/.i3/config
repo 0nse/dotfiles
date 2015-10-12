@@ -1,3 +1,6 @@
+#-------------------------------------------------------------------------------
+# Variables
+#-------------------------------------------------------------------------------
 set  $ALT              Mod1
 set  $CAPS             Mod3
 set  $CONTROL_R        Mod3
@@ -39,18 +42,24 @@ set  $C_CYAN               #2AA198
 set  $C_GREEN              #859900
 
 # define workspaces
-set $WS1   1:
-set $WS13  
-set $WS15  
-set $WS17  
-set $WS20  
+set $WS1   "1:"
+set $WS13  " "
+set $WS15  " "
+set $WS17  " "
+set $WS20  " "
 
+#-------------------------------------------------------------------------------
+# Startup
+#-------------------------------------------------------------------------------
 # startup: set resolution and enable keyboard mouse navigation.
 # This has to be done after resolution changes or else keynav
 # will be using a wrong resolution.
 exec --no-startup-id $SCRIPT_DIR/setDisplays.sh off && keynav &
 exec --no-startup-id xflux
 
+#-------------------------------------------------------------------------------
+# Fonts
+#-------------------------------------------------------------------------------
 # font for window titles. ISO 10646 = Unicode
 # font -misc-fixed-medium-r-normal--12-120-75-75-C-70-iso10646-1
 # font xft:Source Sans Pro 10
@@ -265,12 +274,14 @@ bindsym  $SUPER+Shift+U  exec  i3-sensible-terminal -e yaourt -Syua
 
 # adjustable borders
 bindsym   $SUPER+t   border  normal
-bindcode  $SUPER+$Z  border  1pixel
-bindsym   $SUPER+g   border  none
-# no borders by default
-new_window 1pixel
+bindcode  $SUPER+$Z  border  pixel 1
+# bindsym   $SUPER+g   border  none
+# 1px borders by default
+new_window pixel 1
+# no borders if there is only one application on the workspace
+smart_borders on
 # remove borders adjacent to the screen edges
-hide_edge_borders both
+# hide_edge_borders both
 
 # popup in fullscreen if from same application
 popup_during_fullscreen smart
@@ -289,6 +300,9 @@ bindsym  $SUPER+o         [class="Pidgin" window_role="conversation"]      scrat
 bindsym  $SUPER+i         [class="XTerm"]                                  scratchpad show
 bindsym  $SUPER+Shift+P   scratchpad show
 
+#-------------------------------------------------------------------------------
+# Program specific layouts and behaviours
+#-------------------------------------------------------------------------------
 floating_minimum_size 70 x 30
 # float all popups but when they are from Chromium:
 for_window  [window_role="pop-up"   class="[^(Chromium)]"]                 floating enable
@@ -316,10 +330,13 @@ assign [class="Pidgin"              window_role="buddy_list"]              $WS17
 assign [instance="crx_cnkjkdjlofllcpbemipjbcpfnglbgieh"]                   $WS13
 assign [instance="crx_npfkoakaabdallkcdbpkkhfilkkngakh"]                   $WS13
 
+#-------------------------------------------------------------------------------
+# Program shortcuts
+#-------------------------------------------------------------------------------
 # fluxbox launch combinations
 bindsym  $ALT+1        exec  spacefm -n
 # bindsym $ALT+1 exec nautilus -w
-bindsym  ctrl+2        exec  firefox
+bindsym  ctrl+2        exec  firejail firefox
 bindsym  $ALT+2        exec  chromium
 bindsym  $ALT+Shift+2  exec  tor-browser-en
 bindsym  ctrl+3        exec  i3-sensible-terminal -e ncmpcpp
@@ -331,7 +348,9 @@ bindsym  ctrl+7        exec  pidgin
 bindsym  ctrl+Shift+Escape  exec  i3-sensible-terminal -e top
 bindsym  $ALT+Escape        exec  i3-sensible-terminal -e htop
 
+#-------------------------------------------------------------------------------
 # i3bar
+#-------------------------------------------------------------------------------
 bar {
   status_command $CONKY_DIR/conkyJSON.sh
   position  top
@@ -345,10 +364,55 @@ bar {
   }
 }
 
-# decoration colours
+#-------------------------------------------------------------------------------
+# Decoration colours
+#-------------------------------------------------------------------------------
 # class                  border               background           text                 indicator
 client.unfocused         $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_GREEN  $C_GREEN
 client.focused           $C_BASE_BROWN_BLUE   $C_BASE_BROWN_BLUE   $C_BASE_BROWN_BLACK  $C_GREEN
-client.focused_inactive  $C_BASE_BROWN_GREEN  $C_BASE_BROWN_GREEN  $C_BASE_BROWN_BLACK  $C_GREEN
+client.focused_inactive  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_GREEN
 client.urgent            $C_BLUE              $C_BLUE              $C_BASE_BROWN_BLUE   $C_GREEN
 client.background        $C_BASE_BROWN_BLACK
+
+#-------------------------------------------------------------------------------
+# Gaps
+#-------------------------------------------------------------------------------
+# disable gaps when only one container on a workspace:
+smart_gaps on
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $SUPER+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+	bindsym o      mode "$mode_gaps_outer"
+	bindsym i      mode "$mode_gaps_inner"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+	bindsym plus  gaps inner current plus 5
+	bindsym minus gaps inner current minus 5
+	bindsym 0     gaps inner current set 0
+
+	bindsym Shift+plus  gaps inner all plus 5
+	bindsym Shift+minus gaps inner all minus 5
+	bindsym Shift+0     gaps inner all set 0
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+	bindsym plus  gaps outer current plus 5
+	bindsym minus gaps outer current minus 5
+	bindsym 0     gaps outer current set 0
+
+	bindsym Shift+plus  gaps outer all plus 5
+	bindsym Shift+minus gaps outer all minus 5
+	bindsym Shift+0     gaps outer all set 0
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
