@@ -34,23 +34,23 @@ ${endif}\
 },\
 {\
 "full_text":\
-${if_match ${swapperc} > 3}"${memperc}% ${swapperc}%",\
-${else}"${memperc}%",\
-${endif}\
+${if_match ${swapperc} > 3}"${memperc}% ${swapperc}%"\
+${else}"${memperc}%"\
+${endif},\
 "min_width": 40,\
 "align": "center",\
 "color":\
 ${if_match ${memperc} > 85}"\#DC322F"\
- ${else}"\#586E75"\
- ${endif}\
+${else}"\#586E75"\
+${endif}\
 },\
 {\
 "full_text":\
 ${if_existing /proc/net/route enp2s0}\
-" ${downspeed enp2s0} ${upspeed enp2s0}",\
+" ${downspeed enp2s0} ${upspeed enp2s0}"\
 ${else}\
-" ${downspeed wlp3s0b1} ${upspeed wlp3s0b1}",\
-${endif}\
+" ${downspeed wlp3s0b1} ${upspeed wlp3s0b1}"\
+${endif},\
 "min_width": 110,\
 "align": "center",\
 "color":\
@@ -63,24 +63,17 @@ ${endif}\
 },\
 {\
 "full_text":\
-${if_match "${mpd_status}" != "Stopped"}\
-"${exec mpc --format '[%artist%] - [%title%] \[%time%\]' | head -n 1 | sed 's/\"/\\\"/g'}",\
-${else}"",\
-${endif}\
+${if_match "${mpd_status}" == "Playing"}"${mpd_smart} [${mpd_length}]"\
+${else}""\
+${endif},\
 "align": "left",\
-"color":\
-${if_match "${mpd_status}" == "Playing"}\
-"\#EEE8D5"\
-${else}"\#586E75"\
-${endif}\
+"color": "\#EEE8D5"\
 },\
 {\
 "full_text":\
-${if_match "${mpd_vol}" == "-1"}\
-"",\
-${else}\
-" ${mpd_vol}%",\
-${endif}\
+${if_match "${mpd_vol}" == "-1"}""\
+${else}" ${exec amixer get Master | awk -F'[]%[]' '/%/ {if ($7 == "off") { print "Mute" } else { print $2"%" }}' | uniq | head -1}"\
+${endif},\
 "align": "center",\
 "color": "\#586E75"\
 },\
@@ -90,25 +83,26 @@ ${if_existing /sys/class/power_supply/BAT1}\
 ${if_match ${battery_percent BAT1} > 15}\
 ${if_match ${battery_percent BAT1} > 40}\
 ${if_match ${battery_percent BAT1} > 65}\
-${if_match ${battery_percent BAT1} > 90}" ",\
-${else}" "
+${if_match ${battery_percent BAT1} > 90}" "\
+${else}" "\
 ${endif}\
-${else}" "
+${else}" "\
 ${endif}\
-${else}" "
+${else}" "\
 ${endif}\
-${else}" "
+${else}" "\
 ${endif}\
-${else}""
+${else}""\
 ${endif},\
 "align": "center",\
 "color":\
-${if_match ${battery_percent BAT1} < 10}"\#DC322F"\
+${if_match ${battery_percent BAT1} < 10}"\#EEE8D5",\
+"background" : "\#DC322F"
 ${else}"\#EEE8D5"\
 ${endif}\
 },\
 {\
-"full_text": "${time %a, %d. %b %k:%M}",\
+"full_text": "  ${time %a, %d. %b %k:%M}",\
 "min_width": 120,\
 "align": "center",\
 "color": "\#586E75"\
