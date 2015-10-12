@@ -50,3 +50,28 @@ input[type="text"] {
   color: #839496 !important;
   background-color: #002B36 !important;
 }
+
+/* Solarise reddit in the style of my DDG config */
+@-moz-document domain('www.reddit.com') {
+  body,
+  div.side,
+  .side .usertext-body > div,
+  div.listing-chooser {
+    background-color: #002B36 !important;
+    color: #839496 !important;
+  }
+
+  a.title {
+    color: #859900 !important;
+  }
+
+  div#sr-header-area,
+  div#header-bottom-left,
+  div.usertext-body > div,
+  .sr-bar a,
+  span.redditname > a,
+  div.grippy {
+    background-color: #073642 !important;
+    color: #839496 !important;
+  }
+}
