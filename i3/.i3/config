@@ -23,6 +23,8 @@ set  $EQUAL            19
 set $SCRIPT_DIR $HOME/.i3/scripts
 set $CONKY_DIR $HOME/.i3/conky
 
+set $PLAY_TEST_SOUND pacmd play-file /usr/share/sounds/bell.oga 1
+
 # define colours
 set  $C_BASE_BROWN_BLACK   #002B36
 set  $C_BASE_BLACK         #073642
@@ -250,13 +252,13 @@ bindsym $SUPER+c       exec  i3-sensible-terminal -e vim ~/.i3/config
 bindsym $SUPER+Shift+v exec  x11vnc -display :0 -passwd `cat $HOME/.vnc_passwd`
 
 # volume control
-bindsym  XF86AudioLowerVolume  exec  pactl   --  set-sink-volume  1     -5%     &&      paplay  /usr/share/sounds/bell.oga
-bindsym  XF86AudioRaiseVolume  exec  pactl   --  set-sink-volume  1     +5%     &&      paplay  /usr/share/sounds/bell.oga
-bindsym  XF86AudioMute         exec  amixer  -D  pulse            sset  Master  toggle  &&      paplay                      /usr/share/sounds/bell.oga
+bindsym  XF86AudioLowerVolume  exec  pactl   --  set-sink-volume  1     -5%             && $PLAY_TEST_SOUND
+bindsym  XF86AudioRaiseVolume  exec  pactl   --  set-sink-volume  1     +5%             && $PLAY_TEST_SOUND
+bindsym  XF86AudioMute         exec  amixer  -D  pulse            sset  Master  toggle  && $PLAY_TEST_SOUND
 # volume control without media keys:
-bindsym  $CONTROL_R+q          exec  pactl   --  set-sink-volume  1     -5%     &&      paplay  /usr/share/sounds/bell.oga
-bindsym  $CONTROL_R+e          exec  pactl   --  set-sink-volume  1     +5%     &&      paplay  /usr/share/sounds/bell.oga
-bindsym  $CONTROL_R+w          exec  amixer  -D  pulse            sset  Master  toggle  &&      paplay                      /usr/share/sounds/bell.oga
+bindsym  $CONTROL_R+q          exec  pactl   --  set-sink-volume  1     -5%             && $PLAY_TEST_SOUND
+bindsym  $CONTROL_R+e          exec  pactl   --  set-sink-volume  1     +5%             && $PLAY_TEST_SOUND
+bindsym  $CONTROL_R+w          exec  amixer  -D  pulse            sset  Master  toggle  && $PLAY_TEST_SOUND
 
 # MPD controls
 bindsym  XF86AudioPlay  exec  mpc  toggle
@@ -337,12 +339,12 @@ assign [instance="crx_npfkoakaabdallkcdbpkkhfilkkngakh"]                   $WS13
 bindsym  $ALT+1        exec  spacefm -n
 # bindsym $ALT+1 exec nautilus -w
 bindsym  ctrl+2        exec  firejail firefox
-bindsym  $ALT+2        exec  chromium
-bindsym  $ALT+Shift+2  exec  tor-browser-en
+bindsym  $ALT+2        exec  firejail chromium
+bindsym  $ALT+Shift+2  exec  firejail --private.keep=$HOME/.tor-browser-en/INSTALL/Browser -–seccomp -–caps tor-browser-en
 bindsym  ctrl+3        exec  i3-sensible-terminal -e ncmpcpp
 bindsym  ctrl+4        exec  i3-sensible-terminal -e vim
-bindsym  ctrl+5        exec  thunderbird
-bindsym  ctrl+7        exec  pidgin
+bindsym  ctrl+5        exec  firejail thunderbird
+bindsym  ctrl+7        exec  firejail pidgin
 
 # top
 bindsym  ctrl+Shift+Escape  exec  i3-sensible-terminal -e top
