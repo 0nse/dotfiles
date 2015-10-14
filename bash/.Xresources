@@ -102,13 +102,13 @@ XTerm*cursorBlink: false
 ! this allows bolded text with Japanese characters:
 ! XTerm*font: -gnu-unifont-medium-r-normal--16-160-75-75-c-80-iso10646-1
 ! XTerm*font: -misc-fixed-medium-r-normal-*-13-*-*-*-*-iso10646-1
+! XTerm*boldFont: -misc-fixed-medium-r-normal-ja-13-120-75-75-c-120-iso10646-1
 ! font fixes:
 ! xterm*VT100*font:  -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
 ! xterm*VT100*wideFont:  -misc-fixed-medium-r-normal-ja-13-125-75-75-c-120-iso10646-1
 ! xterm*VT100*boldFont:  -misc-fixed-bold-r-semicondensed--13-120-75-75-c-60-iso10646-1
 ! small, readable but no JAP:
 ! XTerm*font: -*-clean-medium-r-normal-*-12-*-*-*-*-iso8859-1
-XTerm*boldFont: -misc-fixed-medium-r-normal-ja-13-120-75-75-c-120-iso10646-1
 ! too small font:
 ! XTerm*font: -misc-fixed-medium-r-normal--9-90-75-75-c-60-iso10646-1
 XTerm*highlightSelection: true

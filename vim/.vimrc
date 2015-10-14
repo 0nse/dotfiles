@@ -93,7 +93,7 @@ map <M-<> <C-W><
 map <M->> <C-W>>
 
 " Highlight focussed line
-" setlocal cursorline
+setlocal cursorline
 
 " Reduce the performance impact of cursorline (and other tasks that redraw the
 " terminal)
@@ -111,6 +111,7 @@ au BufWinEnter *.* silent loadview
 " Add odd file extension syntax highlighting
 au BufRead,BufNewFile *.zcml set filetype=xml
 au BufRead,BufNewFile *.pt set filetype=html
+au BufRead,BufNewFile *.md set syntax=pandoc.markdown
 
 " By default you can't backspace over auto-indentation, previous edits or line
 " breaks. So change it if necessary
