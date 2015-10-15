@@ -69,7 +69,7 @@ exec --no-startup-id xflux
 # font -xos4-terminus-medium-*-*-*-12-*-*-*-*-iso10646-*
 # font -gnu-unifont-medium-r-normal--16-160-75-75-c-80-iso10646-1
 # font xft:Roboto 8
-font pango:FontAwesome, xft:Roboto 8
+font xft:FontAwesome, xft:Roboto 8
 # font xft:LED BOARD REVERSED 9
 # font -misc-ubuntu-medium-r-normal-*-0-0-0-0-p-0-iso10646-1
 # font -artwiz-anorexia-medium-r-normal--11-110-75-75-p-90-iso8859-1 # also works with cure and nu
@@ -357,12 +357,13 @@ bar {
   status_command $CONKY_DIR/conkyJSON.sh
   position  top
   colors {
+#   class             border               background           text
     background          $C_BASE_BROWN_BLACK
     separator           $C_BASE_BLACK
     active_workspace    $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_MAGENTA
     focused_workspace   $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_WHITE
     inactive_workspace  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_GREEN
-    urgent_workspace    $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BLUE
+    urgent_workspace    $C_BLUE              $C_BLUE              $C_BASE_BROWN_BLACK
   }
 }
 
