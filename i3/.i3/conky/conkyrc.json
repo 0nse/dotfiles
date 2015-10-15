@@ -16,23 +16,19 @@ conky.text=[[\
 "min_width": "9.99GHz 999°C",\
 "align": "center",\
 "separator": false,\
-"color":\
-${if_match ${acpitemp}>65}"\#DC322F"\
-${else}"\#586E75"\
-${endif}\
+${if_match ${acpitemp}>65}"urgent": true,${endif}\
+"color":"\#586E75"\
 },\
 {\
 "full_text": "¹ ${cpu cpu1}% ² ${cpu cpu2}%",\
 "min_width": "¹ 100% ² 100%",\
 "align": "center",\
 "separator": false,\
-"color":\
-${if_match ${cpu cpu1} > 65}"\#DC322F"\
+${if_match ${cpu cpu1} > 65}"urgent": true,\
 ${else}\
-${if_match ${cpu cpu2} > 65}"\#DC322F"\
-${else}"\#586E75"\
+${if_match ${cpu cpu2} > 65}"urgent": true,${endif}\
 ${endif}\
-${endif}\
+"color":"\#586E75"\
 },\
 {\
 "full_text":\
@@ -42,10 +38,8 @@ ${endif},\
 "min_width": "100%",\
 "align": "center",\
 "separator": false,\
-"color":\
-${if_match ${memperc} > 85}"\#DC322F"\
-${else}"\#586E75"\
-${endif}\
+${if_match ${memperc} > 85}"urgent": true,${endif}\
+"color":"\#586E75"\
 },\
 {\
 "full_text":\
@@ -57,13 +51,7 @@ ${endif},\
 "min_width": "X 99.9MiB 99.9MiB",\
 "align": "center",\
 "separator": false,\
-"color":\
-${if_match ${downspeedf wlp3s0b1} > 300}"\#859900"\
-${else}\
-${if_match ${upspeedf wlp3s0b1} > 21}"\#DC322F"\
-${else}"\#586E75"\
-${endif}\
-${endif}\
+"color": "\#586E75"\
 },\
 {\
 "full_text":\
@@ -71,7 +59,8 @@ ${if_match "${mpd_status}" == "Playing"}"${mpd_smart} [${mpd_length}]"\
 ${else}""\
 ${endif},\
 "align": "left",\
-"color": "\#EEE8D5"\
+"separator": false,\
+"color": "\#586E75"\
 },\
 {\
 "full_text":" ${exec pacmd list-sinks | grep '	volume:' | tail -n 1 | awk '{print $5}'}",\
@@ -93,17 +82,14 @@ ${else}" "\
 ${endif}\
 ${else}" "\
 ${endif}\
-${else}" "\
+${else}" ${battery_percent BAT1}"\
 ${endif}\
 ${else}""\
 ${endif},\
 "align": "center",\
 "separator": false,\
-"color":\
-${if_match ${battery_percent BAT1} < 10}"\#EEE8D5",\
-"background" : "\#DC322F"
-${else}"\#EEE8D5"\
-${endif}\
+${if_match ${battery_percent BAT1} < 10}"urgent": true,${endif}\
+"color": "\#EEE8D5"\
 },\
 {\
 "full_text": "  ${time %a, %d. %b %k:%M}",\
