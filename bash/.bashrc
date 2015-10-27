@@ -39,7 +39,7 @@ function setCpuGov {
       cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq;;
     *) echo " > Your input was invalid. Supported modes are:"
        cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
-       echo " > Current used frequency is:"
+       echo " > Currently used frequency is:"
        cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq;;
   esac
 }
@@ -277,6 +277,7 @@ function decrypt {
 # Kill any currently running DHCP daemon, wpa_supplicant service and
 # turn off WiFi if a connection via Ethernet can be established.
 function connectViaEthernet {
+  sudo ip link set enp2s0 up
   sudo pkill dhcpcd
   sudo systemctl stop wpa_supplicant@wlp3s0b1.service
   sudo dhcpcd enp2s0
@@ -290,6 +291,7 @@ function connectViaEthernet {
 # wpa_supplicant.
 # TODO: we do not necessarily know what id belongs to WiFI. Thus, we would have to make the rfkill more dynamic
 function connectViaWiFi {
+  sudo ip link set wlp3s0b1 up
   sudo pkill dhcpcd
   sudo rfkill unblock 0 # activate WiFi
   sudo systemctl start wpa_supplicant@wlp3s0b1.service
