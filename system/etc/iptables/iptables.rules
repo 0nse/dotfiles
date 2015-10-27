@@ -1,6 +1,10 @@
 *filter
 :INPUT DROP [0:0]
 :FORWARD ACCEPT [0:0]
+
+# Prevent users of group "no-internet" to access the Internet
+-A OUTPUT -m owner --gid-owner no-internet -j DROP
+
 :OUTPUT ACCEPT [1374:226877]
 :TCP - [0:0]
 :UDP - [0:0]
