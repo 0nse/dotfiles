@@ -1,5 +1,5 @@
 [global]
-    font = Fairfax 9
+    font = Roboto 8
 
     # allow a small subset of html markup:
     # <b>bold</b>
