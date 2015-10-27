@@ -63,7 +63,7 @@ ${endif},\
 "color": "\#586E75"\
 },\
 {\
-"full_text":" ${exec pacmd list-sinks | grep '	volume:' | tail -n 1 | awk '{print $5}'}",\
+"full_text":" ${exec pacmd list-sinks | grep '	volume:' | head -n 1 | awk '{print $5}'}",\
 "align": "center",\
 "min_width": "X 100%",\
 "separator": false,\

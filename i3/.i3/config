@@ -252,12 +252,12 @@ bindsym $SUPER+c       exec  i3-sensible-terminal -e vim ~/.i3/config
 bindsym $SUPER+Shift+v exec  x11vnc -display :0 -passwd `cat $HOME/.vnc_passwd`
 
 # volume control
-bindsym  XF86AudioLowerVolume  exec  pactl   --  set-sink-volume  1     -5%             && $PLAY_TEST_SOUND
-bindsym  XF86AudioRaiseVolume  exec  pactl   --  set-sink-volume  1     +5%             && $PLAY_TEST_SOUND
+bindsym  XF86AudioLowerVolume  exec  pactl   --  set-sink-volume  0     -5%             && $PLAY_TEST_SOUND
+bindsym  XF86AudioRaiseVolume  exec  pactl   --  set-sink-volume  0     +5%             && $PLAY_TEST_SOUND
 bindsym  XF86AudioMute         exec  amixer  -D  pulse            sset  Master  toggle  && $PLAY_TEST_SOUND
 # volume control without media keys:
-bindsym  $CONTROL_R+q          exec  pactl   --  set-sink-volume  1     -5%             && $PLAY_TEST_SOUND
-bindsym  $CONTROL_R+e          exec  pactl   --  set-sink-volume  1     +5%             && $PLAY_TEST_SOUND
+bindsym  $CONTROL_R+q          exec  pactl   --  set-sink-volume  0     -5%             && $PLAY_TEST_SOUND
+bindsym  $CONTROL_R+e          exec  pactl   --  set-sink-volume  0     +5%             && $PLAY_TEST_SOUND
 bindsym  $CONTROL_R+w          exec  amixer  -D  pulse            sset  Master  toggle  && $PLAY_TEST_SOUND
 
 # MPD controls
