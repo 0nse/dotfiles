@@ -10,7 +10,7 @@ fi
 $HOME/.i3/scripts/loadKeyboardLayout.sh &
 
 # PA:
-pulseaudio --start
+pulseaudio -D
 
 # GPG agent:
 eval $(gpg-agent --daemon) &
