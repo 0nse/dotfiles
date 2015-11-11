@@ -1,29 +1,54 @@
 #-------------------------------------------------------------------------------
 # Variables
 #-------------------------------------------------------------------------------
-set  $ALT              Mod1
-set  $CAPS             Mod3
-set  $CONTROL_R        Mod3
-set  $SUPER            Mod4
-# layout independent keys as seen from de-layouts
-set  $DEAD_CIRCUMFLEX  49
-set  $ODIAERESIS       47
-set  $Z                29
-set  $EXCLAM           10
-set  $QUOTEDBL         11
-set  $SECTION          12
-set  $DOLLAR           13
-set  $PERCENT          14
-set  $AMPERSAND        15
-set  $SLASH            16
-set  $PARENLEFT        17
-set  $PARENRIGHT       18
-set  $EQUAL            19
+set  ${ALT}              Mod1
+set  ${CAPS}             Mod3
+set  ${CONTROL_R}        Mod3
+set  ${SUPER}            Mod4
+set  ${DEAD_CIRCUMFLEX} 49
+set  ${SEMICOLON}       47
+set  ${APOS}            48
+set  $A                38
+set  $B                56
+set  $C                54
+set  $D                40
+set  $E                26
+set  $F                41
+set  $G                42
+set  $H                43
+set  $I                31
+set  $J                44
+set  $K                45
+set  $L                46
+set  $M                58
+set  $N                57
+set  $O                32
+set  $P                33
+set  $Q                24
+set  $R                27
+set  $S                39
+set  $T                28
+set  $U                30
+set  $V                55
+set  $W                25
+set  $X                53
+set  $Y                29
+set  $Z                52
+set  ${EXCLAM}          10
+set  ${AT}              11
+set  ${HASHTAG}         12
+set  ${DOLLAR}          13
+set  ${PERCENT}         14
+set  ${HAT}             15
+set  ${AMPERSAND}       16
+set  ${ASTERISK}        17
+set  ${PARENLEFT}       18
+set  ${PARENRIGHT}      19
 
-set $SCRIPT_DIR $HOME/.i3/scripts
-set $CONKY_DIR $HOME/.i3/conky
+set ${SCRIPT_DIR}       /$HOME/.i3/scripts
+set ${CONKY_DIR}        /$HOME/.i3/conky
 
-set $PLAY_TEST_SOUND pacmd play-file /usr/share/sounds/bell.oga 1
+set ${PLAY_TEST_SOUND} pacmd play-file /usr/share/sounds/bell.oga 1
 
 # define colours
 set  $C_BASE_BROWN_BLACK   #002B36
@@ -56,7 +81,7 @@ set $WS20  " "
 # startup: set resolution and enable keyboard mouse navigation.
 # This has to be done after resolution changes or else keynav
 # will be using a wrong resolution.
-exec --no-startup-id $SCRIPT_DIR/setDisplays.sh off && keynav &
+exec --no-startup-id ${SCRIPT_DIR}/setDisplays.sh off && keynav &
 exec --no-startup-id xflux
 
 #-------------------------------------------------------------------------------
@@ -77,145 +102,144 @@ font xft:FontAwesome, xft:Roboto 8
 # font -artwiz-drift-*-*-*-*-*-*-*-*-*-*-iso10646-1
 
 # add or remove laptop display (plus is listed twice to also work on en layouts)
-bindsym  $SUPER+Shift+plus  exec  $SCRIPT_DIR/setDisplays.sh  right
-bindsym  $SUPER+plus        exec  $SCRIPT_DIR/setDisplays.sh  right
-bindsym  $SUPER+minus       exec  $SCRIPT_DIR/setDisplays.sh  off
+bindsym  ${SUPER}+Shift+plus  exec  ${SCRIPT_DIR}/setDisplays.sh right
+bindsym  ${SUPER}+plus        exec  ${SCRIPT_DIR}/setDisplays.sh right
+bindsym  ${SUPER}+minus       exec  ${SCRIPT_DIR}/setDisplays.sh off
 
-# Use Mouse+$SUPER to drag floating windows to their wanted position
-floating_modifier $SUPER
+# Use Mouse+${SUPER} to drag floating windows to their wanted position
+floating_modifier ${SUPER}
 
 # start a terminal
-bindsym  $SUPER+Return    exec  i3-sensible-terminal
-bindsym  $SUPER+KP_Enter  exec  i3-sensible-terminal
+bindsym  ${SUPER}+Return    exec  i3-sensible-terminal
+bindsym  ${SUPER}+KP_Enter  exec  i3-sensible-terminal
 
 # kill focused window
-bindsym $SUPER+Shift+Q kill
+bindcode ${SUPER}+Shift+$Q kill
 
 # start dmenu (a program launcher)
-bindsym $SUPER+d       exec rofi -show run -font "Roboto 9" -bgalt "$C_BASE_BLACK"
-bindsym $SUPER+Shift+d exec rofi -show ssh -font "Roboto 9" -bgalt "$C_BASE_BLACK"
-bindsym $SUPER+Tab     exec rofi -show window -font "Roboto 9" -bgalt "$C_BASE_BLACK"
+bindcode ${SUPER}+$D       exec rofi -show run -font "Roboto 9" -bgalt "$C_BASE_BLACK"
+bindcode ${SUPER}+Shift+$D exec rofi -show ssh -font "Roboto 9" -bgalt "$C_BASE_BLACK"
+bindsym  ${SUPER}+Tab      exec rofi -show window -font "Roboto 9" -bgalt "$C_BASE_BLACK"
 
 # emulate mouse:
-bindsym  $ALT+h            exec  --no-startup-id  xdotool   mousemove_relative  --         -20     0
-bindsym  $ALT+j            exec  --no-startup-id  xdotool   mousemove_relative  0          20
-bindsym  $ALT+k            exec  --no-startup-id  xdotool   mousemove_relative  --         0       -20
-bindsym  $ALT+l            exec  --no-startup-id  xdotool   mousemove_relative  20         0
-bindsym  $ALT+space        exec  --no-startup-id  xdotool   click               1          #       left    click
-bindsym  $CAPS+space       exec  --no-startup-id  xdotool   click               2          #       middle  click
+bindcode  ${ALT}+$H          exec  --no-startup-id  xdotool   mousemove_relative  --         -20     0
+bindcode  ${ALT}+$J          exec  --no-startup-id  xdotool   mousemove_relative  0          20
+bindcode  ${ALT}+$K          exec  --no-startup-id  xdotool   mousemove_relative  --         0       -20
+bindcode  ${ALT}+$L          exec  --no-startup-id  xdotool   mousemove_relative  20         0
+bindsym  ${ALT}+space        exec  --no-startup-id  xdotool   click               1          #       left    click
+bindsym  ${CAPS}+space       exec  --no-startup-id  xdotool   click               2          #       middle  click
 # mapping backspace not working (mapping mod1+n neither):
-# bindsym  $ALT+backspace    exec  xdotool          click     2                   #          middle  click
-# bindsym  $ALT+22           exec  xdotool          click     2                   #          middle  click
-bindsym  $ALT+Shift+space  exec  --no-startup-id  xdotool   click               3          #       right   click
+# bindsym  ${ALT}+backspace    exec  xdotool          click     2                   #          middle  click
+# bindsym  ${ALT}+22           exec  xdotool          click     2                   #          middle  click
+bindsym  ${ALT}+Shift+space  exec  --no-startup-id  xdotool   click               3          #       right   click
 
 # emulate pok3r:
-bindcode  --release  $CAPS+$DEAD_CIRCUMFLEX  exec  --no-startup-id  xdotool  key  `
-bindsym   --release  $CAPS+h                 exec  --no-startup-id  xdotool  key  Left
-bindsym   --release  $CAPS+j                 exec  --no-startup-id  xdotool  key  Down
-bindsym   --release  $CAPS+k                 exec  --no-startup-id  xdotool  key  Up
-bindsym   --release  $CAPS+l                 exec  --no-startup-id  xdotool  key  Right
-bindsym   --release  $CAPS+'                 exec  --no-startup-id  xdotool  key  Delete
+bindcode  --release  ${CAPS}+${DEAD_CIRCUMFLEX} exec  --no-startup-id  xdotool  key  `
+bindcode  --release  ${CAPS}+$H                 exec  --no-startup-id  xdotool  key  Left
+bindcode  --release  ${CAPS}+$J                 exec  --no-startup-id  xdotool  key  Down
+bindcode  --release  ${CAPS}+$K                 exec  --no-startup-id  xdotool  key  Up
+bindcode  --release  ${CAPS}+$L                 exec  --no-startup-id  xdotool  key  Right
+bindcode  --release  ${CAPS}+${APOS}            exec  --no-startup-id  xdotool  key  Delete
 
 # change focus
-bindsym  $SUPER+h  focus  left
-bindsym  $SUPER+j  focus  down
-bindsym  $SUPER+k  focus  up
-bindsym  $SUPER+l  focus  right
+bindcode  ${SUPER}+$H  focus  left
+bindcode  ${SUPER}+$J  focus  down
+bindcode  ${SUPER}+$K  focus  up
+bindcode  ${SUPER}+$L  focus  right
 
 # alternatively, you can use the cursor keys:
-bindsym  $SUPER+Left   focus  left
-bindsym  $SUPER+Down   focus  down
-bindsym  $SUPER+Up     focus  up
-bindsym  $SUPER+Right  focus  right
+bindsym  ${SUPER}+Left   focus  left
+bindsym  ${SUPER}+Down   focus  down
+bindsym  ${SUPER}+Up     focus  up
+bindsym  ${SUPER}+Right  focus  right
 
 # move focused window
-bindsym  $SUPER+Shift+H  move  left
-bindsym  $SUPER+Shift+J  move  down
-bindsym  $SUPER+Shift+K  move  up
-bindsym  $SUPER+Shift+L  move  right
+bindcode  ${SUPER}+Shift+$H  move  left
+bindcode  ${SUPER}+Shift+$J  move  down
+bindcode  ${SUPER}+Shift+$K  move  up
+bindcode  ${SUPER}+Shift+$L  move  right
 
 # alternatively, you can use the cursor keys:
-bindsym  $SUPER+Shift+Left   move  left
-bindsym  $SUPER+Shift+Down   move  down
-bindsym  $SUPER+Shift+Up     move  up
-bindsym  $SUPER+Shift+Right  move  right
+bindsym  ${SUPER}+Shift+Left   move  left
+bindsym  ${SUPER}+Shift+Down   move  down
+bindsym  ${SUPER}+Shift+Up     move  up
+bindsym  ${SUPER}+Shift+Right  move  right
 
 # split in horizontal orientation
-bindcode $SUPER+$ODIAERESIS split h
+bindcode ${SUPER}+${SEMICOLON} split h
 
 # split in vertical orientation
-bindsym $SUPER+v split v
+bindcode ${SUPER}+$V split v
 
 # enter fullscreen mode for the focused container
-bindsym  $SUPER+Shift+f  fullscreen
+bindcode  ${SUPER}+Shift+$F  fullscreen
 # enter pseudo fullscreen mode, where we place the window onto a free workspace to keep i3bar visible
-bindsym  $SUPER+f        move container to workspace $WS20; workspace $WS20
-
+bindcode  ${SUPER}+$F        move container to workspace $WS20; workspace $WS20
 
 # change container layout (stacked, tabbed, default)
-bindsym $SUPER+s layout stacking
-bindsym $SUPER+w layout tabbed
-bindsym $SUPER+e layout default
+bindcode ${SUPER}+$S layout stacking
+bindcode ${SUPER}+$W layout tabbed
+bindcode ${SUPER}+$E layout default
 
 # toggle tiling / floating
-bindsym $SUPER+Shift+space floating toggle
+bindsym ${SUPER}+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $SUPER+space focus mode_toggle
+bindsym ${SUPER}+space focus mode_toggle
 
 # focus the parent container
-bindsym $SUPER+a focus parent
+bindcode ${SUPER}+$A focus parent
 
 # focus the child container
-bindsym $SUPER+y focus child
+bindcode ${SUPER}+$Z focus child
 
 # switch to workspace
-bindsym   $SUPER+1                 workspace  $WS1
-bindsym   $SUPER+2                 workspace  number 2
-bindsym   $SUPER+3                 workspace  number 3
-bindsym   $SUPER+4                 workspace  number 4
-bindsym   $SUPER+5                 workspace  number 5
-bindsym   $SUPER+6                 workspace  number 6
-bindsym   $SUPER+7                 workspace  number 7
-bindsym   $SUPER+8                 workspace  number 8
-bindsym   $SUPER+9                 workspace  number 9
-bindsym   $SUPER+0                 workspace  number 10
-bindsym   $SUPER+ctrl+1            workspace  number 11
-bindsym   $SUPER+ctrl+2            workspace  number 12
-bindsym   $SUPER+ctrl+3            workspace  $WS13
-bindsym   $SUPER+ctrl+4            workspace  number 14
-bindsym   $SUPER+ctrl+5            workspace  $WS15
-bindsym   $SUPER+ctrl+6            workspace  number 16
-bindsym   $SUPER+ctrl+7            workspace  $WS17
-bindsym   $SUPER+ctrl+8            workspace  number 18
-bindsym   $SUPER+ctrl+9            workspace  number 19
-bindsym   $SUPER+ctrl+0            workspace  $WS20
-bindcode  $SUPER+$DEAD_CIRCUMFLEX  workspace  back_and_forth
-bindsym   $SUPER+Escape            workspace  back_and_forth
+bindsym   ${SUPER}+1                  workspace  $WS1
+bindsym   ${SUPER}+2                  workspace  number 2
+bindsym   ${SUPER}+3                  workspace  number 3
+bindsym   ${SUPER}+4                  workspace  number 4
+bindsym   ${SUPER}+5                  workspace  number 5
+bindsym   ${SUPER}+6                  workspace  number 6
+bindsym   ${SUPER}+7                  workspace  number 7
+bindsym   ${SUPER}+8                  workspace  number 8
+bindsym   ${SUPER}+9                  workspace  number 9
+bindsym   ${SUPER}+0                  workspace  number 10
+bindsym   ${SUPER}+ctrl+1             workspace  number 11
+bindsym   ${SUPER}+ctrl+2             workspace  number 12
+bindsym   ${SUPER}+ctrl+3             workspace  $WS13
+bindsym   ${SUPER}+ctrl+4             workspace  number 14
+bindsym   ${SUPER}+ctrl+5             workspace  $WS15
+bindsym   ${SUPER}+ctrl+6             workspace  number 16
+bindsym   ${SUPER}+ctrl+7             workspace  $WS17
+bindsym   ${SUPER}+ctrl+8             workspace  number 18
+bindsym   ${SUPER}+ctrl+9             workspace  number 19
+bindsym   ${SUPER}+ctrl+0             workspace  $WS20
+bindcode  ${SUPER}+${DEAD_CIRCUMFLEX} workspace  back_and_forth
+bindsym   ${SUPER}+Escape             workspace  back_and_forth
 
 # move focused container to workspace
-bindcode  $SUPER+Shift+$EXCLAM      move container to workspace  $WS1
-bindcode  $SUPER+Shift+$QUOTEDBL    move container to workspace  number 2
-bindcode  $SUPER+Shift+$SECTION     move container to workspace  number 3
-bindcode  $SUPER+Shift+$DOLLAR      move container to workspace  number 4
-bindcode  $SUPER+Shift+$PERCENT     move container to workspace  number 5
-bindcode  $SUPER+Shift+$AMPERSAND   move container to workspace  number 6
-bindcode  $SUPER+Shift+$SLASH       move container to workspace  number 7
-bindcode  $SUPER+Shift+$PARENLEFT   move container to workspace  number 8
-bindcode  $SUPER+Shift+$PARENRIGHT  move container to workspace  number 9
-bindcode  $SUPER+Shift+$EQUAL       move container to workspace  number 10
+bindcode  ${SUPER}+Shift+${EXCLAM}     move container to workspace  $WS1
+bindcode  ${SUPER}+Shift+${AT}         move container to workspace  number 2
+bindcode  ${SUPER}+Shift+${HASHTAG}    move container to workspace  number 3
+bindcode  ${SUPER}+Shift+${DOLLAR}     move container to workspace  number 4
+bindcode  ${SUPER}+Shift+${PERCENT}    move container to workspace  number 5
+bindcode  ${SUPER}+Shift+${HAT}        move container to workspace  number 6
+bindcode  ${SUPER}+Shift+${AMPERSAND}  move container to workspace  number 7
+bindcode  ${SUPER}+Shift+${ASTERISK}   move container to workspace  number 8
+bindcode  ${SUPER}+Shift+${PARENLEFT}  move container to workspace  number 9
+bindcode  ${SUPER}+Shift+${PARENRIGHT} move container to workspace  number 10
 
 # reload the configuration file
-bindsym $SUPER+Shift+C reload
+bindcode ${SUPER}+Shift+$C reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $SUPER+Shift+R restart
+bindcode ${SUPER}+Shift+$R restart
 # exit i3 (logs you out of your X session)
-bindsym $ALT+ctrl+Delete exit
+bindsym ${ALT}+ctrl+Delete exit
 # shutdown
-bindsym $ALT+ctrl+End exec $SCRIPT_DIR/i3exit shutdown
+bindsym ${ALT}+ctrl+End exec ${SCRIPT_DIR}/i3exit shutdown
 
 # name workspace
-bindsym $SUPER++n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
+bindsym ${SUPER}++n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -225,40 +249,42 @@ mode "resize" {
   # Pressing right will grow the window’s width.
   # Pressing up will shrink the window’s height.
   # Pressing down will grow the window’s height.
-  bindsym  h  resize  shrink  width   10  px  or  10  ppt
-  bindsym  j  resize  grow    height  10  px  or  10  ppt
-  bindsym  k  resize  shrink  height  10  px  or  10  ppt
-  bindsym  l  resize  grow    width   10  px  or  10  ppt
+  bindcode  $H  resize  shrink  width   10  px  or  10  ppt
+  bindcode  $J  resize  grow    height  10  px  or  10  ppt
+  bindcode  $K  resize  shrink  height  10  px  or  10  ppt
+  bindcode  $L  resize  grow    width   10  px  or  10  ppt
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
 
-bindsym $SUPER+r mode "resize"
+bindsym ${SUPER}+r mode "resize"
 # lock
-bindsym $ALT+ctrl+l exec     $SCRIPT_DIR/i3lock-wrapper.sh
+bindcode ${ALT}+ctrl+$L exec     $_SCRIPT_DIR/i3lock-wrapper.sh
 # sleep
-bindsym  XF86Sleep     exec  $SCRIPT_DIR/i3exit  suspend
-bindsym  $CONTROL_R+Z  exec  $SCRIPT_DIR/i3exit  suspend
+bindsym   XF86Sleep      exec  ${SCRIPT_DIR}/i3exit  suspend
+bindcode  ${CONTROL_R}+$Y  exec  ${SCRIPT_DIR}/i3exit  suspend
 
 # caffeine and sleeping pill
-bindsym  $CONTROL_R+minus  exec  --no-startup-id  $SCRIPT_DIR/caffeine.sh off
-bindsym  $CONTROL_R+plus   exec  --no-startup-id  $SCRIPT_DIR/caffeine.sh on
+bindsym  ${CONTROL_R}+minus  exec  --no-startup-id  ${SCRIPT_DIR}/caffeine.sh off
+bindsym  ${CONTROL_R}+plus   exec  --no-startup-id  ${SCRIPT_DIR}/caffeine.sh on
 
 # screenshot
-bindsym Print          exec  scrot -m -e 'mv $f ~/Pictures/Screenshots/.'
-bindsym $SUPER+c       exec  i3-sensible-terminal -e vim ~/.i3/config
-bindsym $SUPER+Shift+v exec  x11vnc -display :0 -passwd `cat $HOME/.vnc_passwd`
+# $''f is a workaround so that it will not get replaced by the definition of $F.
+# scrot sadly does not understand ${f}:
+bindsym  Print             exec  scrot -m -e 'mv $''f ~/Pictures/Screenshots/.'
+bindcode ${SUPER}+$C       exec  i3-sensible-terminal -e vim ~/.i3/config
+bindcode ${SUPER}+Shift+$V exec  x11vnc -display :0 -passwd `cat $HOME/.vnc_passwd`
 
 # volume control
-bindsym  XF86AudioLowerVolume  exec  pactl   --  set-sink-volume  0     -5%             && $PLAY_TEST_SOUND
-bindsym  XF86AudioRaiseVolume  exec  pactl   --  set-sink-volume  0     +5%             && $PLAY_TEST_SOUND
-bindsym  XF86AudioMute         exec  amixer  -D  pulse            sset  Master  toggle  && $PLAY_TEST_SOUND
+bindsym  XF86AudioLowerVolume  exec  pactl   --  set-sink-volume  0     -5%             && $_PLAY_TEST_SOUND
+bindsym  XF86AudioRaiseVolume  exec  pactl   --  set-sink-volume  0     +5%             && $_PLAY_TEST_SOUND
+bindsym  XF86AudioMute         exec  amixer  -D  pulse            sset  Master  toggle  && $_PLAY_TEST_SOUND
 # volume control without media keys:
-bindsym  $CONTROL_R+q          exec  pactl   --  set-sink-volume  0     -5%             && $PLAY_TEST_SOUND
-bindsym  $CONTROL_R+e          exec  pactl   --  set-sink-volume  0     +5%             && $PLAY_TEST_SOUND
-bindsym  $CONTROL_R+w          exec  amixer  -D  pulse            sset  Master  toggle  && $PLAY_TEST_SOUND
+bindcode  ${CONTROL_R}+$Q          exec  pactl   --  set-sink-volume  0     -5%             && $_PLAY_TEST_SOUND
+bindcode  ${CONTROL_R}+$E          exec  pactl   --  set-sink-volume  0     +5%             && $_PLAY_TEST_SOUND
+bindcode  ${CONTROL_R}+$W          exec  amixer  -D  pulse            sset  Master  toggle  && $_PLAY_TEST_SOUND
 
 # MPD controls
 bindsym  XF86AudioPlay  exec  mpc  toggle
@@ -266,18 +292,18 @@ bindsym  XF86AudioNext  exec  mpc  next
 bindsym  XF86AudioPrev  exec  mpc  prev
 bindsym  XF86AudioStop  exec  mpc  stop
 # MPD controls without media keys:
-bindsym  $CONTROL_R+s  exec  mpc  toggle
-bindsym  $CONTROL_R+d  exec  mpc  next
-bindsym  $CONTROL_R+a  exec  mpc  prev
+bindcode  ${CONTROL_R}+$S  exec  mpc  toggle
+bindcode  ${CONTROL_R}+$D  exec  mpc  next
+bindcode  ${CONTROL_R}+$A  exec  mpc  prev
 
 # update
-bindsym  $SUPER+u        exec  i3-sensible-terminal -e sudo pacman -Syu
-bindsym  $SUPER+Shift+U  exec  i3-sensible-terminal -e yaourt -Syua
+bindcode  ${SUPER}+$U        exec  i3-sensible-terminal -e sudo pacman -Syu
+bindcode  ${SUPER}+Shift+$U  exec  i3-sensible-terminal -e yaourt -Syua
 
 # adjustable borders
-bindsym   $SUPER+t   border  normal
-bindcode  $SUPER+$Z  border  pixel 1
-# bindsym   $SUPER+g   border  none
+bindcode  ${SUPER}+$T   border  normal
+bindcode  ${SUPER}+$Y   border  pixel 1
+# bindcode   ${SUPER}+$G   border  none
 # 1px borders by default
 new_window pixel 1
 # no borders if there is only one application on the workspace
@@ -291,16 +317,14 @@ popup_during_fullscreen smart
 # get back to former workspace
 workspace_auto_back_and_forth yes
 # move workspaces
-bindsym  $SUPER+ctrl+h      move workspace to output left
-bindsym  $SUPER+ctrl+l      move workspace to output right
-bindsym  $SUPER+ctrl+left   move workspace to output left
-bindsym  $SUPER+ctrl+right  move workspace to output right
+bindcode  ${SUPER}+ctrl+$H      move workspace to output left
+bindcode  ${SUPER}+ctrl+$L      move workspace to output right
 
 # scratchpad
-bindsym  $SUPER+p         move scratchpad
-bindsym  $SUPER+o         [class="Pidgin" window_role="conversation"]      scratchpad show
-bindsym  $SUPER+i         [class="XTerm"]                                  scratchpad show
-bindsym  $SUPER+Shift+P   scratchpad show
+bindcode  ${SUPER}+$P         move scratchpad
+bindcode  ${SUPER}+$O         [class="Pidgin" window_role="conversation"]      scratchpad show
+bindcode  ${SUPER}+$I         [class="XTerm"]                                  scratchpad show
+bindcode  ${SUPER}+Shift+$P   scratchpad show
 
 #-------------------------------------------------------------------------------
 # Program specific layouts and behaviours
@@ -325,8 +349,8 @@ for_window  [class="Firefox"]                                              fulls
 for_window  [class="sun-awt-X11-XDialogPeer"]                              floating disable
 # for_window [class="XTerm" instance="xtermTop"] floating enable
 # launch certain programs on predefined workspaces
-assign [class="Firefox"]                                                   $WS1
-assign [class="Thunderbird"]                                               $WS15
+assign [class="Firefox"             window_role="browser"]                 $WS1
+assign [class="Thunderbird"         window_role="3pane"]                   $WS15
 assign [class="Pidgin"              window_role="buddy_list"]              $WS17
 # Spotify and Deezer:
 assign [instance="crx_cnkjkdjlofllcpbemipjbcpfnglbgieh"]                   $WS13
@@ -336,25 +360,25 @@ assign [instance="crx_npfkoakaabdallkcdbpkkhfilkkngakh"]                   $WS13
 # Program shortcuts
 #-------------------------------------------------------------------------------
 # fluxbox launch combinations
-bindsym  $ALT+1        exec  spacefm -n
-# bindsym $ALT+1 exec nautilus -w
-bindsym  ctrl+2        exec  firejail firefox
-bindsym  $ALT+2        exec  firejail chromium
-bindsym  $ALT+Shift+2  exec  firejail --private.keep=$HOME/.tor-browser-en/INSTALL/Browser -–seccomp -–caps tor-browser-en
-bindsym  ctrl+3        exec  i3-sensible-terminal -e ncmpcpp
-bindsym  ctrl+4        exec  i3-sensible-terminal -e vim
-bindsym  ctrl+5        exec  firejail thunderbird
-bindsym  ctrl+7        exec  firejail pidgin
+bindsym  ${ALT}+1        exec  spacefm -n
+# bindsym ${ALT}+1 exec nautilus -w
+bindsym  ctrl+2          exec  firejail firefox
+bindsym  ${ALT}+2        exec  firejail chromium
+bindsym  ${ALT}+Shift+2  exec  firejail --private.keep=$HOME/.tor-browser-en/INSTALL/Browser -–seccomp -–caps tor-browser-en
+bindsym  ctrl+3          exec  i3-sensible-terminal -e ncmpcpp
+bindsym  ctrl+4          exec  i3-sensible-terminal -e vim
+bindsym  ctrl+5          exec  firejail thunderbird
+bindsym  ctrl+7          exec  firejail pidgin
 
 # top
 bindsym  ctrl+Shift+Escape  exec  i3-sensible-terminal -e top
-bindsym  $ALT+Escape        exec  i3-sensible-terminal -e htop
+bindsym  ${ALT}+Escape        exec  i3-sensible-terminal -e htop
 
 #-------------------------------------------------------------------------------
 # i3bar
 #-------------------------------------------------------------------------------
 bar {
-  status_command $CONKY_DIR/conkyJSON.sh
+  status_command ${CONKY_DIR}/conkyJSON.sh
   position  top
   colors {
 #   class             border               background           text
@@ -386,13 +410,13 @@ smart_gaps on
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $SUPER+g mode "$mode_gaps"
+bindcode ${SUPER}+$G mode "$mode_gaps"
 
 mode "$mode_gaps" {
-	bindsym o      mode "$mode_gaps_outer"
-	bindsym i      mode "$mode_gaps_inner"
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
+	bindcode $O     mode "$mode_gaps_outer"
+	bindcode $I     mode "$mode_gaps_inner"
+	bindsym  Return mode "default"
+	bindsym  Escape mode "default"
 }
 
 mode "$mode_gaps_inner" {
