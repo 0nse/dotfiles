@@ -27,6 +27,8 @@ PS1='\[\e[1;33m\][\[\e[0;36m\] \u\[\e[00m\]: \[\e[0;33m\]\w\[\e[00m\], \[\e[0;36
 
 export EDITOR="vim"
 export TEXMFHOME=$HOME/.texmf-local
+# make QT5 applications use GTK theme:
+export QT_STYLE_OVERRIDE=GTK+
 # sweet, sweet vi navigation:
 set -o vi
 
