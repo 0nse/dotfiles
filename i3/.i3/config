@@ -134,7 +134,7 @@ bindsym  ${CAPS}+space       exec  --no-startup-id  xdotool   click             
 bindsym  ${ALT}+Shift+space  exec  --no-startup-id  xdotool   click               3          #       right   click
 
 # emulate pok3r:
-bindcode  --release  ${CAPS}+${DEAD_CIRCUMFLEX} exec  --no-startup-id  xdotool  key  `
+bindcode  --release  ${CAPS}+${DEAD_CIRCUMFLEX} exec  --no-startup-id  xdotool  key  grave
 bindcode  --release  ${CAPS}+$H                 exec  --no-startup-id  xdotool  key  Left
 bindcode  --release  ${CAPS}+$J                 exec  --no-startup-id  xdotool  key  Down
 bindcode  --release  ${CAPS}+$K                 exec  --no-startup-id  xdotool  key  Up
@@ -261,7 +261,7 @@ mode "resize" {
 
 bindsym ${SUPER}+r mode "resize"
 # lock
-bindcode ${ALT}+ctrl+$L exec     $_SCRIPT_DIR/i3lock-wrapper.sh
+bindcode ${ALT}+ctrl+$L exec     ${SCRIPT_DIR}/i3lock-wrapper.sh
 # sleep
 bindsym   XF86Sleep      exec  ${SCRIPT_DIR}/i3exit  suspend
 bindcode  ${CONTROL_R}+$Y  exec  ${SCRIPT_DIR}/i3exit  suspend
