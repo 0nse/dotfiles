@@ -24,8 +24,9 @@
 # allow VNC:
 -A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.178.37 -p tcp --dport 5900 -j ACCEPT
 -A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.178.31 -p tcp --dport 5900 -j ACCEPT
-# allow mpd from internal network (connection and streaming):
+# allow mpd from internal network (connection, streaming and Web interface):
 -A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.178.0/24 -p tcp --dport 6600 -j ACCEPT
+-A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.178.0/24 -p tcp --dport 6680 -j ACCEPT
 -A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.178.0/24 -p tcp --dport 8000 -j ACCEPT
 # Chromecast
 -A INPUT -s 192.168.178.0/24 -p udp -m udp --dport 32768:61000 -j ACCEPT
