@@ -233,7 +233,7 @@ function optimiseSystem {
 }
 
 function deleteLaTeXTempFiles {
-  rm *.{snm,nav,aux,bbl,bcf,blg,log,out,toc,run.xml} > /dev/null 2>&1
+  rm *.{snm,nav,aux,bbl,bcf,blg,log,out,toc,run.xml,glo,glsdefs,glg,gls,ist} > /dev/null 2>&1
 }
 
 # @see https://wiki.archlinux.org/index.php/steam#Steam_runtime_issues
