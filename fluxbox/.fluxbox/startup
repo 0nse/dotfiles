@@ -10,16 +10,9 @@ xmodmap "$HOME/.Xmodmap"
 # Applications you want to run with fluxbox.
 # MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
 #
-# unclutter -idle 2 &
-# wmnd &
-# wmsmixer -w &
-# idesk &
-# fbsetbg -l &
-fbsetroot -solid grey15 &
 dockx &
-# /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-xrandr --output LVDS --off --output DFP1 --mode 1920x1080 --primary
-#synapse -s &
+${HOME}/.i3/scripts/setDisplays.sh off && keynav &
+xflux &
 
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.

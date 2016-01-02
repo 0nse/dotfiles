@@ -59,7 +59,10 @@ Mod4 Shift Tab :PrevTab
 # Mod4 9 :Tab 9
 
 # open a dialog to run programs
-Mod1 F2 :Exec fbrun
+Mod4 d :Exec rofi -show run -font "Roboto 9" -bgalt "$C_BASE_BLACK"
+Mod4 Shift d :Exec rofi -show ssh -font "Roboto 9" -bgalt "$C_BASE_BLACK"
+Mod4 Tab :Exec rofi -show window -font "Roboto 9" -bgalt "$C_BASE_BLACK"
+
 
 # volume settings, using common keycodes
 # if these don't work, use xev to find out your real keycodes
@@ -145,18 +148,17 @@ Control Shift Escape :Exec gnome-system-monitor
 Control dead_circumflex :RootMenu
 Control 1 :Exec pantheon-files
 Alt 1 :Exec spacefm -n
-Control 2 :Exec google-chrome
+Control 2 :Exec firefox
 #Control 2 :Exec /usr/lib/chrome-linux/chrome
-Alt 2 :Exec epiphany-browser
-Control 3 :Exec sonata
-Alt 3 :Exec tomahawk
+Alt 2 :Exec chromium
+Control 3 :Exec i3-sensible-terminal -exec ncmpcpp
 Control Mod1 3 :Exec spotify
 Control 4 :Exec scratch-text-editor
 Control 5 :Exec thunderbird
 Control 7 :Exec pidgin
 Alt 7 :Exec skypetab-ng
-Mod4 Return :Exec x-terminal-emulator
-Mod4 KP_Enter :Exec x-terminal-emulator
+Mod4 Return :Exec i3-sensible-terminal
+Mod4 KP_Enter :Exec i3-sensible-terminal
 Control Mod1 space :ToggleCmd {Exec synapse} {Exec pkill synapse}
 
 # lock screen
