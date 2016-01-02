@@ -29,3 +29,5 @@ keycode 56 = b B b B dead_circumflex
 keycode 53 = x X x X section
 ! invert touchpad/mouse scrolling:
 pointer = 1 2 3 5 4 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
+! circ is escape (overrides pok3r function key+Escape)
+! keycode 49 = Escape asciitilde
