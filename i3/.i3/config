@@ -275,7 +275,7 @@ bindsym  ${CONTROL_R}+plus   exec  --no-startup-id  ${SCRIPT_DIR}/caffeine.sh on
 # scrot sadly does not understand ${f}:
 bindsym  Print             exec  scrot -m -e 'mv $''f ~/Pictures/Screenshots/.'
 bindcode ${SUPER}+$C       exec  i3-sensible-terminal -e vim ~/.i3/config
-bindcode ${SUPER}+Shift+$V exec  x11vnc -display :0 -passwd `cat $HOME/.vnc_passwd`
+bindcode ${SUPER}+Shift+$V exec  x11vnc -display :0 -passwd `cat $HOME/.vnc_passwd` -ncache 10
 
 # volume control
 bindsym  XF86AudioLowerVolume  exec  pactl   --  set-sink-volume  0     -5%             && $_PLAY_TEST_SOUND
@@ -372,7 +372,7 @@ bindsym  ctrl+7          exec  firejail pidgin
 
 # top
 bindsym  ctrl+Shift+Escape  exec  i3-sensible-terminal -e top
-bindsym  ${ALT}+Escape        exec  i3-sensible-terminal -e htop
+bindsym  ${ALT}+Escape      exec  i3-sensible-terminal -e htop
 
 #-------------------------------------------------------------------------------
 # i3bar
