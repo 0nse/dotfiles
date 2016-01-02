@@ -19,4 +19,11 @@ eval $(gpg-agent --daemon) &
 unclutter -idle 2 -noevents -grab &
 
 # i3:
-exec dbus-launch --exit-with-session i3
+case "${XDG_VTNR}" in
+  2) # TTY2
+    exec dbus-launch --exit-with-session fluxbox
+    ;;
+  *)
+    exec dbus-launch --exit-with-session i3
+    ;;
+esac
