@@ -8,8 +8,8 @@ nnoremap h 5h
 nnoremap J gT
 nnoremap K gt
 
-" allow quickmarks to be opened in a new tab with G
-nnoremap G t<CR>g
+" allow quickmarks to be opened in a new tab with gt
+nnoremap gt t<CR>go
 
 " hide search bar
 set gui="nonavigation,nobookmarks,nomenu"
