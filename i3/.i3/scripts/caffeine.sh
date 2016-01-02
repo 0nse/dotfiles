@@ -5,12 +5,12 @@
 
 if [[ $1 == "on" ]]; then
   binaryValue=0
-  xsetValue="+"
+  xsetValue="-"
   pkill xflux-bin
   state="off"
 elif [[ $1 == "off" ]]; then
-  binaryValue=10
-  xsetValue="-"
+  binaryValue=1
+  xsetValue="+"
   xflux &
   state="on"
 else
