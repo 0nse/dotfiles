@@ -278,13 +278,13 @@ bindcode ${SUPER}+$C       exec  i3-sensible-terminal -e vim ~/.i3/config
 bindcode ${SUPER}+Shift+$V exec  x11vnc -display :0 -passwd `cat $HOME/.vnc_passwd` -ncache 10
 
 # volume control
-bindsym  XF86AudioLowerVolume  exec  pactl   --  set-sink-volume  0     -5%             && $_PLAY_TEST_SOUND
-bindsym  XF86AudioRaiseVolume  exec  pactl   --  set-sink-volume  0     +5%             && $_PLAY_TEST_SOUND
-bindsym  XF86AudioMute         exec  amixer  -D  pulse            sset  Master  toggle  && $_PLAY_TEST_SOUND
+bindsym  XF86AudioLowerVolume  exec  amixer  -D pulse   sset Master   5%-     && $_PLAY_TEST_SOUND
+bindsym  XF86AudioRaiseVolume  exec  amixer  -D pulse   sset Master   5%+     && $_PLAY_TEST_SOUND
+bindsym  XF86AudioMute         exec  amixer  -D pulse   sset Master   toggle  && $_PLAY_TEST_SOUND
 # volume control without media keys:
-bindcode  ${CONTROL_R}+$Q          exec  pactl   --  set-sink-volume  0     -5%             && $_PLAY_TEST_SOUND
-bindcode  ${CONTROL_R}+$E          exec  pactl   --  set-sink-volume  0     +5%             && $_PLAY_TEST_SOUND
-bindcode  ${CONTROL_R}+$W          exec  amixer  -D  pulse            sset  Master  toggle  && $_PLAY_TEST_SOUND
+bindcode  ${CONTROL_R}+$S      exec  amixer  -D pulse   sset Master   5%-     && $_PLAY_TEST_SOUND
+bindcode  ${CONTROL_R}+$D      exec  amixer  -D pulse   sset Master   5%+     && $_PLAY_TEST_SOUND
+bindcode  ${CONTROL_R}+$F      exec  amixer  -D pulse   sset Master   toggle  && $_PLAY_TEST_SOUND
 
 # MPD controls
 bindsym  XF86AudioPlay  exec  mpc  toggle
@@ -292,9 +292,9 @@ bindsym  XF86AudioNext  exec  mpc  next
 bindsym  XF86AudioPrev  exec  mpc  prev
 bindsym  XF86AudioStop  exec  mpc  stop
 # MPD controls without media keys:
-bindcode  ${CONTROL_R}+$S  exec  mpc  toggle
-bindcode  ${CONTROL_R}+$D  exec  mpc  next
-bindcode  ${CONTROL_R}+$A  exec  mpc  prev
+bindcode  ${CONTROL_R}+$W  exec  mpc  toggle
+bindcode  ${CONTROL_R}+$E  exec  mpc  next
+bindcode  ${CONTROL_R}+$Q  exec  mpc  prev
 
 # update
 bindcode  ${SUPER}+$U        exec  i3-sensible-terminal -e sudo pacman -Syu
