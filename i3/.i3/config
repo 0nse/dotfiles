@@ -263,8 +263,8 @@ bindsym ${SUPER}+r mode "resize"
 # lock
 bindcode ${ALT}+ctrl+$L exec     ${SCRIPT_DIR}/i3lock-wrapper.sh
 # sleep
-bindsym   XF86Sleep      exec  ${SCRIPT_DIR}/i3exit  suspend
-bindcode  ${CONTROL_R}+$Y  exec  ${SCRIPT_DIR}/i3exit  suspend
+bindsym   XF86Sleep        exec  ${SCRIPT_DIR}/i3exit  suspend
+bindcode  ${CONTROL_R}+$Z  exec  ${SCRIPT_DIR}/i3exit  suspend
 
 # caffeine and sleeping pill
 bindsym  ${CONTROL_R}+minus  exec  --no-startup-id  ${SCRIPT_DIR}/caffeine.sh off
