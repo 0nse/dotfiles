@@ -54,6 +54,9 @@ set laststatus=2
 " CTRL+W for sudo save
 command! W w !sudo tee % > /dev/null
 
+" Find next/previous word spelled wrong
+noremap <silent> [ [s
+noremap <silent> ] ]s
 " Navigate through visible lines, not logical ones
 noremap <silent> j gj
 noremap <silent> k gk

@@ -12,8 +12,3 @@ let g:Imap_FreezeImap=1
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
 set grepprg=grep\ -nH\ $*
-
-"function! Tex_ForwardSearchLaTeX()
-"  let cmd = 'evince_forward_search ' . fnamemodify(Tex_GetMainFileName(), ":p:r") .  '.pdf ' . line(".") . ' ' . expand("%:p")
-"  let output = system(cmd)
-"endfunction
