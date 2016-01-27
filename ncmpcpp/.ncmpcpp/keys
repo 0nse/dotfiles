@@ -143,7 +143,7 @@ key_lyrics = 'O'
 #
 #key_select_album = 'B'
 #
-#key_add_selected_items = 'A'
+key_add_selected_items = 'A'
 #
 #key_clear = 'c'
 #
