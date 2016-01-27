@@ -76,15 +76,6 @@ set $WS17  " "
 set $WS20  " "
 
 #-------------------------------------------------------------------------------
-# Startup
-#-------------------------------------------------------------------------------
-# startup: set resolution and enable keyboard mouse navigation.
-# This has to be done after resolution changes or else keynav
-# will be using a wrong resolution.
-exec --no-startup-id ${SCRIPT_DIR}/setDisplays.sh off && keynav &
-exec --no-startup-id xflux
-
-#-------------------------------------------------------------------------------
 # Fonts
 #-------------------------------------------------------------------------------
 # font for window titles. ISO 10646 = Unicode
@@ -239,7 +230,7 @@ bindsym ${ALT}+ctrl+Delete exit
 bindsym ${ALT}+ctrl+End exec ${SCRIPT_DIR}/i3exit shutdown
 
 # name workspace
-bindsym ${SUPER}++n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
+bindsym ${SUPER}+n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -275,16 +266,16 @@ bindsym  ${CONTROL_R}+plus   exec  --no-startup-id  ${SCRIPT_DIR}/caffeine.sh on
 # scrot sadly does not understand ${f}:
 bindsym  Print             exec  scrot -m -e 'mv $''f ~/Pictures/Screenshots/.'
 bindcode ${SUPER}+$C       exec  i3-sensible-terminal -e vim ~/.i3/config
-bindcode ${SUPER}+Shift+$V exec  x11vnc -display :0 -passwd `cat $HOME/.vnc_passwd` -ncache 10
+bindcode ${SUPER}+Shift+$V exec  x11vnc -display :0 -passwd `sed -n 2p $HOME/.configs` -ncache 10
 
 # volume control
-bindsym  XF86AudioLowerVolume  exec  amixer  -D pulse   sset Master   5%-     && $_PLAY_TEST_SOUND
-bindsym  XF86AudioRaiseVolume  exec  amixer  -D pulse   sset Master   5%+     && $_PLAY_TEST_SOUND
-bindsym  XF86AudioMute         exec  amixer  -D pulse   sset Master   toggle  && $_PLAY_TEST_SOUND
+bindsym  XF86AudioLowerVolume  exec  amixer  -D pulse   sset Master   5%-     && ${PLAY_TEST_SOUND}
+bindsym  XF86AudioRaiseVolume  exec  amixer  -D pulse   sset Master   5%+     && ${PLAY_TEST_SOUND}
+bindsym  XF86AudioMute         exec  amixer  -D pulse   sset Master   toggle  && ${PLAY_TEST_SOUND}
 # volume control without media keys:
-bindcode  ${CONTROL_R}+$S      exec  amixer  -D pulse   sset Master   5%-     && $_PLAY_TEST_SOUND
-bindcode  ${CONTROL_R}+$D      exec  amixer  -D pulse   sset Master   5%+     && $_PLAY_TEST_SOUND
-bindcode  ${CONTROL_R}+$F      exec  amixer  -D pulse   sset Master   toggle  && $_PLAY_TEST_SOUND
+bindcode  ${CONTROL_R}+$S      exec  amixer  -D pulse   sset Master   5%-     && ${PLAY_TEST_SOUND}
+bindcode  ${CONTROL_R}+$D      exec  amixer  -D pulse   sset Master   5%+     && ${PLAY_TEST_SOUND}
+bindcode  ${CONTROL_R}+$F      exec  amixer  -D pulse   sset Master   toggle  && ${PLAY_TEST_SOUND}
 
 # MPD controls
 bindsym  XF86AudioPlay  exec  mpc  toggle

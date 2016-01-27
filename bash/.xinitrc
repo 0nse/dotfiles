@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-userresources=$HOME/.Xresources
-usermodmap=$HOME/.Xmodmap
+USER_RESOURCES=$HOME/.Xresources
+SCRIPTS_DIR=$HOME/.i3/scripts
 
-if [ -f "$userresources" ]; then
-    xrdb -merge "$userresources"
+if [ -f "${USER_RESOURCES}" ]; then
+    xrdb -merge "${USER_RESOURCES}"
 fi
 
 # Key- and mouse-mapping:
-$HOME/.i3/scripts/loadKeyboardLayout.sh &
+"${SCRIPTS_DIR}"/loadKeyboardLayout.sh &
 
 # PA:
 pulseaudio -D
@@ -16,9 +16,15 @@ pulseaudio -D
 eval $(gpg-agent --daemon) &
 
 # Hide mouse when not needed:
-unclutter -idle 2 -noevents -grab &
+unclutter --timeout 2 &
 
-# i3:
+# Set resolution and enable keyboard mouse navigation.
+# Keynav is launched second or else it would use the wrong screen resolution:
+"${SCRIPTS_DIR}"/setDisplays.sh off && keynav &
+
+# Start redshift:
+redshift -b 0.9:1.0 -l `sed -n 1p $HOME/.configs`
+
 case "${XDG_VTNR}" in
   2) # TTY2
     exec dbus-launch --exit-with-session fluxbox
