@@ -230,6 +230,7 @@ function optimiseSystem {
   sudo pacman-optimize
   sudo sync
   sudo localepurge
+  sudo journalctl --vacuum-time=7d
 }
 
 function deleteLaTeXTempFiles {
