@@ -1,3 +1,20 @@
+""""""""""""""""""""""""
+" GENERAL CONFIURATION "
+""""""""""""""""""""""""
+colorscheme solarised_dark
+
+" hide search bar
+set gui="nonavigation,nobookmarks,nomenu"
+" set gui=nobookmarks,nomenu
+" show SSL status and disable tab count and bookmark indicator:
+set status="input,location,ssl,position"
+
+" use vim instead of gvim:
+set editor="i3-sensible-terminal -e vim"
+
+""""""""""""""""""""""
+" KEYBOARD SHORTCUTS "
+""""""""""""""""""""""
 " scroll faster
 nnoremap j 5j
 nnoremap k 5k
@@ -11,12 +28,6 @@ nnoremap K gt
 " allow quickmarks to be opened in a new tab with gt
 nnoremap gt t<CR>go
 
-" hide search bar
-set gui="nonavigation,nobookmarks,nomenu"
-" set gui=nobookmarks,nomenu
-
-colorscheme solarised_dark
-
 " copypaste directly
 noremap <C-c> <C-v><C-c>
 noremap <C-v> <C-v><C-v>
@@ -27,24 +38,22 @@ noremap <C-p> i<C-p>
 noremap <C-S-u> i<C-u>
 " incognito like Chromium
 noremap <C-S-n> i<C-S-p>
-" tab groups
-noremap <C-e> i<C-S-e>
 " bookmarks
-noremap <C-S-b> :set gui=bookmarks<CR>
-noremap <C-M-b> :set gui=nobookmarks<CR>
-
-" noscript
-nnoremap so :noscript popup<CR>
-nnoremap si :noscript info<CR>
-
-" use vim instead of gvim:
-set editor="i3-sensible-terminal -e vim"
+nnoremap <C-S-b> :set gui=bookmarks<CR>
+nnoremap <C-M-b> :set gui=nobookmarks<CR>
 
 " Zotero
 nnoremap za :js ZoteroPane.addItemFromPage();<CR>
 nnoremap zs :js Zotero_Browser.scrapeThisPage();<CR>
 nnoremap goz :js ZoteroPane.show(); ZoteroPane.toggleTab();<CR>
 
+" Stylish
+" Toggle off and on to reenable all themes:
+nnoremap sy :js stylishOverlay.turnOnOff(false); stylishOverlay.turnOnOff(true);<CR>
+" Toggle first style off:
+nnoremap sn :js stylishOverlay.service.findForUrl(content.location.href, false, 0, {})[0].enabled = false<CR>
+
+
 " unmap keys that annoy the fuck out of me
-:nmap <F1> <nop>
-:nmap <C-q> <nop>
+:map <F1> <nop>
+:map <C-q> <nop>
