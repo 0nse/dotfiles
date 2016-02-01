@@ -12,6 +12,9 @@ set status="input,location,ssl,position"
 " use vim instead of gvim:
 set editor="i3-sensible-terminal -e vim"
 
+" turn on focus content:
+set fc=true
+
 """"""""""""""""""""""
 " KEYBOARD SHORTCUTS "
 """"""""""""""""""""""
@@ -53,7 +56,7 @@ nnoremap sy :js stylishOverlay.turnOnOff(false); stylishOverlay.turnOnOff(true);
 " Toggle first style off:
 nnoremap sn :js stylishOverlay.service.findForUrl(content.location.href, false, 0, {})[0].enabled = false<CR>
 
-
 " unmap keys that annoy the fuck out of me
-:map <F1> <nop>
-:map <C-q> <nop>
+map <F1> <nop>
+imap <F1> <nop>
+map <C-q> <nop>
