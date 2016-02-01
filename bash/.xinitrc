@@ -23,7 +23,7 @@ unclutter --timeout 2 &
 "${SCRIPTS_DIR}"/setDisplays.sh off && keynav &
 
 # Start redshift:
-redshift -b 0.9:1.0 -l `sed -n 1p $HOME/.configs`
+redshift -b 0.9:1.0 -l `sed -n 1p $HOME/.configs` &
 
 case "${XDG_VTNR}" in
   2) # TTY2
