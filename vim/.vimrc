@@ -64,14 +64,6 @@ noremap <silent> k gk
 noremap <silent> G G$
 noremap <silent> gg gg0
 
-" LaTeX
-" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
-filetype plugin on
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-
 " set window height to zero
 set wmh=0
 
@@ -141,4 +133,35 @@ endif
 
 " Instantly better vim 2013 by Damian Conway
 " Highlight overlong lines
-call matchadd('ColorColumn', '\%81v', 100)
+call matchadd('ColorColumn', '\%79v', 100)
+
+" Plugins
+call plug#begin('~/.vim/plugged')
+  Plug 'junegunn/goyo.vim'
+  Plug 'mbbill/undotree'
+  Plug 'unblevable/quick-scope'
+  Plug 'scrooloose/syntastic'
+call plug#end()
+
+" LaTeX
+" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+filetype plugin on
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+
+" Undotree: Toggle
+map <F3> :UndotreeToggle<CR>
+
+" Quick-scope: Highlight only when needed
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
