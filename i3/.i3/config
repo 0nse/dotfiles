@@ -45,8 +45,8 @@ set  ${ASTERISK}        17
 set  ${PARENLEFT}       18
 set  ${PARENRIGHT}      19
 
-set ${SCRIPT_DIR}       /$HOME/.i3/scripts
-set ${CONKY_DIR}        /$HOME/.i3/conky
+set ${SCRIPTS_DIR}      ${HOME}/.i3/scripts
+set ${CONKY_DIR}        ${HOME}/.i3/conky
 
 set ${PLAY_TEST_SOUND} pacmd play-file /usr/share/sounds/bell.oga 1
 
@@ -94,9 +94,9 @@ font xft:FontAwesome, xft:Roboto 8
 
 # add or remove laptop display (plus is listed twice to also work on en
 # layouts):
-bindsym  ${SUPER}+Shift+plus  exec  ${SCRIPT_DIR}/setDisplays.sh right
-bindsym  ${SUPER}+plus        exec  ${SCRIPT_DIR}/setDisplays.sh right
-bindsym  ${SUPER}+minus       exec  ${SCRIPT_DIR}/setDisplays.sh off
+bindsym  ${SUPER}+Shift+plus  exec  ${SCRIPTS_DIR}/setDisplays.sh right
+bindsym  ${SUPER}+plus        exec  ${SCRIPTS_DIR}/setDisplays.sh right
+bindsym  ${SUPER}+minus       exec  ${SCRIPTS_DIR}/setDisplays.sh off
 
 # Use Mouse+${SUPER} to drag floating windows to their wanted position:
 floating_modifier ${SUPER}
@@ -106,14 +106,14 @@ bindsym  ${SUPER}+Return    exec  i3-sensible-terminal
 bindsym  ${SUPER}+KP_Enter  exec  i3-sensible-terminal
 
 # launch/kill compton:
-bindcode ${SUPER}+$X        exec  ${SCRIPT_DIR}/toggleProgramRunningState.sh compton
+bindcode ${SUPER}+$X        exec  ${SCRIPTS_DIR}/toggleProgramRunningState.sh compton
 
 # kill focused window:
 bindcode ${SUPER}+Shift+$Q kill
 
 # start dmenu (a program launcher):
-bindcode ${SUPER}+$D       exec rofi -show run -font "Roboto 9" -bgalt "$C_BASE_BLACK"
-bindcode ${SUPER}+Shift+$D exec rofi -show ssh -font "Roboto 9" -bgalt "$C_BASE_BLACK"
+bindcode ${SUPER}+$D       exec rofi -show run    -font "Roboto 9" -bgalt "$C_BASE_BLACK"
+bindcode ${SUPER}+Shift+$D exec rofi -show ssh    -font "Roboto 9" -bgalt "$C_BASE_BLACK"
 bindsym  ${SUPER}+Tab      exec rofi -show window -font "Roboto 9" -bgalt "$C_BASE_BLACK"
 
 # emulate mouse:
@@ -233,7 +233,7 @@ bindcode ${SUPER}+Shift+$R restart
 # exit i3 (logs you out of your X session):
 bindsym ${ALT}+ctrl+Delete exit
 # shutdown:
-bindsym ${ALT}+ctrl+End exec ${SCRIPT_DIR}/i3exit shutdown
+bindsym ${ALT}+ctrl+End exec ${SCRIPTS_DIR}/i3exit shutdown
 
 # name workspace:
 bindsym ${SUPER}+n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
@@ -258,21 +258,21 @@ mode "resize" {
 
 bindsym ${SUPER}+r mode "resize"
 # lock:
-bindcode ${ALT}+ctrl+$L exec     ${SCRIPT_DIR}/i3lock-wrapper.sh
+bindcode ${ALT}+ctrl+$L exec     ${SCRIPTS_DIR}/i3lock-wrapper.sh
 # sleep:
-bindsym   XF86Sleep        exec  ${SCRIPT_DIR}/i3exit  suspend
-bindcode  ${CONTROL_R}+$Z  exec  ${SCRIPT_DIR}/i3exit  suspend
+bindsym   XF86Sleep        exec  ${SCRIPTS_DIR}/i3exit  suspend
+bindcode  ${CONTROL_R}+$Z  exec  ${SCRIPTS_DIR}/i3exit  suspend
 
 # caffeine and sleeping pill:
-bindsym  ${CONTROL_R}+minus  exec  --no-startup-id  ${SCRIPT_DIR}/caffeine.sh off
-bindsym  ${CONTROL_R}+plus   exec  --no-startup-id  ${SCRIPT_DIR}/caffeine.sh on
+bindsym  ${CONTROL_R}+minus  exec  --no-startup-id  ${SCRIPTS_DIR}/setPowersave.sh on
+bindsym  ${CONTROL_R}+plus   exec  --no-startup-id  ${SCRIPTS_DIR}/setPowersave.sh off
 
 # screenshot
 # $''f is a workaround so that it will not get replaced by the definition of $F.
 # scrot sadly does not understand ${f}:
 bindsym  Print             exec  scrot -m -e 'mv $''f ~/Pictures/Screenshots/.'
 bindcode ${SUPER}+$C       exec  i3-sensible-terminal -e vim ~/.i3/config
-bindcode ${SUPER}+Shift+$V exec  x11vnc -display :0 -passwd `sed -n 2p $HOME/.configs` -ncache 10
+bindcode ${SUPER}+Shift+$V exec  x11vnc -display :0 -passwd `sed -n 2p ${HOME}/.configs` -ncache 10
 
 # volume control
 bindsym  XF86AudioLowerVolume  exec  amixer  -D pulse   sset Master   5%-     && ${PLAY_TEST_SOUND}
@@ -361,7 +361,7 @@ bindsym  ${ALT}+1        exec  spacefm -n
 # bindsym ${ALT}+1 exec nautilus -w
 bindsym  ctrl+2          exec  firejail firefox
 bindsym  ${ALT}+2        exec  firejail chromium
-bindsym  ${ALT}+Shift+2  exec  firejail --private.keep=$HOME/.tor-browser-en/INSTALL/Browser -–seccomp -–caps tor-browser-en
+bindsym  ctrl+${ALT}+2   exec  firejail tor-browser-en
 bindsym  ctrl+3          exec  i3-sensible-terminal -e ncmpcpp
 bindsym  ctrl+4          exec  i3-sensible-terminal -e vim
 bindsym  ctrl+5          exec  firejail thunderbird
@@ -375,10 +375,11 @@ bindsym  ${ALT}+Escape      exec  i3-sensible-terminal -e htop
 # i3bar
 #-------------------------------------------------------------------------------
 bar {
-  status_command ${CONKY_DIR}/conkyJSON.sh
-  position  top
+  status_command          ${CONKY_DIR}/conkyJSON.sh
+  position                top
+  strip_workspace_numbers no
   colors {
-#   class             border               background           text
+#   class               border               background           text
     background          $C_BASE_BROWN_BLACK
     separator           $C_BASE_BLACK
     active_workspace    $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_MAGENTA

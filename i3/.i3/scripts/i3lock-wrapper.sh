@@ -14,13 +14,17 @@
 # ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-# prevent a bug with unclutter -grab:
-pkill unclutter
+TEMP_FILE=$(mktemp --tmpdir i3lock-wrapper-XXXXXXXXXX.png)
 
-tmpFile=$(mktemp --tmpdir i3lock-wrapper-XXXXXXXXXX.png)
+loadLockscreen() {
+  createLockscreenBackground
+  i3lock -i "${TEMP_FILE}"
+  rm "${TEMP_FILE}"
+}
 
-scrot -d0 "${tmpFile}"
-convert "${tmpFile}" -blur 0x3 "${tmpFile}"
-i3lock -i "${tmpFile}"
-unclutter -idle 2 -noevents -grab &
-rm "${tmpFile}"
+createLockscreenBackground() {
+  scrot -d0 "${TEMP_FILE}"
+  convert "${TEMP_FILE}" -blur 0x3 "${TEMP_FILE}"
+}
+
+loadLockscreen
