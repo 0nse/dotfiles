@@ -96,13 +96,13 @@
 
     # Draw a line of 'separatpr_height' pixel height between two notifications.
     # Set to 0 to disable
-    separator_height = 2
+    separator_height = 0
 
     # padding between text and separator
-    padding = 3
+    padding = 0
 
     # horizontal padding
-    horizontal_padding = 8
+    horizontal_padding = 0
 
     # Define a color for the separator.
     # possible values are:
