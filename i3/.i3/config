@@ -339,7 +339,7 @@ for_window  [class="Zotero"         title="Zotero Preferences"]            float
 for_window  [instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"]              floating enable
 for_window  [instance="Enigmail"]                                          floating enable
 # set size for floats and start on scratchpad
-for_window [class="Pidgin" window_role="conversation"]                     floating enable, resize shrink height 9001 px, resize grow height 300 px, resize shrink width 9001 px, resize grow width 600 px, move scratchpad, scratchpad show
+for_window [class="Pidgin" window_role="conversation"]                     move scratchpad; scratchpad show; resize set 600 300; move position center
 # fix a displaying bug:
 for_window  [class="Firefox"]                                              fullscreen, fullscreen
 # disable floating or it will be of size 1x1
