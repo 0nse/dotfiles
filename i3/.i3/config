@@ -328,6 +328,7 @@ bindcode  ${SUPER}+Shift+$P   scratchpad show
 #-------------------------------------------------------------------------------
 floating_minimum_size 70 x 30
 # float all popups but when they are from Chromium:
+for_window  [title="i3:FLOAT"]                                             floating enable
 for_window  [window_role="pop-up"   class="[^(Chromium)]"]                 floating enable
 for_window  [class="Qjackctl"]                                             floating enable
 for_window  [class="Google-chrome"  title="Task Manager - Google Chrome"]  floating enable
@@ -362,7 +363,7 @@ bindsym  ${ALT}+1        exec  spacefm -n
 bindsym  ctrl+2          exec  firejail firefox
 bindsym  ${ALT}+2        exec  firejail chromium
 bindsym  ctrl+${ALT}+2   exec  firejail tor-browser-en
-bindsym  ctrl+3          exec  i3-sensible-terminal -e ncmpcpp
+bindsym  ctrl+3          exec  i3-sensible-terminal -e ${SCRIPTS_DIR}/launchNcmpcpp.sh
 bindsym  ctrl+4          exec  i3-sensible-terminal -e vim
 bindsym  ctrl+5          exec  firejail thunderbird
 bindsym  ctrl+7          exec  firejail pidgin
