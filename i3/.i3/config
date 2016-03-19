@@ -83,6 +83,7 @@ set $WS20  " "
 # font -gnu-unifont-medium-r-normal--16-160-75-75-c-80-iso10646-1
 # font xft:Roboto 8
 font xft:FontAwesome, xft:Roboto 8
+#font -nil-profont-medium-r-normal--12-120-72-72-c-60-*-*
 # font -misc-ubuntu-medium-r-normal-*-0-0-0-0-p-0-iso10646-1
 # font -artwiz-anorexia-medium-r-normal--11-110-75-75-p-90-iso8859-1 # also works with cure and nu
 # font -artwiz-smoothansi.de-medium-r-normal--13-130-75-75-n-60-iso10646-1
@@ -98,8 +99,9 @@ bindsym  ${SUPER}+minus       exec  ${SCRIPTS_DIR}/setDisplays.sh off
 floating_modifier ${SUPER}
 
 # start a terminal:
-bindsym  ${SUPER}+Return    exec  i3-sensible-terminal
-bindsym  ${SUPER}+KP_Enter  exec  i3-sensible-terminal
+bindsym  ${SUPER}+Return        exec  i3-sensible-terminal
+bindsym  ${SUPER}+Shift+Return  exec  xterm -fa 'Sourcecode Pro Semibold' -fs 8
+bindsym  ${SUPER}+KP_Enter      exec  i3-sensible-terminal
 
 # launch/kill compton:
 bindcode ${SUPER}+$X        exec  ${SCRIPTS_DIR}/toggleProgramRunningState.sh compton
@@ -359,7 +361,8 @@ bindsym  ${ALT}+1        exec  spacefm -n
 bindsym  ctrl+2          exec  firejail firefox
 bindsym  ${ALT}+2        exec  firejail chromium
 bindsym  ctrl+${ALT}+2   exec  firejail tor-browser-en
-bindsym  ctrl+3          exec  i3-sensible-terminal -e ${SCRIPTS_DIR}/launchNcmpcpp.sh
+# use 'fixed' font for its vast support of non standard symbols:
+bindsym  ctrl+3          exec  xterm -fn 'fixed' -e ${SCRIPTS_DIR}/launchNcmpcpp.sh
 bindsym  ctrl+4          exec  i3-sensible-terminal -e vim
 bindsym  ctrl+5          exec  firejail thunderbird
 bindsym  ctrl+7          exec  firejail pidgin
