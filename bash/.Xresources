@@ -74,43 +74,32 @@
 *color7:                S_base2
 *color15:               S_base3
 
-! old colour scheme
-!red
-!*color1:     #E84F4F
-!*color9:     #D23D3D
-!green
-!*color2:     #B8D68C
-!*color10:    #A0CF5D
-!yellow
-!*color3:     #E1AA5D
-!*color11:    #F39D21
-!blue
-!*color4:     #7DC1CF
-!*color12:    #4E9FB1
-!magenta
-!*color5:     #9B64FB
-!*color13:    #8542FF
-
 ! xterm
 XTerm*utf8: 1
-XTerm*cursorColor: #FFBB333
 XTerm*cursorBlink: false
+
 ! uncomment for true type fonts:
-! XTerm*faceName: Inconsolata-dz for Powerline
-! XTerm*scaleHeight: 1
+! XTerm*faceName: SourceCode Pro Semibold,unifont
 ! XTerm*faceSize: 8
+! XTerm*scaleHeight: 1
+
+! Bitmap fonts:
 ! this allows bolded text with Japanese characters:
 ! XTerm*font: -gnu-unifont-medium-r-normal--16-160-75-75-c-80-iso10646-1
 ! XTerm*font: -misc-fixed-medium-r-normal-*-13-*-*-*-*-iso10646-1
 ! XTerm*boldFont: -misc-fixed-medium-r-normal-ja-13-120-75-75-c-120-iso10646-1
 ! font fixes:
-! xterm*VT100*font:  -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
+! xterm*VT100*font:      -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
 ! xterm*VT100*wideFont:  -misc-fixed-medium-r-normal-ja-13-125-75-75-c-120-iso10646-1
 ! xterm*VT100*boldFont:  -misc-fixed-bold-r-semicondensed--13-120-75-75-c-60-iso10646-1
 ! small, readable but no JAP:
 ! XTerm*font: -*-clean-medium-r-normal-*-12-*-*-*-*-iso8859-1
 ! too small font:
 ! XTerm*font: -misc-fixed-medium-r-normal--9-90-75-75-c-60-iso10646-1
+XTerm*font: -nil-profont-medium-r-normal--12-120-72-72-c-60-*-*
+XTerm*font1: -misc-fixed-medium-r-semicondensed-12-110-75-75-c-60-*-*
+!XTerm*font: -*-ttyp0-medium-r-normal--12-*-*-*-*-*-*-*
+
 XTerm*highlightSelection: true
 XTerm*selectToClipoboard: true
 XTerm*vt100.translations: #override \
@@ -124,14 +113,15 @@ XTerm*vt100.translations: #override \
 XTerm*locale: true
 XTerm*bellIsUrgent: true
 XTerm*borderWidth:  0
-! Every shell is a login shell by default (for inclusion of all necessary environment variables)
+! Every shell is a login shell by default (for inclusion of all necessary
+! environment variables)
 XTerm*loginshell: true
 XTerm*savelines: 40960
-! Highlight bold
-XTerm*colorBD: rgb:fc/fc/fc
 
-! Xft.antialias: false
-! Xft.hinting:  false
-! Xft.hintstyle:  hintfull
-! Xft.lcdfilter:  lcdlegacy
-! Xft.rgba:       rgb
+XTerm*allowBoldFonts: false
+
+Xft.hinting:   true
+Xft.hintstyle: hintfull
+Xft.antialias: true
+Xft.rgba:      rgba
+Xft.lcdfilter: lcddefault
