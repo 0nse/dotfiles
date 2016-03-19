@@ -78,15 +78,11 @@ set $WS20  " "
 #-------------------------------------------------------------------------------
 # Fonts
 #-------------------------------------------------------------------------------
-# font for window titles. ISO 10646 = Unicode
 # font -misc-fixed-medium-r-normal--12-120-75-75-C-70-iso10646-1
-# font xft:Source Sans Pro 10
-# font xft: DejaVu Sans 10
 # font -xos4-terminus-medium-*-*-*-12-*-*-*-*-iso10646-*
 # font -gnu-unifont-medium-r-normal--16-160-75-75-c-80-iso10646-1
 # font xft:Roboto 8
 font xft:FontAwesome, xft:Roboto 8
-# font xft:LED BOARD REVERSED 9
 # font -misc-ubuntu-medium-r-normal-*-0-0-0-0-p-0-iso10646-1
 # font -artwiz-anorexia-medium-r-normal--11-110-75-75-p-90-iso8859-1 # also works with cure and nu
 # font -artwiz-smoothansi.de-medium-r-normal--13-130-75-75-n-60-iso10646-1
@@ -295,7 +291,7 @@ bindcode  ${CONTROL_R}+$Q  exec  mpc  prev
 
 # update:
 bindcode  ${SUPER}+$U        exec  i3-sensible-terminal -e sudo pacman -Syu
-bindcode  ${SUPER}+Shift+$U  exec  i3-sensible-terminal -e yaourt -Syua
+bindcode  ${SUPER}+Shift+$U  exec  i3-sensible-terminal -e pacaur -Syua
 
 # adjustable borders:
 bindcode  ${SUPER}+$T   border  normal
