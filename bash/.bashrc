@@ -18,10 +18,6 @@ if [[ "$TERM" == xterm-color ]]; then
   color_prompt=yes
 fi
 
-# Add an "alert" alias for long running commands. Use like so:
-# sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # my configuration:
 PS1='\[\e[1;33m\][\[\e[0;36m\] \u\[\e[00m\]: \[\e[0;33m\]\w\[\e[00m\], \[\e[0;36m\]\t \[\e[1;33m\]]\[\e[00m\]\n\$ '
 
