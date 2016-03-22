@@ -42,14 +42,36 @@ set showmode
 
 " Set spellcheck for ... with F10
 nnoremap <F10> :setlocal spell! spelllang=
+" and set spelling to toplevel for included LaTeX files
+syntax spell toplevel
 
 " Set title of window to file name
 set title
 " and reset title to cwd on exit via xterm
 let &titleold=getcwd()
+"
 " Always display the status line as by default, my wm configuration will not
 " display window titles
 set laststatus=2
+
+" Statusline design
+autocmd ColorScheme *
+    \ highlight User1 ctermbg=0 ctermfg=11 |
+    \ highlight User2 ctermbg=0 ctermfg=1  |
+    \ highlight User3 ctermbg=0 ctermfg=10
+set statusline +=%1*               " status bar highlight
+set statusline +=%r                " read only flag
+set statusline +=%y                " file type
+set statusline +=\ %<%F            " full path
+set statusline +=%m                " modified flag
+set statusline +=%2*               " error colours
+set statusline +=\ %{SyntasticStatuslineFlag()}
+set statusline +=%1*               " reset colour
+set statusline +=%=                " right align
+set statusline +=%l                " current line
+set statusline +=:%v               " virtual column number
+set statusline +=\ %3*%p%%         " percentage of lines
+"set statusline +=\ 0x%04B          " character under cursor
 
 " CTRL+W for sudo save
 command! W w !sudo tee % > /dev/null
@@ -71,7 +93,7 @@ set wmh=0
 map - <C-W>-
 map + <C-W>+
 
-" Resize vertical windows quickly with ALT-SHIFT-[<>]
+" Resize vertical windows quickly with ALT-[<>]
 map <M-<> <C-W><
 map <M->> <C-W>>
 
@@ -135,7 +157,26 @@ endif
 " Highlight overlong lines
 call matchadd('ColorColumn', '\%79v', 100)
 
-" Plugins
+" Select what was just pasted or inserted via :r!
+nnoremap gV `[V`]
+
+augroup highlight_follows_focus
+    autocmd!
+    autocmd WinEnter * set cursorline
+    autocmd WinEnter * set number
+    autocmd WinLeave * set nocursorline
+    autocmd WinLeave * set nonumber
+augroup END
+
+augroup toggle_relative_number
+    autocmd!
+    autocmd InsertEnter * :setlocal norelativenumber
+    autocmd InsertLeave * :setlocal relativenumber
+augroup END
+
+"""""""""""
+" Plugins "
+"""""""""""
 call plug#begin('~/.vim/plugged')
   Plug 'junegunn/goyo.vim'
   Plug 'mbbill/undotree'
@@ -157,10 +198,7 @@ map <F3> :UndotreeToggle<CR>
 " Quick-scope: Highlight only when needed
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
+" Syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
