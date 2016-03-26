@@ -3,7 +3,10 @@
 # Some commands will probably fail but that is negligible.
 # Furthermore, Flux will be en- or disabled accordingly.
 
-SCRIPTS_DIR="${HOME}"/.i3/scripts
+# set this directory as current working directory:
+cd "$(dirname "$0")"
+
+SCRIPTS_DIR=`configs/getScriptsDir.sh`
 STATE="${1}"
 
 # default is disabling powersave:
