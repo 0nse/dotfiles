@@ -1,5 +1,5 @@
 ! @see /usr/share/X11/xkb/symbols/de for symbol names.
-!
+
 ! ensure that altgr is loaded:
 keycode 108=ISO_Level3_Shift
 ! put some use into my useless menu key on the laptop:
@@ -27,7 +27,5 @@ keycode 42 = g G g G dead_grave
 keycode 56 = b B b B dead_circumflex
 ! also, if I have to denote a section of some legal text, I need §:
 keycode 53 = x X x X section
-! invert touchpad/mouse scrolling:
-pointer = 1 2 3 5 4 6 7 8 9 10 11 12
 ! circ is escape (overrides pok3r function key+Escape)
 ! keycode 49 = Escape asciitilde
