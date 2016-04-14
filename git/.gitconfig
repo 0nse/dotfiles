@@ -1,6 +1,7 @@
 [user]
 	name = 0nse
 	email = 0nse@users.noreply.github.com
+	signingkey = 1D1BB16F
 [credential]
 	helper = cache --timeout=3600
 [color]
