@@ -42,8 +42,6 @@ set showmode
 
 " Set spellcheck for ... with F10
 nnoremap <F10> :setlocal spell! spelllang=
-" and set spelling to toplevel for included LaTeX files
-syntax spell toplevel
 
 " Set title of window to file name
 set title
@@ -104,10 +102,23 @@ setlocal cursorline
 " terminal)
 set lazyredraw
 
-" Activate syntax highlighting for octave
 augroup filetypedetect
+  " Activate syntax highlighting for octave
   au! BufRead,BufNewFile *.m,*.oct set filetype=octave
+  au! BufWritePre *.py call Load_python_configuration()
+  " needed for spell check to work properly in included LaTeX files:
+  au! BufWritePre *.tex syntax spell toplevel
 augroup END
+
+function! Load_python_configuration()
+  " 4 spaces instead of tabs
+  set expandtab
+  set tabstop=4
+  set shiftwidth=4
+  retab
+  " backspace once to remove 4 spaces (tab-like behaviour)
+  set softtabstop=4
+endfunction
 
 " Restore cursor position for all files (*)
 au BufWinLeave *.* mkview
@@ -163,9 +174,7 @@ nnoremap gV `[V`]
 augroup highlight_follows_focus
     autocmd!
     autocmd WinEnter * set cursorline
-    autocmd WinEnter * set number
     autocmd WinLeave * set nocursorline
-    autocmd WinLeave * set nonumber
 augroup END
 
 augroup toggle_relative_number
