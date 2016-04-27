@@ -299,3 +299,7 @@ function connectViaWiFi {
 }
 
 # test udev rules for pok3r: sudo udevadm test /bus/usb/devices/usb2/2-1/2-1.2/2-1.2.4/
+
+function vimrc {
+  vim "${HOME}"/.vim/vimrc
+}
