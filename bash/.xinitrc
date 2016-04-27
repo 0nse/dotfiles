@@ -28,10 +28,17 @@ launchPrograms() {
   eval $(gpg-agent --daemon) &
   # Hide mouse when not needed:
   unclutter --timeout 2 &
-  redshift -b 0.9:1.0 -l `sed -n 1p $HOME/.configs` &
+  launchRedshift
   # Enable keyboard mouse navigation (launch after setDisplays.sh so that it
   # uses the correct screen resolution):
   keynav &
+}
+
+launchRedshift() {
+  SCREEN_BRIGHTNESS="0.9:1.0"
+  LOCATION=`sed -n 1p "${HOME}"/.configs`
+
+  redshift -b ${SCREEN_BRIGHTNESS} -l ${LOCATION} &
 }
 
 loadPreferences
