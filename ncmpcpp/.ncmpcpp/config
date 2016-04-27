@@ -445,7 +445,7 @@ ask_before_clearing_playlists = "no"
 ## ncmpcpp's browser screen.
 ##
 #
-#allow_physical_files_deletion = "no"
+#allow_for_physical_item_deletion = "yes"
 #
 #allow_physical_directories_deletion = "no"
 #
