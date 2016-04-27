@@ -1,5 +1,6 @@
 set recolor-lightcolor         "#002B36"
 set recolor-darkcolor          "#839496"
-set highlight-color            "$657B83"
-set highlight-active-color     "$B58900"
-set recolor "true"
+set highlight-transparency     0.2
+set highlight-color            "#268BD2"
+set highlight-active-color     "00FF00"
+set recolor                    "true"
