@@ -39,14 +39,7 @@ modifyPowersaveOptions() {
 }
 
 toggleRedshift() {
-  if [[ "${STATE}" == "on" ]]; then
-    SCREEN_BRIGHTNESS="0.9:1.0"
-    LOCATION=`sed -n 1p "${HOME}"/.configs`
-
-    redshift -b ${SCREEN_BRIGHTNESS} -l ${LOCATION} &
-  else
-    pkill redshift
-  fi
+  pkill -USR1 '^redshift$'
 }
 
 showTextMessage() {
