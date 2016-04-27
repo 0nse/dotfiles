@@ -109,10 +109,8 @@ bindcode ${SUPER}+$X        exec  ${SCRIPTS_DIR}/toggleProgramRunningState.sh co
 # kill focused window:
 bindcode ${SUPER}+Shift+$Q kill
 
-# start dmenu (a program launcher):
-bindcode ${SUPER}+$D       exec rofi -show run    -font "Roboto 9" -bgalt "$C_BASE_BLACK"
-bindcode ${SUPER}+Shift+$D exec rofi -show ssh    -font "Roboto 9" -bgalt "$C_BASE_BLACK"
-bindsym  ${SUPER}+Tab      exec rofi -show window -font "Roboto 9" -bgalt "$C_BASE_BLACK"
+# launch programs and switch windows using rofi:
+bindcode ${SUPER}+$D       exec rofi -show combi
 
 # emulate mouse:
 bindcode  ${ALT}+$H          exec  --no-startup-id  xdotool   mousemove_relative  --         -20     0
@@ -293,7 +291,7 @@ bindcode  ${CONTROL_R}+$Q  exec  mpc  prev
 
 # update:
 bindcode  ${SUPER}+$U        exec  i3-sensible-terminal -e sudo pacman -Syu
-bindcode  ${SUPER}+Shift+$U  exec  i3-sensible-terminal -e pacaur -Syua
+bindcode  ${SUPER}+Shift+$U  exec  i3-sensible-terminal -e pacaur -Syu
 
 # adjustable borders:
 bindcode  ${SUPER}+$T   border  normal
