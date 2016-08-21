@@ -1,3 +1,6 @@
+" Space as leader
+let mapleader = "\<space>"
+
 " Two spaces instead of tabs
 set expandtab
 set tabstop=2
@@ -27,13 +30,16 @@ set mouse=a
 set incsearch
 
 " Remove any trailing whitespace contained within any lines
-autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+" autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 " Show matching [] and {}
 set showmatch
 
 " Set automatic indentation
 set autoindent
+
+" indented word wrap
+set breakindent
 
 " Toggle automatic indentation for pasting
 nnoremap <F8> :set invpaste paste?<CR>
@@ -98,6 +104,10 @@ map <M->> <C-W>>
 " Highlight focussed line
 setlocal cursorline
 
+" vim splits to right and bottom (just like i3)
+set splitright
+set splitbelow
+
 " Reduce the performance impact of cursorline (and other tasks that redraw the
 " terminal)
 set lazyredraw
@@ -119,10 +129,6 @@ function! Load_python_configuration()
   " backspace once to remove 4 spaces (tab-like behaviour)
   set softtabstop=4
 endfunction
-
-" Restore cursor position for all files (*)
-au BufWinLeave *.* mkview
-au BufWinEnter *.* silent loadview
 
 " Add odd file extension syntax highlighting
 au BufRead,BufNewFile *.zcml set filetype=xml
@@ -164,9 +170,17 @@ if v:version > 703 || v:version == 703 && has("patch541")
   set formatoptions+=j
 endif
 
-" Instantly better vim 2013 by Damian Conway
 " Highlight overlong lines
-call matchadd('ColorColumn', '\%79v', 100)
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+
+" jump to line 80:
+noremap <silent> gl 80\|
+" break overlong line at last fitting word:
+noremap <silent> gL 80\|F r<CR>
 
 " Select what was just pasted or inserted via :r!
 nnoremap gV `[V`]
