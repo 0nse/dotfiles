@@ -41,6 +41,17 @@ launchRedshift() {
   redshift -b ${SCREEN_BRIGHTNESS} -l ${LOCATION} &
 }
 
+mountCloudStorage() {
+  baseDirectory=$1
+
+  password=`sed -n 4p "${HOME}"/.configs`
+  echo "${password}" | encfs -S "${baseDirectory}"/.0 $HOME/cloud/pw
+
+  password=`sed -n 5p "${HOME}"/.configs`
+  echo "${password}" | encfs -S "${baseDirectory}"/.1 $HOME/cloud/share
+}
+
 loadPreferences
 launchPrograms
+mountCloudStorage "$HOME/.gdrive/Backup"
 launchWM
