@@ -147,10 +147,13 @@ set wildmenu
 " set clipboard=unnamedplus
 
 " Undo-persistence
-set undodir=$HOME/.vim/undo " where to save undo histories
-set undofile                " Save undo's after file closes
-set undolevels=1000         " How many undos
-set undoreload=10000        " number of lines to save for undo
+set undodir=$HOME/.vim/.generated/undo " where to save undo histories
+set undofile                           " Save undo's after file closes
+set undolevels=1000                    " How many undos
+set undoreload=10000                   " number of lines to save for undo
+" Backup and swap directories
+set backupdir=$HOME/.vim/.generated/backup
+set directory=$HOME/.vim/.generated/swap
 
 " Two column view mode
 noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
