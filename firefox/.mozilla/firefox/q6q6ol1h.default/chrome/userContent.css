@@ -19,6 +19,11 @@
 }
 
 @font-face {
+  font-family: 'Arial';
+  src: local('Roboto');
+}
+
+@font-face {
   font-family: 'Calibri';
   src: local('Roboto');
 }
@@ -46,6 +51,11 @@
 @font-face {
   font-family: 'Nimbus Mono';
   src: local('Source Code Pro');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro ExtraLight';
+  src: local('Source Sans Pro');
 }
 
 /* Solarise inputs so that we don't end up with white text on white background */
