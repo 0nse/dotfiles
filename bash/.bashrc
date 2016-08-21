@@ -164,6 +164,24 @@ function convertFLACtoOGG {
   addReplayGain
 }
 
+function extractBandcampAlbum {
+  if [[ -z ${1} ]]; then
+    exit -1
+  fi
+
+  archive="${1}"
+  name=${archive%.zip}
+  echo ${archive}
+  echo ${name}
+
+  unzip "${archive}"
+  mv "${name}"/* .
+  rm -r "${name}"
+  rm "${archive}"
+
+  convertFLACtoOGG
+}
+
 # Computes ReplayGain for either OGG, MP3 or FLAC files.
 function addReplayGain {
   value=`find . -maxdepth 1 -iname "*.ogg" -type f | wc -l`
