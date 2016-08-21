@@ -16,28 +16,20 @@
 -A INPUT -p tcp -m tcp --tcp-flags FIN,SYN,RST,ACK SYN -m conntrack --ctstate NEW -j TCP
 
 # allow SSH:
--A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.178.21 -p tcp --dport 519 -j ACCEPT
--A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.178.24 -p tcp --dport 519 -j ACCEPT
+-A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.0.21 -p tcp --dport 519 -j ACCEPT
+-A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.0.227 -p tcp --dport 519 -j ACCEPT
 # allow VPN (not working):
 #-A FORWARD -m state --state NEW,ESTABLISHED,RELATED --source 141.26.64.127 -p tcp --dport 1723 -j ACCEPT
 #-A FORWARD -m state --state NEW,ESTABLISHED,RELATED --source 141.26.64.127 -p 47 -j ACCEPT
 # allow VNC:
--A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.178.21 -p tcp --dport 5900 -j ACCEPT
--A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.178.24 -p tcp --dport 5900 -j ACCEPT
+-A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.0.21 -p tcp --dport 5900 -j ACCEPT
+-A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.0.227 -p tcp --dport 5900 -j ACCEPT
 # allow mpd from internal network (connection, streaming and Web interface):
--A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.178.0/24 -p tcp --dport 6600 -j ACCEPT
--A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.178.0/24 -p tcp --dport 6680 -j ACCEPT
--A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.178.0/24 -p tcp --dport 8000 -j ACCEPT
+-A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.0.0/24 -p tcp --dport 6600 -j ACCEPT
+-A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.0.0/24 -p tcp --dport 6680 -j ACCEPT
+-A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.0.0/24 -p tcp --dport 8000 -j ACCEPT
 # Chromecast
 -A INPUT -s 192.168.178.0/24 -p udp -m udp --dport 32768:61000 -j ACCEPT
-# UPnP/DLNA
-# -A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.178.0/24 -p tcp --dport 2869 -j ACCEPT
-# -A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.178.0/24 -p udp --dport 1900 -j ACCEPT
-# Airplay:
-# -A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.178.21 -p tcp --dport 3689 -j ACCEPT
-# -A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.178.21 -p udp --dport 5353 -j ACCEPT
-# -A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.178.21 -p tcp --dport 554 -j ACCEPT
-# -A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.178.21 -p udp --dport 554 -j ACCEPT
 
 # reject connections for unopened ports:
 -A INPUT -p tcp -j REJECT --reject-with tcp-reset
