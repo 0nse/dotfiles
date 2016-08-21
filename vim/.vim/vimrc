@@ -186,12 +186,58 @@ augroup END
 """""""""""
 " Plugins "
 """""""""""
+" Deoplete
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+
 call plug#begin('~/.vim/plugged')
-  Plug 'junegunn/goyo.vim'
   Plug 'mbbill/undotree'
   Plug 'unblevable/quick-scope'
-  Plug 'scrooloose/syntastic'
+  Plug 'neomake/neomake'
+  Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote') }
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'tpope/vim-fugitive'
+  Plug 'eugen0329/vim-esearch'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 call plug#end()
+
+" Neomake
+autocmd! BufReadPost * Neomake
+" open quickfix window but keep focus on buffer
+let g:neomake_open_list=2
+let g:neomake_javascript_enabled_makers = ['eslint']
+nmap <Leader>no :lopen<CR>      " open location window
+nmap <Leader>nc :lclose<CR>     " close location window
+nmap <Leader>n, :ll<CR>         " go to current error/warning
+nmap <Leader>nn :lnext<CR>      " next error/warning
+nmap <Leader>np :lprev<CR>      " previous error/warning
+
+" Airline
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_powerline_fonts=0
+
+" ESearch
+let g:esearch = {
+  \ 'adapter': 'ag',
+  \ 'backend': 'nvim',
+  \ 'out':     'win',
+  \ 'use':     ['visual', 'hlsearch', 'last'],
+  \}
+hi ESearchMatch ctermfg=black ctermbg=blue guifg=#000000 guibg=#E6E6FA
+call esearch#out#win#map('<C-t>', 'tab')
+call esearch#out#win#map('<C-x>', 'split')
+call esearch#out#win#map('<C-v>', 'vsplit')
+call esearch#out#win#map('<C-n>', 'next')
+call esearch#out#win#map('<C-j>', 'next-file')
+call esearch#out#win#map('<C-p>', 'prev')
+call esearch#out#win#map('<C-k>', 'prev-file')
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
 
 " LaTeX
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
@@ -207,8 +253,16 @@ map <F3> :UndotreeToggle<CR>
 " Quick-scope: Highlight only when needed
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
-" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:used_javascript_libs = 'underscore,backbone,jQuery'
+
+" ctrlp:
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+" a: the directory of the current file, unless it is a subdirectory of the cwd
+" r: the nearest ancestor of the current file that contains one of these
+" directories or files: .git .hg .svn .bzr _darcs
+let g:ctrlp_working_path_mode = 'ra'
+" fallback markers if no .git directory etc:
+let g:ctrlp_root_markers = ['pom.xml', '.p4ignore']
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.apk,*.svg,*/target/*,*/Music/*,*/Pictures/*,*.mp3,*.ogg,*.jpg,*.png,*.jpeg,*.gif,*.pdf

@@ -321,3 +321,7 @@ function connectViaWiFi {
 function vimrc {
   vim "${HOME}"/.vim/vimrc
 }
+
+function nvimrc {
+  vim "${HOME}"/.config/nvim/init.vim
+}
