@@ -2,10 +2,10 @@
 launchWM() {
   case "${XDG_VTNR}" in
     2) # TTY2
-      exec dbus-launch --exit-with-session fluxbox
+      exec fluxbox
       ;;
     *)
-      exec dbus-launch --exit-with-session i3
+      exec i3
       ;;
   esac
 }
