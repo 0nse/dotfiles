@@ -327,3 +327,4 @@ function nvimrc {
 }
 
 alias vim=nvim
+alias ag='ag --nobreak --color-line-number="1;35" --color-path="0;35" --color'
