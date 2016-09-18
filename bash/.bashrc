@@ -274,7 +274,7 @@ function encrypt {
     # truncate: "<mailAddress>" => "mailAddress":
     recipient=${mailAddress:1:-1}
   fi
-  gpg --output $1.gpg --encrypt --recipient $recipient $1
+  gpg --output $1.gpg --encrypt --armor --recipient $recipient $1
 }
 
 # Decrypts a file and removes the "gpg"-extension, if any.
