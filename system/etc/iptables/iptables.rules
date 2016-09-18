@@ -28,6 +28,8 @@
 -A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.0.0/24 -p tcp --dport 6600 -j ACCEPT
 -A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.0.0/24 -p tcp --dport 6680 -j ACCEPT
 -A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.0.0/24 -p tcp --dport 8000 -j ACCEPT
+# allow GPMDP remote control:
+-A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.0.0/24 -p tcp --dport 5672 -j ACCEPT
 # Chromecast
 -A INPUT -s 192.168.178.0/24 -p udp -m udp --dport 32768:61000 -j ACCEPT
 
