@@ -328,3 +328,23 @@ function nvimrc {
 
 alias vim=nvim
 alias ag='ag --nobreak --color-line-number="1;35" --color-path="0;35" --color'
+
+# Switches between Java 8 and 7 iff these are the only two installed Java versions
+function switchJava {
+  isJava7Default=`javac -version 2>&1 | grep "1\.7"`
+  versionToSwitchTo=7
+  if [[ ${isJava7Default} ]]; then
+    versionToSwitchTo=8
+  fi
+  newJavaName=java-"${versionToSwitchTo}"-oracle
+
+  sudo update-java-alternatives -s "${newJavaName}" > /dev/null 2>&1
+  export JAVA_HOME="${newJavaName}"
+
+  echo -n "Switched to "
+  javac -version
+}
+
+function replaceInCurrentDir {
+  find . -type f -print0 | xargs -0 sed -i 's/"${1}"/"${2}"/g'
+}
