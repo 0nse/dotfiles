@@ -21,7 +21,7 @@ fi
 # my configuration:
 PS1='\[\e[1;33m\][\[\e[0;36m\] \u\[\e[00m\]: \[\e[0;33m\]\w\[\e[00m\], \[\e[0;36m\]\t \[\e[1;33m\]]\[\e[00m\]\n\$ '
 
-export EDITOR="vim"
+export EDITOR="nvim"
 export TEXMFHOME=$HOME/.texmf-local
 # make QT5 applications use GTK theme:
 export QT_STYLE_OVERRIDE=GTK+
@@ -323,5 +323,7 @@ function vimrc {
 }
 
 function nvimrc {
-  vim "${HOME}"/.config/nvim/init.vim
+  nvim "${HOME}"/.config/nvim/init.vim
 }
+
+alias vim=nvim
