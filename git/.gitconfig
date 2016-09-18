@@ -1,20 +1,20 @@
 [user]
-	name = 0nse
-	email = 0nse@users.noreply.github.com
-	signingkey = 1D1BB16F
+  name = 0nse
+  email = 0nse@users.noreply.github.com
+  signingkey = 1D1BB16F
 [credential]
-	helper = cache --timeout=3600
+  helper = cache --timeout=3600
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+  diff = auto
+  status = auto
+  branch = auto
 [push]
-	default = simple
+  default = simple
 [merge]
-	tool = vimdiff
+  tool = vimdiff
   conflictstyle = diff3
 [mergetool "diffconflicts"]
-	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
-	trustExitCode = true
-	keepBackup = false
+  cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+  trustExitCode = true
+  keepBackup = false
   prompt = false
