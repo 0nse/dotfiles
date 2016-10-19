@@ -8,6 +8,12 @@ WALLPAPER=$HOME/Pictures/wallpaper/Landschaft+Wasser/TxwQYcL.png
 #WALLPAPER=$HOME/Pictures/wallpaper/Nerdy/2014-12-10-224223_1920x1080_scrot.png
 #WALLPAPER=$HOME/Pictures/wallpaper/Nerdy/tw_35125b376a289ae4ca2009674fb9e238.jpg
 
+if [[ $1 == "reset" ]]; then
+  xrandr --output LVDS --primary --mode 1366x768
+  xrandr --output HDMI-0 --off
+  exit 0;
+fi
+
 if [[ $1 != "wallpaper" ]]; then
   # grep for connected displays and cut at first whitespace.
   # This returns the display identifier:

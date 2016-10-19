@@ -91,9 +91,9 @@ font xft:FontAwesome, xft:Roboto 8
 
 # add or remove laptop display (plus is listed twice to also work on en
 # layouts):
-bindsym  ${SUPER}+Shift+plus  exec  ${SCRIPTS_DIR}/setDisplays.sh right
-bindsym  ${SUPER}+plus        exec  ${SCRIPTS_DIR}/setDisplays.sh right
-bindsym  ${SUPER}+minus       exec  ${SCRIPTS_DIR}/setDisplays.sh off
+bindsym  ${SUPER}+plus     exec  ${SCRIPTS_DIR}/setDisplays.sh right
+bindsym  ${SUPER}+minus    exec  ${SCRIPTS_DIR}/setDisplays.sh off
+bindsym  ${SUPER}+equal    exec  ${SCRIPTS_DIR}/setDisplays.sh reset
 
 # Use Mouse+${SUPER} to drag floating windows to their wanted position:
 floating_modifier ${SUPER}
