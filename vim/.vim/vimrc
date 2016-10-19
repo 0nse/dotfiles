@@ -7,6 +7,10 @@ nmap <Down> <C-W>j
 " Space as leader
 let mapleader = "\<space>"
 
+" Session storage
+map <leader>ws :mksession! $HOME/.vim/.generated/sessions/session<CR>
+map <leader>es :source $HOME/.vim/.generated/sessions/session<CR>
+
 " Two spaces instead of tabs
 set expandtab
 set tabstop=2
