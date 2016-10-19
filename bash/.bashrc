@@ -328,6 +328,7 @@ function nvimrc {
 
 alias vim=nvim
 alias ag='ag --nobreak --color'
+alias mopidy='/usr/bin/mopidy --config /var/lib/mopidy/mopidy.conf'
 
 # Switches between Java 8 and 7 iff these are the only two installed Java versions
 function switchJava {
