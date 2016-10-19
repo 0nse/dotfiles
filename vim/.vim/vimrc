@@ -227,6 +227,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'unblevable/quick-scope'
   Plug 'neomake/neomake'
   Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote') }
+  Plug 'mattn/emmet-vim'
+  Plug 'othree/javascript-libraries-syntax.vim'
+  Plug 'pangloss/vim-javascript'
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
@@ -234,6 +237,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'joshdick/onedark.vim'
+  Plug 'ap/vim-css-color'
+  Plug 'romainl/vim-qf'
+  Plug 'gregsexton/gitv'
 call plug#end()
 
 " Neomake
@@ -272,6 +278,12 @@ call esearch#out#win#map('<C-j>', 'next-file')
 call esearch#out#win#map('<C-p>', 'prev')
 call esearch#out#win#map('<C-k>', 'prev-file')
 
+" Emmet only for certain file types:
+let g:user_emmet_install_global = 0
+autocmd FileType html,js,css,php,pt,xml EmmetInstall
+
+let g:used_javascript_libs = 'underscore,backbone,jQuery'
+
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 
@@ -291,7 +303,7 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 let g:used_javascript_libs = 'underscore,backbone,jQuery'
 
-" ctrlp:
+" ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 " a: the directory of the current file, unless it is a subdirectory of the cwd
@@ -302,3 +314,29 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['pom.xml', '.p4ignore']
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.apk,*.svg,*/target/*,*/Music/*,*/Pictures/*,*.mp3,*.ogg,*.jpg,*.png,*.jpeg,*.gif,*.pdf
+
+" vim-css-color
+map <leader>tc :call css_color#toggle()<CR>
+
+" vim fugitive
+" (via http://www.johannespark.com/2015/07/git-integration-for-vim.html)
+map <Leader>gs :Gstatus<CR>
+map <Leader>gD :Gvdiff<CR>
+
+" gitv
+let g:Gitv_OpenHorizontal = 1
+let g:Gitv_WipeAllOnClose = 1
+nmap <leader>gv :Gitv --all<cr>
+nmap <leader>gV :Gitv! --all<cr>
+
+" vim-javascript
+let g:javascript_conceal_function       = "ƒ"
+let g:javascript_conceal_null           = "ø"
+let g:javascript_conceal_this           = "@"
+let g:javascript_conceal_return         = "⇚"
+let g:javascript_conceal_undefined      = "¿"
+let g:javascript_conceal_NaN            = "ℕ"
+let g:javascript_conceal_prototype      = "¶"
+let g:javascript_conceal_static         = "•"
+let g:javascript_conceal_super          = "Ω"
+let g:javascript_conceal_arrow_function = "⇒"
