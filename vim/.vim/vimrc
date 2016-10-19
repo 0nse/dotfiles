@@ -23,6 +23,11 @@ set nu
 " Syntax highlighting
 syntax on
 
+" show at least one line above the cursor (see tpope/vim-sensible)
+if !&scrolloff
+  set scrolloff=1
+endif
+
 " Colours
 if (has("termguicolors"))
   set termguicolors
