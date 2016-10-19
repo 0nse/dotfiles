@@ -327,7 +327,7 @@ function nvimrc {
 }
 
 alias vim=nvim
-alias ag='ag --nobreak --color-line-number="1;35" --color-path="0;35" --color'
+alias ag='ag --nobreak --color'
 
 # Switches between Java 8 and 7 iff these are the only two installed Java versions
 function switchJava {

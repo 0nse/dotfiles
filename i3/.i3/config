@@ -99,9 +99,9 @@ bindsym  ${SUPER}+minus       exec  ${SCRIPTS_DIR}/setDisplays.sh off
 floating_modifier ${SUPER}
 
 # start a terminal:
-bindsym  ${SUPER}+Return        exec  i3-sensible-terminal
-bindsym  ${SUPER}+Shift+Return  exec  xterm -fa 'Sourcecode Pro Semibold' -fs 8
-bindsym  ${SUPER}+KP_Enter      exec  i3-sensible-terminal
+bindsym  ${SUPER}+Return        exec  st
+bindsym  ${SUPER}+Shift+Return  exec  st -f "Source Code Pro:size=8:antialias=true:autohint=false"
+bindsym  ${SUPER}+KP_Enter      exec  st
 
 # launch/kill compton:
 bindcode ${SUPER}+$X        exec  ${SCRIPTS_DIR}/toggleProgramRunningState.sh compton
@@ -267,7 +267,7 @@ bindsym  ${CONTROL_R}+plus   exec  --no-startup-id  ${SCRIPTS_DIR}/setPowersave.
 # $''f is a workaround so that it will not get replaced by the definition of $F.
 # scrot sadly does not understand ${f}:
 bindsym  Print             exec  scrot -m -e 'mv $''f ~/Pictures/Screenshots/.'
-bindcode ${SUPER}+$C       exec  i3-sensible-terminal -e vim ~/.i3/config
+bindcode ${SUPER}+$C       exec  st -e nvim ~/.i3/config
 bindcode ${SUPER}+Shift+$V exec  x11vnc -display :0 -passwd `sed -n 2p ${HOME}/.configs` -ncache 10
 
 # volume control
@@ -290,8 +290,8 @@ bindcode  ${CONTROL_R}+$E  exec  mpc  next
 bindcode  ${CONTROL_R}+$Q  exec  mpc  prev
 
 # update:
-bindcode  ${SUPER}+$U        exec  i3-sensible-terminal -e sudo pacman -Syu
-bindcode  ${SUPER}+Shift+$U  exec  i3-sensible-terminal -e pacaur -Syu
+bindcode  ${SUPER}+$U        exec  st -e sudo pacman -Syu
+bindcode  ${SUPER}+Shift+$U  exec  st -e pacaur -Syu
 
 # adjustable borders:
 bindcode  ${SUPER}+$T   border  normal
@@ -360,14 +360,14 @@ bindsym  ctrl+2          exec  firejail firefox
 bindsym  ${ALT}+2        exec  firejail chromium
 bindsym  ctrl+${ALT}+2   exec  firejail tor-browser-en
 # use 'fixed' font for its vast support of non standard symbols:
-bindsym  ctrl+3          exec  xterm -fn 'fixed' -e ${SCRIPTS_DIR}/launchNcmpcpp.sh
-bindsym  ctrl+4          exec  i3-sensible-terminal -e vim
+bindsym  ctrl+3          exec  st -f 'fixed' -e ${SCRIPTS_DIR}/launchNcmpcpp.sh
+bindsym  ctrl+4          exec  st -e nvim
 bindsym  ctrl+5          exec  firejail thunderbird
 bindsym  ctrl+7          exec  firejail pidgin
 
 # top:
-bindsym  ctrl+Shift+Escape  exec  i3-sensible-terminal -e top
-bindsym  ${ALT}+Escape      exec  i3-sensible-terminal -e htop
+bindsym  ctrl+Shift+Escape  exec  st -e top
+bindsym  ${ALT}+Escape      exec  st -e htop
 
 #-------------------------------------------------------------------------------
 # i3bar
