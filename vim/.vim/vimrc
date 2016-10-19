@@ -1,3 +1,9 @@
+" Remap arrow keys to navigate through windows
+nmap <Left> <C-W>h
+nmap <Right> <C-W>l
+nmap <Up> <C-W>k
+nmap <Down> <C-W>j
+
 " Space as leader
 let mapleader = "\<space>"
 
