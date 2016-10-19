@@ -77,6 +77,15 @@ I recommend using [GNU Stow](https://www.gnu.org/software/stow/). With this appl
 * [ncmpcpp](http://ncmpcpp.rybczak.net/)
   * Custom key bindings (more `vim` like)
   * Custom UI colours
+* [nvim](https://neovim.io/)
+  * Enable undo support
+  * Loads of smaller tweaks and customisation
+  * Many plugins with sane defaults
+  * Load [vim-latexsuite](http://www.vim.org/scripts/script.php?script_id=475) and disable some of its features
+* [st](http://st.suckless.org/)
+  * Applied [st-vertcenter](http://st.suckless.org/patches/vertcenter)
+  * Slightly modified [Atom colours](https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/schemes/Atom.itermcolors)
+  * Use [profont](http://tobiasjung.name/profont/)
 * system
   * Enable Magic SysRQ key
   * Set journal max size
@@ -89,11 +98,6 @@ I recommend using [GNU Stow](https://www.gnu.org/software/stow/). With this appl
     * Allow connections in a local network to some socket addresses needed by various applications
 * [top](http://linux.about.com/od/commands/l/blcmdl1_top.htm)
   * 4 panels
-* [vim](http://www.vim.org/)
-  * Enable undo support
-  * Load [solarised theme](http://ethanschoonover.com/solarized)
-  * Load [vim-latexsuite](http://www.vim.org/scripts/script.php?script_id=475) and disable some of its features
-  * Loads of smaller tweaks and customisation
 * [vimperator](http://www.vimperator.org/vimperator/)
   * Somewhat [solarised theme](http://ethanschoonover.com/solarized) (modified)
   * Optimise GUI for space
