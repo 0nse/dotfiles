@@ -69,7 +69,7 @@ set  $C_CYAN               #2AA198
 set  $C_GREEN              #859900
 
 # define workspaces:
-set $WS1   "1:"
+set $WS1   ""
 set $WS13  " "
 set $WS15  " "
 set $WS17  " "
@@ -112,6 +112,8 @@ bindcode ${SUPER}+Shift+$Q kill
 # launch programs and switch windows using rofi:
 bindcode ${SUPER}+$D       exec rofi -show combi
 
+# find mouse:
+bindcode  ${ALT}+$F          exec  --no-startup-id find-cursor --size 220 --step 40 --speed 400 --line-width 2 --color green
 # emulate mouse:
 bindcode  ${ALT}+$H          exec  --no-startup-id  xdotool   mousemove_relative  --         -20     0
 bindcode  ${ALT}+$J          exec  --no-startup-id  xdotool   mousemove_relative  0          20
