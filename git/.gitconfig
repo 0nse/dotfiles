@@ -21,20 +21,22 @@
 [alias]
   commit = commit -S
   # git-number, see: https://github.com/holygeek/git-number
-  st = number -s
   a = number add
   ap = number add -p
-  r = number reset
+  ba = branch -avv
   ci = number commit -S
   co = number checkout
   d = number diff
-  nrm = number rm
   d = number diff
-  ll = log --pretty=format:%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn] --decorate --numstat
+  f = fetch
   ld = log --pretty=format:%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn] --decorate --date=short --graph
+  ll = log --pretty=format:%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn] --decorate --numstat
   ls = log --pretty=format:%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn] --decorate --date=relative
   ltag = "!git log --oneline --decorate=short | awk '/tag/ {print substr($3,0,(length($3)-1)) \"\\t\" $1 \"\\t\" ($1=$2=$3=\"\") $0}'"
-  undo = reset --soft 'HEAD^'
+  nrm = number rm
+  p = push
+  r = number reset
   redo = commit -c ORIG_HEAD
   ss = stash save --include-untracked
-  ba = branch -avv
+  st = number -s
+  undo = reset --soft 'HEAD^'
