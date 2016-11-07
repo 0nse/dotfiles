@@ -5,9 +5,9 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-// static char font[] = "Source Code Pro:antialias=true:autohint=true";
 static char font[] = "profont:pixelsize=12:antialias=false:autohint=false";
 static int borderpx = 2;
+#define histsize 2000
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -83,7 +83,7 @@ static char termname[] = "st-256color";
  */
 static unsigned int tabspaces = 8;
 
-/* Terminal colors (16 first used in escape sequence) 
+/* Terminal colors (16 first used in escape sequence)
  * Generated with Hodler (matttproud/hodler)
  * Based on Atom.xrdb (mbadolato/iTerm2-Color-Schemes)
  */
@@ -174,6 +174,8 @@ static Shortcut shortcuts[] = {
 	{ MODKEY|ShiftMask,     XK_C,           clipcopy,       {.i =  0} },
 	{ MODKEY|ShiftMask,     XK_V,           clippaste,      {.i =  0} },
 	{ MODKEY,               XK_Num_Lock,    numlock,        {.i =  0} },
+	{ MODKEY|ShiftMask,     XK_K,           kscrollup,      {.i = -1} },
+	{ MODKEY|ShiftMask,     XK_J,           kscrolldown,    {.i = -1} },
 };
 
 /*
