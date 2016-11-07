@@ -14,10 +14,10 @@ so $HOME/.vim/config/spell.vim
 so $HOME/.vim/config/plugins/vim-plug.vim
 so $HOME/.vim/config/plugins/deoplete.vim
 so $HOME/.vim/config/plugins/vim-css-color.vim
-so $HOME/.vim/config/plugins/ctrlp.vim
 so $HOME/.vim/config/plugins/neomake.vim
 so $HOME/.vim/config/plugins/vim-airline.vim
 so $HOME/.vim/config/plugins/onedark.vim
+so $HOME/.vim/config/plugins/fzf.vim
 so $HOME/.vim/config/plugins/vim-esearch.vim
 so $HOME/.vim/config/plugins/emmet-vim.vim
 so $HOME/.vim/config/plugins/latexsuite.vim
