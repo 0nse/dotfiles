@@ -87,6 +87,7 @@ I recommend using [GNU Stow](https://www.gnu.org/software/stow/). With this appl
   * Loads of smaller tweaks and customisation
   * Many plugins with sane defaults
 * [st](http://st.suckless.org/)
+  * Applied [st-scrollback](http://st.suckless.org/patches/scrollback) with a greater history size
   * Applied [st-vertcenter](http://st.suckless.org/patches/vertcenter)
   * Slightly modified [Atom colours](https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/schemes/Atom.itermcolors)
   * Use [profont](http://tobiasjung.name/profont/)
