@@ -5,6 +5,9 @@ This repository contains my dotfiles of which I still use (and improve) most.
 I recommend using [GNU Stow](https://www.gnu.org/software/stow/). With this application installed, using e.g. my bash dotfiles is as easy as executing `stow -t ~ bash` in the repository root. Nota bene: both `fonts` and `system` must be executed with the target directory parameter set to `/`. For more information, please refer to the [GNU Stow manual](https://www.gnu.org/software/stow/manual/stow.html).
 
 ## Included programs' dotfiles
+* [ag](http://betterthanack.com/)
+  * Basic  ignore file
+  * Other configuration can be found in `.bashrc` and `init.vim`
 * bash
   * General terminal configuration
   * Global variables
@@ -25,6 +28,8 @@ I recommend using [GNU Stow](https://www.gnu.org/software/stow/). With this appl
     * Delete Steam libraries after an update
     * En-/decrypt a file using [GNU Privacy Guard](https://gnupg.org/)
     * Connect to Internet via Ethernet or WiFi and disable the other
+    * Switch between Java versions easily
+    * Integrate [fzf](https://github.com/junegunn/fzf)
   * Load [PulseAudio](https://wiki.freedesktop.org/www/Software/PulseAudio/) and other programs when starting [X](http://www.x.org/wiki/)
   * Extend ANSI keyboard layout
     * Disable caps key
@@ -81,7 +86,6 @@ I recommend using [GNU Stow](https://www.gnu.org/software/stow/). With this appl
   * Enable undo support
   * Loads of smaller tweaks and customisation
   * Many plugins with sane defaults
-  * Load [vim-latexsuite](http://www.vim.org/scripts/script.php?script_id=475) and disable some of its features
 * [st](http://st.suckless.org/)
   * Applied [st-vertcenter](http://st.suckless.org/patches/vertcenter)
   * Slightly modified [Atom colours](https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/schemes/Atom.itermcolors)
