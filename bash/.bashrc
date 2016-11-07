@@ -349,3 +349,5 @@ function switchJava {
 function replaceInCurrentDir {
   find . -type f -print0 | xargs -0 sed -i 's/"${1}"/"${2}"/g'
 }
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

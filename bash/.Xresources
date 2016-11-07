@@ -78,27 +78,8 @@
 XTerm*utf8: 1
 XTerm*cursorBlink: false
 
-! uncomment for true type fonts:
-! XTerm*faceName: SourceCode Pro Semibold,unifont
-! XTerm*faceSize: 8
-! XTerm*scaleHeight: 1
-
-! Bitmap fonts:
-! this allows bolded text with Japanese characters:
-! XTerm*font: -gnu-unifont-medium-r-normal--16-160-75-75-c-80-iso10646-1
-! XTerm*font: -misc-fixed-medium-r-normal-*-13-*-*-*-*-iso10646-1
-! XTerm*boldFont: -misc-fixed-medium-r-normal-ja-13-120-75-75-c-120-iso10646-1
-! font fixes:
-! xterm*VT100*font:      -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
-! xterm*VT100*wideFont:  -misc-fixed-medium-r-normal-ja-13-125-75-75-c-120-iso10646-1
-! xterm*VT100*boldFont:  -misc-fixed-bold-r-semicondensed--13-120-75-75-c-60-iso10646-1
-! small, readable but no JAP:
-! XTerm*font: -*-clean-medium-r-normal-*-12-*-*-*-*-iso8859-1
-! too small font:
-! XTerm*font: -misc-fixed-medium-r-normal--9-90-75-75-c-60-iso10646-1
 XTerm*font: -nil-profont-medium-r-normal--12-120-72-72-c-60-*-*
 XTerm*font1: -misc-fixed-medium-r-semicondensed-12-110-75-75-c-60-*-*
-!XTerm*font: -*-ttyp0-medium-r-normal--12-*-*-*-*-*-*-*
 
 XTerm*highlightSelection: true
 XTerm*selectToClipoboard: true
@@ -129,7 +110,6 @@ Xft.lcdfilter: lcddefault
 ! Rofi
 rofi.font: Roboto 9
 rofi.color-normal: S_base03,S_base0,S_base02,S_blue,S_base2
-!greyish highlight: rofi.color-normal: S_base03,S_base0,S_base02,S_base0,S_base02
 rofi.color-active: S_base03,S_cyan,S_base02,S_cyan,S_base2
 rofi.color-urgent: S_base03,S_orange,S_base02,S_orange,S_base2
 rofi.color-window: S_base03,S_base01
