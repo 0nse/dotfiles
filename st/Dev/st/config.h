@@ -7,7 +7,7 @@
  */
 static char font[] = "profont:pixelsize=12:antialias=false:autohint=false";
 static int borderpx = 2;
-#define histsize 2000
+#define histsize 49600
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -88,27 +88,28 @@ static unsigned int tabspaces = 8;
  * Based on Atom.xrdb (mbadolato/iTerm2-Color-Schemes)
  */
 static const char *colorname[] = {
-	"#000000",		/* 0: ANSI Color 0 */
-	"#fc5ef0",		/* 1: ANSI Color 1 */
-	"#87c38a",		/* 2: ANSI Color 2 */
-	"#ffd7b1",		/* 3: ANSI Color 3 */
-	"#85befd",		/* 4: ANSI Color 4 */
-	"#b9b5fc",		/* 5: ANSI Color 5 */
-	"#85befd",		/* 6: ANSI Color 6 */
-	"#dfdfdf",		/* 7: ANSI Color 7 */
-	"#000000",		/* 8: ANSI Color 8 */
-	"#fc5ef0",		/* 9: ANSI Color 9 */
-	"#94f936",		/* 10: ANSI Color 10 */
-	"#f5ffa7",		/* 11: ANSI Color 11 */
-	"#96cbfe",		/* 12: ANSI Color 12 */
-	"#b9b5fc",		/* 13: ANSI Color 13 */
-	"#85befd",		/* 14: ANSI Color 14 */
-	"#dfdfdf",		/* 15: ANSI Color 15 */
+	"#282c34",		/* 0: Normal black */
+	"#be5046",		/* 1: Normal red */
+	"#98c379",		/* 2: Normal green */
+	"#d19a66",		/* 3: Normal yellow */
+	"#61afef",		/* 4: Normal blue */
+	"#c678dd",		/* 5: Normal magenta */
+	"#56b6c2",		/* 6: Normal cyan */
+	"#636d83",		/* 7: Normal white */
+	"#abb2bf",		/* 8: Bright black */
+	"#e06c75",		/* 9: Bright red */
+	"#94f936",		/* 10: Bright green */
+	"#e5c07b",		/* 11: Bright yellow */
+	"#96cbfe",		/* 12: Bright blue */
+	"#b9b5fc",		/* 13: Bright magenta */
+	"#85befd",		/* 14: Bright cyan */
+	"#dfdfdf",		/* 15: Bright white */
+  [237] = "#3e4452",
 	[255] = 0,
 	[256] = "#282c34",		/* 256: Background */
-	[257] = "#c5c8c6",		/* 257: Foreground */
-	[258] = "#d0d0d0",		/* 258: Cursor */
-	[259] = "#151515",		/* 259: Cursor Text */
+	[257] = "#abb2bf",		/* 257: Foreground */
+	[258] = "#636d83",		/* 258: Cursor */
+	[259] = "#abb2bf",		/* 259: Cursor Text */
 	/* No support for text highlight coloring; would be #c5c8c6. */
 	/* No support for highlight coloring; would be #444444. */
 	/* No support for bold coloring; would be #c5c8c6. */
