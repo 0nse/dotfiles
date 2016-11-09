@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
   Plug 'airblade/vim-gitgutter'
   Plug 'ap/vim-css-color'
+  Plug 'edkolev/promptline.vim'
   Plug 'eugen0329/vim-esearch'
   Plug 'gregsexton/gitv'
   Plug 'joshdick/onedark.vim'
@@ -16,5 +17,4 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'unblevable/quick-scope'
   Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
 call plug#end()

@@ -18,9 +18,6 @@ if [[ "$TERM" == xterm-color ]]; then
   color_prompt=yes
 fi
 
-# my configuration:
-PS1='\[\e[1;33m\][\[\e[0;36m\] \u\[\e[00m\]: \[\e[0;33m\]\w\[\e[00m\], \[\e[0;36m\]\t \[\e[1;33m\]]\[\e[00m\]\n\$ '
-
 export EDITOR="nvim"
 export TEXMFHOME=$HOME/.texmf-local
 # make QT5 applications use GTK theme:
@@ -351,3 +348,9 @@ function replaceInCurrentDir {
 }
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+if [ -f ~/.bash_promptline ]; then
+  source ~/.bash_promptline
+else
+  PS1='\[\e[1;33m\][\[\e[0;36m\] \u\[\e[00m\]: \[\e[0;33m\]\w\[\e[00m\], \[\e[0;36m\]\t \[\e[1;33m\]]\[\e[00m\]\n\$ '
+fi
