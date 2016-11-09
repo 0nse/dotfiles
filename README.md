@@ -9,7 +9,7 @@ I recommend using [GNU Stow](https://www.gnu.org/software/stow/). With this appl
   * Basic  ignore file
   * Other configuration can be found in `.bashrc` and `init.vim`
 * bash
-  * General terminal configuration
+  * General terminal configuration including promptline
   * Global variables
   * Functions
     * Set CPU frequency by changing its governor
@@ -29,14 +29,13 @@ I recommend using [GNU Stow](https://www.gnu.org/software/stow/). With this appl
     * En-/decrypt a file using [GNU Privacy Guard](https://gnupg.org/)
     * Connect to Internet via Ethernet or WiFi and disable the other
     * Switch between Java versions easily
-    * Integrate [fzf](https://github.com/junegunn/fzf)
+  * Integrate [fzf](https://github.com/junegunn/fzf)
   * Load [PulseAudio](https://wiki.freedesktop.org/www/Software/PulseAudio/) and other programs when starting [X](http://www.x.org/wiki/)
   * Extend ANSI keyboard layout
     * Disable caps key
     * Ensure altgr is loaded
     * Add `—`, `…`, `§`
     * Add `'`, `^`, \`
-    * Invert scrolling direction
   * [Solarised colours](http://ethanschoonover.com/solarized) and other configuration for [xterm](http://invisible-island.net/xterm/)
 * [Dunst](https://github.com/knopwob/dunst)
   * Position dunst notifications on top of the i3bar
@@ -93,6 +92,7 @@ I recommend using [GNU Stow](https://www.gnu.org/software/stow/). With this appl
   * Use [profont](http://tobiasjung.name/profont/)
 * system
   * Enable Magic SysRQ key
+  * Invert scrolling direction
   * Set journal max size
   * Don't suspend to RAM when laptop lid is closed
   * Load keyboard configuration automatically, when pok3r is connected
