@@ -362,7 +362,7 @@ bindsym  ctrl+2          exec  firejail firefox
 bindsym  ${ALT}+2        exec  firejail chromium
 bindsym  ctrl+${ALT}+2   exec  firejail tor-browser-en
 # use 'fixed' font for its vast support of non standard symbols:
-bindsym  ctrl+3          exec  st -f 'fixed' -e ${SCRIPTS_DIR}/launchNcmpcpp.sh
+bindsym  ctrl+3          exec  st -e ncmpcpp
 bindsym  ctrl+4          exec  st -e nvim
 bindsym  ctrl+5          exec  firejail thunderbird
 bindsym  ctrl+7          exec  firejail pidgin
