@@ -5,6 +5,7 @@ launchWM() {
       exec fluxbox
       ;;
     *)
+      compton &
       exec i3
       ;;
   esac

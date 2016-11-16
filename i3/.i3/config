@@ -297,10 +297,10 @@ bindcode  ${SUPER}+Shift+$U  exec  st -e pacaur -Syu
 
 # adjustable borders:
 bindcode  ${SUPER}+$T   border  normal
-bindcode  ${SUPER}+$Y   border  pixel 1
+bindcode  ${SUPER}+$Y   border  pixel 0
 # bindcode   ${SUPER}+$G   border  none
 # 1px borders by default
-new_window pixel 1
+new_window pixel 0
 # no borders if there is only one application on the workspace:
 smart_borders on
 # remove borders adjacent to the screen edges:
