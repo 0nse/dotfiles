@@ -12,23 +12,20 @@ I recommend using [GNU Stow](https://www.gnu.org/software/stow/). With this appl
   * General terminal configuration including promptline
   * Global variables
   * Functions
-    * Set CPU frequency by changing its governor
-    * Read and set [`vga_switcheroo`](http://gentoo-en.vfose.ru/wiki/Vga_switcheroo) status
-    * Set Radeon power mode
-    * Fix permissions on music directory
-    * Un-/mount LUKS encrypted device
     * Backup music
-    * Downsize album art
-    * Convert lossless M4A, FLAC or MP3 to OGG
     * Compute and add [ReplayGain](http://wiki.hydrogenaud.io/index.php?title=Replaygain) to audio files
-    * Screencast and save it as GIF
-    * Un/-mount an MTP device
-    * Optimise an Arch system
-    * Remove temporary LaTeX files
-    * Delete Steam libraries after an update
-    * En-/decrypt a file using [GNU Privacy Guard](https://gnupg.org/)
     * Connect to Internet via Ethernet or WiFi and disable the other
-    * Switch between Java versions easily
+    * Convert lossless M4A, FLAC or MP3 to OGG
+    * Delete Steam libraries after an update
+    * Downsize album art
+    * En-/decrypt a file using [GNU Privacy Guard](https://gnupg.org/)
+    * Optimise an Arch system
+    * Read and set [`vga_switcheroo`](http://gentoo-en.vfose.ru/wiki/Vga_switcheroo) status
+    * Remove temporary LaTeX files
+    * Set CPU frequency by changing its governor
+    * Set Radeon power mode
+    * Un-/mount LUKS encrypted device
+    * Un/-mount an MTP device
   * Integrate [fzf](https://github.com/junegunn/fzf)
   * Load [PulseAudio](https://wiki.freedesktop.org/www/Software/PulseAudio/) and other programs when starting [X](http://www.x.org/wiki/)
   * Extend ANSI keyboard layout
