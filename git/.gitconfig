@@ -34,6 +34,7 @@
   ltag = "!git log --oneline --decorate=short | awk '/tag/ {print substr($3,0,(length($3)-1)) \"\\t\" $1 \"\\t\" ($1=$2=$3=\"\") $0}'"
   nrm = number rm
   p = push
+  patch = --no-pager diff --no-color
   r = number reset
   rb = rebase
   redo = commit -c ORIG_HEAD
@@ -45,3 +46,5 @@
 	rebase = true
 [rebase]
 	autostash = true
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
