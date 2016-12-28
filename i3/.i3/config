@@ -51,7 +51,7 @@ set ${CONKY_DIR}        ${HOME}/.i3/conky
 set ${PLAY_TEST_SOUND} pacmd play-file /usr/share/sounds/bell.oga 1
 
 # define colours:
-set  $C_BASE_BROWN_BLACK   #002B36
+set  $C_BASE_BROWN_BLACK   #e8e8e8
 set  $C_BASE_BLACK         #073642
 set  $C_BASE_BROWN_GREEN   #586E75
 set  $C_BASE_BROWN_YELLOW  #657B83
@@ -68,26 +68,36 @@ set  $C_BLUE               #268BD2
 set  $C_CYAN               #2AA198
 set  $C_GREEN              #859900
 
-# define workspaces:
-set $WS1   ""
-set $WS13  " "
-set $WS15  " "
-set $WS17  " "
-set $WS20  " "
+# define workspaces for the case that they might change sometime
+set $WS1   number 1
+set $WS2   number 2
+set $WS3   number 3
+set $WS4   number 4
+set $WS5   number 5
+set $WS6   number 6
+set $WS7   number 7
+set $WS8   number 8
+set $WS9   number 9
+set $WS10  number 10
+set $WS11  number 11
+set $WS12  number 12
+set $WS13  number 13
+set $WS15  number 15
+set $WS16  number 16
+set $WS17  number 17
+set $WS18  number 18
+set $WS19  number 19
+set $WS20  number 20
+
+# Autostart
+# set ${AUTONAME_DIR} ${SCRIPTS_DIR}/autoname-workspaces
+# exec_always --no-startup-id ${AUTONAME_DIR}/bin/python ${AUTONAME_DIR}/i3-autoname-workspaces.py &
+exec_always --no-startup-id ${SCRIPTS_DIR}/autoname-workspaces/bin/python ${SCRIPTS_DIR}/autoname-workspaces/i3-autoname-workspaces.py &
 
 #-------------------------------------------------------------------------------
 # Fonts
 #-------------------------------------------------------------------------------
-# font -misc-fixed-medium-r-normal--12-120-75-75-C-70-iso10646-1
-# font -xos4-terminus-medium-*-*-*-12-*-*-*-*-iso10646-*
-# font -gnu-unifont-medium-r-normal--16-160-75-75-c-80-iso10646-1
-# font xft:Roboto 8
-font xft:FontAwesome, xft:Roboto 8
-#font -nil-profont-medium-r-normal--12-120-72-72-c-60-*-*
-# font -misc-ubuntu-medium-r-normal-*-0-0-0-0-p-0-iso10646-1
-# font -artwiz-anorexia-medium-r-normal--11-110-75-75-p-90-iso8859-1 # also works with cure and nu
-# font -artwiz-smoothansi.de-medium-r-normal--13-130-75-75-n-60-iso10646-1
-# font -artwiz-drift-*-*-*-*-*-*-*-*-*-*-iso10646-1
+font xft:FontAwesome 6
 
 # add or remove laptop display (plus is listed twice to also work on en
 # layouts):
@@ -189,39 +199,39 @@ bindcode ${SUPER}+$Z focus child
 
 # switch to workspace:
 bindsym   ${SUPER}+1                  workspace  $WS1
-bindsym   ${SUPER}+2                  workspace  number 2
-bindsym   ${SUPER}+3                  workspace  number 3
-bindsym   ${SUPER}+4                  workspace  number 4
-bindsym   ${SUPER}+5                  workspace  number 5
-bindsym   ${SUPER}+6                  workspace  number 6
-bindsym   ${SUPER}+7                  workspace  number 7
-bindsym   ${SUPER}+8                  workspace  number 8
-bindsym   ${SUPER}+9                  workspace  number 9
-bindsym   ${SUPER}+0                  workspace  number 10
-bindsym   ${SUPER}+ctrl+1             workspace  number 11
-bindsym   ${SUPER}+ctrl+2             workspace  number 12
+bindsym   ${SUPER}+2                  workspace  $WS2
+bindsym   ${SUPER}+3                  workspace  $WS3
+bindsym   ${SUPER}+4                  workspace  $WS4
+bindsym   ${SUPER}+5                  workspace  $WS5
+bindsym   ${SUPER}+6                  workspace  $WS6
+bindsym   ${SUPER}+7                  workspace  $WS7
+bindsym   ${SUPER}+8                  workspace  $WS8
+bindsym   ${SUPER}+9                  workspace  $WS9
+bindsym   ${SUPER}+0                  workspace  $WS10
+bindsym   ${SUPER}+ctrl+1             workspace  $WS11
+bindsym   ${SUPER}+ctrl+2             workspace  $WS12
 bindsym   ${SUPER}+ctrl+3             workspace  $WS13
-bindsym   ${SUPER}+ctrl+4             workspace  number 14
+bindsym   ${SUPER}+ctrl+4             workspace  $WS14
 bindsym   ${SUPER}+ctrl+5             workspace  $WS15
-bindsym   ${SUPER}+ctrl+6             workspace  number 16
+bindsym   ${SUPER}+ctrl+6             workspace  $WS16
 bindsym   ${SUPER}+ctrl+7             workspace  $WS17
-bindsym   ${SUPER}+ctrl+8             workspace  number 18
-bindsym   ${SUPER}+ctrl+9             workspace  number 19
+bindsym   ${SUPER}+ctrl+8             workspace  $WS18
+bindsym   ${SUPER}+ctrl+9             workspace  $WS19
 bindsym   ${SUPER}+ctrl+0             workspace  $WS20
 bindcode  ${SUPER}+${DEAD_CIRCUMFLEX} workspace  back_and_forth
 bindsym   ${SUPER}+Escape             workspace  back_and_forth
 
 # move focused container to workspace:
 bindcode  ${SUPER}+Shift+${EXCLAM}     move container to workspace  $WS1
-bindcode  ${SUPER}+Shift+${AT}         move container to workspace  number 2
-bindcode  ${SUPER}+Shift+${HASHTAG}    move container to workspace  number 3
-bindcode  ${SUPER}+Shift+${DOLLAR}     move container to workspace  number 4
-bindcode  ${SUPER}+Shift+${PERCENT}    move container to workspace  number 5
-bindcode  ${SUPER}+Shift+${HAT}        move container to workspace  number 6
-bindcode  ${SUPER}+Shift+${AMPERSAND}  move container to workspace  number 7
-bindcode  ${SUPER}+Shift+${ASTERISK}   move container to workspace  number 8
-bindcode  ${SUPER}+Shift+${PARENLEFT}  move container to workspace  number 9
-bindcode  ${SUPER}+Shift+${PARENRIGHT} move container to workspace  number 10
+bindcode  ${SUPER}+Shift+${AT}         move container to workspace  $WS2
+bindcode  ${SUPER}+Shift+${HASHTAG}    move container to workspace  $WS3
+bindcode  ${SUPER}+Shift+${DOLLAR}     move container to workspace  $WS4
+bindcode  ${SUPER}+Shift+${PERCENT}    move container to workspace  $WS5
+bindcode  ${SUPER}+Shift+${HAT}        move container to workspace  $WS6
+bindcode  ${SUPER}+Shift+${AMPERSAND}  move container to workspace  $WS7
+bindcode  ${SUPER}+Shift+${ASTERISK}   move container to workspace  $WS8
+bindcode  ${SUPER}+Shift+${PARENLEFT}  move container to workspace  $WS9
+bindcode  ${SUPER}+Shift+${PARENRIGHT} move container to workspace  $WS10
 
 # reload the configuration file:
 bindcode ${SUPER}+Shift+$C reload
@@ -238,12 +248,6 @@ bindsym ${SUPER}+n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
 # resize window (you can also use the mouse for that):
 mode "resize" {
-  # These bindings trigger as soon as you enter the resize mode
-
-  # Pressing left will shrink the window’s width.
-  # Pressing right will grow the window’s width.
-  # Pressing up will shrink the window’s height.
-  # Pressing down will grow the window’s height.
   bindcode  $H  resize  shrink  width   10  px  or  10  ppt
   bindcode  $J  resize  grow    height  10  px  or  10  ppt
   bindcode  $K  resize  shrink  height  10  px  or  10  ppt
@@ -317,7 +321,7 @@ bindcode  ${SUPER}+ctrl+$L      move workspace to output right
 
 # scratchpad:
 bindcode  ${SUPER}+$P         move scratchpad
-bindcode  ${SUPER}+$O         [class="Pidgin" window_role="conversation"]      scratchpad show
+bindcode  ${SUPER}+$O         [class="TelegramDesktop"]                        scratchpad show
 bindcode  ${SUPER}+$I         [class="XTerm"]                                  scratchpad show
 bindcode  ${SUPER}+Shift+$P   scratchpad show
 
@@ -339,18 +343,18 @@ for_window  [instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"]              float
 for_window  [instance="Enigmail"]                                          floating enable
 # set size for floats and start on scratchpad
 for_window [class="Pidgin" window_role="conversation"]                     move scratchpad; scratchpad show; resize set 600 300; move position center
+for_window [class="TelegramDesktop"]                                       move scratchpad; scratchpad show; resize set 800 600; move position center
 # fix a displaying bug:
 for_window  [class="Firefox"]                                              fullscreen, fullscreen
 # disable floating or it will be of size 1x1
 for_window  [class="sun-awt-X11-XDialogPeer"]                              floating disable
 # for_window [class="XTerm" instance="xtermTop"] floating enable
 # launch certain programs on predefined workspaces:
-assign [class="Firefox"             window_role="browser"]                 $WS1
-assign [class="Thunderbird"         window_role="3pane"]                   $WS15
-assign [class="Pidgin"              window_role="buddy_list"]              $WS17
+assign [class="Firefox"             window_role="browser"]                 1
+assign [class="Thunderbird"         window_role="3pane"]                   15
+assign [class="Pidgin"              window_role="buddy_list"]              17
 # Spotify and Deezer:
-assign [instance="crx_cnkjkdjlofllcpbemipjbcpfnglbgieh"]                   $WS13
-assign [instance="crx_npfkoakaabdallkcdbpkkhfilkkngakh"]                   $WS13
+assign [class="Google Play Music Desktop Player"]                          13
 
 #-------------------------------------------------------------------------------
 # Program shortcuts
@@ -363,6 +367,7 @@ bindsym  ${ALT}+2        exec  firejail chromium
 bindsym  ctrl+${ALT}+2   exec  firejail tor-browser-en
 # use 'fixed' font for its vast support of non standard symbols:
 bindsym  ctrl+3          exec  st -e ncmpcpp
+bindsym  ${ALT}+3        exec  gpmdp
 bindsym  ctrl+4          exec  st -e nvim
 bindsym  ctrl+5          exec  firejail thunderbird
 bindsym  ctrl+7          exec  firejail pidgin
@@ -375,17 +380,19 @@ bindsym  ${ALT}+Escape      exec  st -e htop
 # i3bar
 #-------------------------------------------------------------------------------
 bar {
+  i3bar_command           i3bar -t
   status_command          ${CONKY_DIR}/conkyJSON.sh
   position                top
+  height                  12
   strip_workspace_numbers no
   colors {
 #   class               border               background           text
     background          $C_BASE_BROWN_BLACK
     separator           $C_BASE_BLACK
     active_workspace    $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_MAGENTA
-    focused_workspace   $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_WHITE
+    focused_workspace   $C_BLUE  $C_BLUE  $C_BASE_WHITE
     inactive_workspace  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_GREEN
-    urgent_workspace    $C_BLUE              $C_BLUE              $C_BASE_BROWN_BLACK
+    urgent_workspace    $C_ORANGE            $C_ORANGE            $C_BASE_BROWN_BLACK
   }
 }
 

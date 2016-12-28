@@ -90,7 +90,7 @@ ${endif},\
 "align": "center",\
 "separator": false,\
 ${if_match ${battery_percent BAT1} < 10}"urgent": true,${endif}\
-"color": "\#EEE8D5"\
+"color": "\#586E75"\
 },\
 {\
 "full_text": "  ${time %a, %d. %b %k:%M}",\
