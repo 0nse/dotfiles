@@ -1,5 +1,5 @@
 function sourceConfig () {
-  source .bash/"${1}".bash
+  source $HOME/.bash/"${1}".bash
 }
 
 function sourceScript () {
@@ -12,6 +12,7 @@ sourceConfig "exports"
 sourceConfig "history"
 sourceConfig "prompt"
 sourceScript "clean"
+sourceScript "enhancd"
 sourceScript "fzf"
 sourceScript "gpg"
 sourceScript "mount"

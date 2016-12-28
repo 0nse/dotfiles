@@ -1,5 +1,7 @@
-if [ -f ~/.fzf.bash ]; then
-  source ~/.fzf.bash
+path=$HOME/.fzf.bash
+
+if [ -f "${path}" ]; then
+  source "${path}"
   export FZF_DEFAULT_COMMAND='ag -l -g ""'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   # export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
