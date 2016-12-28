@@ -1,4 +1,5 @@
 autocmd! BufReadPost * Neomake
+autocmd! BufWritePost * Neomake
 " open quickfix window but keep focus on buffer
 let g:neomake_open_list=2
 let g:neomake_javascript_enabled_makers = ['eslint']
