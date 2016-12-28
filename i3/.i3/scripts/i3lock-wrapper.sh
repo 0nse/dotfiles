@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 TEMP_FILE=/tmp/screen_lock.png
+SCRIPTS_DIR=`configs/getScriptsDir.sh`
 
 toggleUnclutter() {
   # We kill and relaunch unclutter because it leaks memory. This way it will
