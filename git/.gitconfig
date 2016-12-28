@@ -41,3 +41,7 @@
   ss = stash save --include-untracked
   st = number -s
   undo = reset --soft 'HEAD^'
+[pull]
+	rebase = true
+[rebase]
+	autostash = true
