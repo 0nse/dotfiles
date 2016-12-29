@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# set this directory as current working directory:
+cd "$(dirname "$0")"
+
 TEMP_FILE=/tmp/screen_lock.png
 SCRIPTS_DIR=`configs/getScriptsDir.sh`
 
