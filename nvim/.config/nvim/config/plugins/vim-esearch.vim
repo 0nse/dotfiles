@@ -1,5 +1,5 @@
 let g:esearch = {
-  \ 'adapter': 'ag',
+  \ 'adapter': 'rg',
   \ 'backend': 'nvim',
   \ 'out':     'win',
   \ 'use':     ['visual', 'hlsearch', 'last'],
