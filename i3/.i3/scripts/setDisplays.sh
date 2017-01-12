@@ -1,12 +1,5 @@
 #!/bin/bash
-#WALLPAPER=$HOME/Pictures/wallpaper/OS/archbg.png
-#WALLPAPER=$HOME/Pictures/wallpaper/Minimal/076_9y3lyMI.png
-#WALLPAPER=$HOME/Pictures/wallpaper/Motivational/1360848659695.jpg
-#WALLPAPER=$HOME/Pictures/wallpaper/Motivational/Ja4WRUp.jpg
-#WALLPAPER=$HOME/Pictures/wallpaper/Landschaft+Wasser/papers.co-mo99-water-texture-flare-summer-wave-nature-sea.jpg
-WALLPAPER=$HOME/Pictures/wallpaper/Landschaft+Wasser/TxwQYcL.png
-#WALLPAPER=$HOME/Pictures/wallpaper/Nerdy/2014-12-10-224223_1920x1080_scrot.png
-#WALLPAPER=$HOME/Pictures/wallpaper/Nerdy/tw_35125b376a289ae4ca2009674fb9e238.jpg
+WALLPAPER=$HOME/Pictures/wallpaper/OS/wallpaper_approved3.jpg
 
 if [[ $1 == "reset" ]]; then
   xrandr --output LVDS --primary --mode 1366x768
