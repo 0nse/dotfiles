@@ -19,12 +19,13 @@
   keepBackup = false
   prompt = false
 [alias]
-  commit = commit -S
+  commit = commit -S --verbose
   # git-number, see: https://github.com/holygeek/git-number
   a = number add
   ap = number add -p
   ba = branch -avv
-  ci = number commit -S
+  ci = number commit -S --verbose
+  cia = number commit -a -S --verbose
   co = number checkout
   d = number diff
   f = fetch
@@ -37,7 +38,7 @@
   patch = --no-pager diff --no-color
   r = number reset
   rb = rebase
-  redo = commit -c ORIG_HEAD
+  redo = commit -s -c ORIG_HEAD
   sp = stash pop
   ss = stash save --include-untracked
   st = number -s
