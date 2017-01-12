@@ -120,7 +120,7 @@ bindcode ${SUPER}+$X        exec  ${SCRIPTS_DIR}/toggleProgramRunningState.sh co
 bindcode ${SUPER}+Shift+$Q kill
 
 # launch programs and switch windows using rofi:
-bindcode ${SUPER}+$D       exec rofi -show combi
+bindcode ${SUPER}+$D       exec rofi -show combi -matching fuzzy
 
 # find mouse:
 bindcode  ${ALT}+$F          exec  --no-startup-id find-cursor --size 220 --step 40 --speed 400 --line-width 2 --color green

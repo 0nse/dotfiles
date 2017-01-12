@@ -116,3 +116,4 @@ rofi.color-window: S_base03,S_base01
 rofi.separator-style: none
 rofi.modi: window,run,ssh,combi
 rofi.hide-scrollbar: true
+rofi.sidebar-mode: false
