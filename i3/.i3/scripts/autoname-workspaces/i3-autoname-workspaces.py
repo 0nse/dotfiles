@@ -34,20 +34,21 @@ FA_PICTURE_O = '\uf03e'
 FA_UNLOCK_ALT = '\uf13e'
 FA_TERMINAL = '\uf120'
 WINDOW_ICONS = {
-    'st-256color': FA_TERMINAL,
-    'chromium': FA_CHROME,
-    'nvim': FA_CODE,
-    'google play music desktop player': FA_HEADPHONES,
-    'Firefox': FA_FIREFOX,
-    'libreoffice': FA_FILE_TEXT_O,
-    'Mail': FA_ENVNELOPE_O,
-    'feh': FA_PICTURE_O,
-    'zathura': FA_FILE_PDF_O,
-    'PDFXCview.exe': FA_FILE_PDF_O,
-    'spacefm': FA_FILES_O,
-    'telegram-desktop': FA_COMMENT_O,
-    'keepassx': FA_UNLOCK_ALT,
-    'gimp': FA_FILE_IMAGE_O,
+    'st-256color':                          FA_TERMINAL,
+    'chromium':                             FA_CHROME,
+    'nvim':                                 FA_CODE,
+    'google play music desktop player':     FA_HEADPHONES,
+    'Firefox':                              FA_FIREFOX,
+    'libreoffice':                          FA_FILE_TEXT_O,
+    'Mail':                                 FA_ENVNELOPE_O,
+    'feh':                                  FA_PICTURE_O,
+    'zathura':                              FA_FILE_PDF_O,
+    'PDFXCview.exe':                        FA_FILE_PDF_O,
+    'spacefm':                              FA_FILES_O,
+    'crx_bikioccmkafdpakkkcpdbppfkghcmihk': FA_COMMENT_O,
+    'telegram-desktop':                     FA_COMMENT_O,
+    'keepassx':                             FA_UNLOCK_ALT,
+    'gimp':                                 FA_FILE_IMAGE_O,
 }
 
 
