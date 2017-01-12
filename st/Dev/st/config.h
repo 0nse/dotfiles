@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char font[] = "profont:pixelsize=12:antialias=false:autohint=false";
+static char font[] = "Source Code Pro:pixelsize=9:antialias=false:autohint=false";
 static int borderpx = 2;
 #define histsize 49600
 

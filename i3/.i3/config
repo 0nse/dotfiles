@@ -110,7 +110,7 @@ floating_modifier ${SUPER}
 
 # start a terminal:
 bindsym  ${SUPER}+Return        exec  st
-bindsym  ${SUPER}+Shift+Return  exec  st -f "Source Code Pro:size=8:antialias=true:autohint=false"
+bindsym  ${SUPER}+Shift+Return  exec  st -f "profont:size=8:antialias=true:autohint=false"
 bindsym  ${SUPER}+KP_Enter      exec  st
 
 # launch/kill compton:
