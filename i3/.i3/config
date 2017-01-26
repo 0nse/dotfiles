@@ -90,9 +90,7 @@ set $WS19  number 19
 set $WS20  number 20
 
 # Autostart
-# set ${AUTONAME_DIR} ${SCRIPTS_DIR}/autoname-workspaces
-# exec_always --no-startup-id ${AUTONAME_DIR}/bin/python ${AUTONAME_DIR}/i3-autoname-workspaces.py &
-exec_always --no-startup-id ${SCRIPTS_DIR}/autoname-workspaces/bin/python ${SCRIPTS_DIR}/autoname-workspaces/i3-autoname-workspaces.py &
+exec_always --no-startup-id ${SCRIPTS_DIR}/polybar.sh
 
 #-------------------------------------------------------------------------------
 # Fonts
@@ -375,26 +373,6 @@ bindsym  ctrl+7          exec  firejail pidgin
 # top:
 bindsym  ctrl+Shift+Escape  exec  st -e top
 bindsym  ${ALT}+Escape      exec  st -e htop
-
-#-------------------------------------------------------------------------------
-# i3bar
-#-------------------------------------------------------------------------------
-bar {
-  i3bar_command           i3bar -t
-  status_command          ${CONKY_DIR}/conkyJSON.sh
-  position                top
-  height                  12
-  strip_workspace_numbers no
-  colors {
-#   class               border               background           text
-    background          $C_BASE_BROWN_BLACK
-    separator           $C_BASE_BLACK
-    active_workspace    $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_MAGENTA
-    focused_workspace   $C_BLUE  $C_BLUE  $C_BASE_WHITE
-    inactive_workspace  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_BLACK  $C_BASE_BROWN_GREEN
-    urgent_workspace    $C_ORANGE            $C_ORANGE            $C_BASE_BROWN_BLACK
-  }
-}
 
 #-------------------------------------------------------------------------------
 # Decoration colours
