@@ -19,6 +19,7 @@ sourceScript "mount"
 sourceScript "music"
 sourceScript "network"
 sourceScript "power"
+sourceScript "ranger"
 sourceScript "vim"
 
 function rest {
