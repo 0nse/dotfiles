@@ -117,3 +117,11 @@ rofi.separator-style: none
 rofi.modi: window,run,ssh,combi
 rofi.hide-scrollbar: true
 rofi.sidebar-mode: false
+
+! Font configuration for programs that don't support fontconfig
+Xft.hinting: 1
+Xft.hintstyle: hintfull
+Xft.antialias: 1
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+Xft.autohint: 0
