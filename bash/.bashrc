@@ -26,3 +26,5 @@ function rest {
   st &
   exit
 }
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
