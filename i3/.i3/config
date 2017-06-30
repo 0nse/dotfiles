@@ -51,22 +51,22 @@ set ${CONKY_DIR}        ${HOME}/.i3/conky
 set ${PLAY_TEST_SOUND} pacmd play-file /usr/share/sounds/bell.oga 1
 
 # define colours:
-set  $C_BASE_BROWN_BLACK   #e8e8e8
+set  $C_BASE_BROWN_BLACK   #282c34
 set  $C_BASE_BLACK         #073642
 set  $C_BASE_BROWN_GREEN   #586E75
 set  $C_BASE_BROWN_YELLOW  #657B83
 set  $C_BASE_BROWN_BLUE    #839496
 set  $C_BASE_BROWN_CYAN    #93A1A1
-set  $C_BASE_WHITE         #EEE8D5
-set  $C_BASE_BROWN_WHITE   #FDF6E3
-set  $C_YELLOW             #B58900
+set  $C_BASE_WHITE         #abb2bf
+set  $C_BASE_BROWN_WHITE   #dfdfdf
+set  $C_YELLOW             #d19a66
 set  $C_ORANGE             #CB4B16
-set  $C_RED                #DC322F
-set  $C_MAGENTA            #D33682
+set  $C_RED                #be5046
+set  $C_MAGENTA            #c678dd
 set  $C_VIOLET             #6C71C4
-set  $C_BLUE               #268BD2
-set  $C_CYAN               #2AA198
-set  $C_GREEN              #859900
+set  $C_BLUE               #61afef
+set  $C_CYAN               #56b6c2
+set  $C_GREEN              #94f936
 
 # define workspaces for the case that they might change sometime
 set $WS1   number 1
