@@ -3,4 +3,3 @@ set recolor-darkcolor          "#839496"
 set highlight-transparency     0.2
 set highlight-color            "#268BD2"
 set highlight-active-color     "00FF00"
-set recolor                    "true"
