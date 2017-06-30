@@ -173,10 +173,7 @@ bindcode ${SUPER}+${SEMICOLON} split h
 bindcode ${SUPER}+$V split v
 
 # enter fullscreen mode for the focused container:
-bindcode  ${SUPER}+Shift+$F  fullscreen
-# enter pseudo fullscreen mode, where we place the window onto a free workspace
-# to keep i3bar visible:
-bindcode  ${SUPER}+$F        move container to workspace $WS20; workspace $WS20
+bindcode  ${SUPER}+$F  fullscreen
 
 # change container layout (stacked, tabbed, default):
 bindcode ${SUPER}+$S layout stacking
@@ -368,7 +365,7 @@ bindsym  ctrl+3          exec  st -e ncmpcpp
 bindsym  ${ALT}+3        exec  gpmdp
 bindsym  ctrl+4          exec  st -e nvim
 bindsym  ctrl+5          exec  firejail thunderbird
-bindsym  ctrl+7          exec  firejail pidgin
+bindsym  ctrl+7          exec  telegram
 
 # top:
 bindsym  ctrl+Shift+Escape  exec  st -e top
