@@ -1,5 +1,9 @@
 # Optimises pacman and its caches and also deletes unused locales.
 function optimiseSystem {
+  echo 'Seemingly unused packages:'
+  pacman -Qdt
+  echo 'Only continue if you want these packages removed!'
+  sudo pacman -Rsn $(pacman -Qdtq)
   sudo pkgcacheclean
   sudo pacman-optimize
   sudo sync
