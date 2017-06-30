@@ -18,9 +18,8 @@
 # allow SSH:
 -A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.0.21 -p tcp --dport 519 -j ACCEPT
 -A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.0.227 -p tcp --dport 519 -j ACCEPT
-# allow VPN (not working):
-#-A FORWARD -m state --state NEW,ESTABLISHED,RELATED --source 141.26.64.127 -p tcp --dport 1723 -j ACCEPT
-#-A FORWARD -m state --state NEW,ESTABLISHED,RELATED --source 141.26.64.127 -p 47 -j ACCEPT
+# allow CALDAV/CARDDAV:
+-A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.0.0/24 -p tcp --dport 5232 -j ACCEPT
 # allow VNC:
 -A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.0.21 -p tcp --dport 5900 -j ACCEPT
 -A INPUT -m state --state NEW,ESTABLISHED,RELATED --source 192.168.0.227 -p tcp --dport 5900 -j ACCEPT
