@@ -20,6 +20,8 @@ call Source('performance')
 call Source('filetypes')
 call Source('menu')
 call Source('spell')
+call Source('tab')
+call Source('terminal')
 " Plugins
 call SourcePlugin('vim-plug')
 call SourcePlugin('deoplete')

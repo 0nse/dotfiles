@@ -6,6 +6,9 @@ noremap <silent> k gk
 noremap <silent> G G$
 noremap <silent> gg gg0
 
+" Escape removes search highlights and unfocuses neovim terminals
+noremap <Esc> :noh<CR>
+
 " By default you can't backspace over auto-indentation, previous edits or line
 " breaks. So change it if necessary
 set backspace=indent,eol,start
