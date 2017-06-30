@@ -28,3 +28,5 @@ function rest {
 }
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+sourceConfig "nvim"
