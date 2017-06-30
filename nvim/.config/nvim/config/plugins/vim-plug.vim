@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'pangloss/vim-javascript'
   Plug 'rbgrouleff/bclose.vim'
   Plug 'romainl/vim-qf'
+  Plug 'sbdchd/neoformat'
   Plug 'tpope/vim-fugitive'
   Plug 'unblevable/quick-scope'
   Plug 'vim-airline/vim-airline'
