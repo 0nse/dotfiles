@@ -45,10 +45,10 @@ padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Source Code Pro:pixelsize=8;1:fontformat=truetype
-font-1 = FontAwesome:pixelsize=8;-1:fontformat=truetype
-font-2 = fixed:pixelsize=8;1
-font-3 = Wuncon Siji:pixelsize=8;1
+font-0 = Source Code Pro:pixelsize=6;1:fontformat=truetype
+font-1 = FontAwesome:pixelsize=6;1:fontformat=truetype
+font-2 = fixed:pixelsize=6;1
+font-3 = Wuncon Siji:pixelsize=6;2
 
 modules-left = i3
 modules-center = xwindow
@@ -58,7 +58,7 @@ tray-position = right
 tray-padding = 2
 tray-transparent = false
 tray-background = ${colors.background}
-tray-scale = 0.8
+tray-scale = 1.0
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -110,7 +110,7 @@ pin-workspaces = true
 
 strip-wsnumbers = false
 
-label-focused = %index%
+label-focused = %name%
 label-focused-background = ${colors.background-transparent}
 label-focused-underline=
 label-focused-padding = 1
@@ -123,7 +123,7 @@ label-urgent-foreground =
 label-urgent-background = ${colors.red}
 label-urgent-padding = 1
 
-label-visible = %index%
+label-visible = %name%
 label-visible-background = ${colors.background-alt}
 label-visible-underline =
 label-visible-padding = 1
@@ -194,7 +194,7 @@ format-connected-prefix-foreground = ${colors.foreground-alt}
 format-connected-underline =
 format-disconnected-underline =
 
-label-connected = %upspeed% %downspeed%
+label-connected = %downspeed% %upspeed%
 label-disconnected =
 label-disconnected-foreground =
 
@@ -268,14 +268,14 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
-battery = BAT0
+battery = BAT1
 adapter = ACAD
 full-at = 98
 
 format-charging = <animation-charging>
 format-charging-underline =
 
-format-discharging = <ramp-capacity>
+format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline =
 
 format-full-prefix = " "
@@ -286,7 +286,7 @@ ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
-ramp-capacity-4 = ${self.format-full-prefix}
+ramp-capacity-4 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
 animation-charging-0 = ${self.ramp-capacity-0}
