@@ -107,9 +107,9 @@ bindsym  ${SUPER}+equal    exec  ${SCRIPTS_DIR}/setDisplays.sh reset
 floating_modifier ${SUPER}
 
 # start a terminal:
-bindsym  ${SUPER}+Return        exec  st
+bindsym  ${SUPER}+Return        exec  i3-sensible-terminal
 bindsym  ${SUPER}+Shift+Return  exec  st -f "profont:size=8:antialias=true:autohint=false"
-bindsym  ${SUPER}+KP_Enter      exec  st
+bindsym  ${SUPER}+KP_Enter      exec  i3-sensible-terminal
 
 # launch/kill compton:
 bindcode ${SUPER}+$X        exec  ${SCRIPTS_DIR}/toggleProgramRunningState.sh compton
@@ -268,7 +268,7 @@ bindsym  ${CONTROL_R}+plus   exec  --no-startup-id  ${SCRIPTS_DIR}/setPowersave.
 # $''f is a workaround so that it will not get replaced by the definition of $F.
 # scrot sadly does not understand ${f}:
 bindsym  Print             exec  scrot -m -e 'mv $''f ~/Pictures/Screenshots/.'
-bindcode ${SUPER}+$C       exec  st -e nvim ~/.i3/config
+bindcode ${SUPER}+$C       exec  i3-sensible-terminal -e 'nvim ~/.i3/config'
 bindcode ${SUPER}+Shift+$V exec  x11vnc -display :0 -passwd `sed -n 2p ${HOME}/.configs` -ncache 10
 
 # volume control
@@ -291,8 +291,8 @@ bindcode  ${CONTROL_R}+$E  exec  mpc  next
 bindcode  ${CONTROL_R}+$Q  exec  mpc  prev
 
 # update:
-bindcode  ${SUPER}+$U        exec  st -e sudo pacman -Syu
-bindcode  ${SUPER}+Shift+$U  exec  st -e pacaur -Syu
+bindcode  ${SUPER}+$U        exec  i3-sensible-terminal -e 'sudo pacman -Syu'
+bindcode  ${SUPER}+Shift+$U  exec  i3-sensible-terminal -e 'pacaur -Syu'
 
 # adjustable borders:
 bindcode  ${SUPER}+$T   border  normal
@@ -361,15 +361,15 @@ bindsym  ctrl+2          exec  firejail firefox
 bindsym  ${ALT}+2        exec  firejail chromium
 bindsym  ctrl+${ALT}+2   exec  firejail tor-browser-en
 # use 'fixed' font for its vast support of non standard symbols:
-bindsym  ctrl+3          exec  st -e ncmpcpp
+bindsym  ctrl+3          exec  i3-sensible-terminal -e ncmpcpp
 bindsym  ${ALT}+3        exec  gpmdp
-bindsym  ctrl+4          exec  st -e nvim
+bindsym  ctrl+4          exec  i3-sensible-terminal -e 'NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim'
 bindsym  ctrl+5          exec  firejail thunderbird
 bindsym  ctrl+7          exec  telegram
 
 # top:
-bindsym  ctrl+Shift+Escape  exec  st -e top
-bindsym  ${ALT}+Escape      exec  st -e htop
+bindsym  ctrl+Shift+Escape  exec  i3-sensible-terminal -e top
+bindsym  ${ALT}+Escape      exec  i3-sensible-terminal -e htop
 
 #-------------------------------------------------------------------------------
 # Decoration colours
