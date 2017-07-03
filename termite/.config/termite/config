@@ -1,0 +1,83 @@
+[options]
+font = Sauce Code Powerline 9px
+
+allow_bold           = false
+#audible_bell        = false
+#clickable_url       = true
+#dynamic_title       = true
+#fullscreen          = true
+#geometry            = 640x480
+#icon_name           = terminal
+#mouse_autohide      = false
+#scroll_on_output    = false
+#scroll_on_keystroke = true
+# Length of the scrollback buffer, 0 disabled the scrollback buffer
+# and setting it to a negative value means "infinite scrollback"
+scrollback_lines     = 10000
+#search_wrap         = true
+#urgent_on_bell      = true
+
+# $BROWSER is used by default if set, with xdg-open as a fallback
+browser             = firejail chromium
+
+# "system", "on" or "off"
+#cursor_blink = system
+
+# "block", "underline" or "ibeam"
+#cursor_shape = block
+
+# Hide links that are no longer valid in url select overlay mode
+#filter_unmatched_urls = true
+
+# Emit escape sequences for extra modified keys
+#modify_other_keys = false
+
+# set size hints for the window
+#size_hints = false
+
+[colors]
+# If both of these are unset, cursor falls back to the foreground color,
+# and cursor_foreground falls back to the background color.
+#cursor = #dcdccc
+#cursor_foreground = #dcdccc
+
+foreground = #abb2bf
+#foreground_bold = #ffffff
+background = #282c34
+
+# 20% background transparency (requires a compositor)
+#background = rgba(63, 63, 63, 0.8)
+
+# If unset, will reverse foreground and background
+highlight = #d19a66
+
+# Colors from color0 to color254 can be set
+color0 = #282c34
+color1 = #be5046
+color2 = #98c379
+color3 = #d19a66
+color4 = #61afef
+color5 = #c678dd
+color6 = #56b6c2
+color7 = #636d83
+color8 = #abb2bf
+color9 = #e06c75
+color10 = #94f936
+color11 = #e5c07b
+color12 = #96cbfe
+color13 = #b9b5fc
+color14 = #85befd
+color15 = #dfdfdf
+
+[hints]
+#font = Sauce Code Powerline 10
+#foreground = #dcdccc
+#background = #3f3f3f
+#active_foreground = #e68080
+#active_background = #3f3f3f
+#padding = 2
+#border = #3f3f3f
+#border_width = 0.5
+#roundness = 2.0
+
+# vim: ft=dosini cms=#%s

@@ -98,6 +98,8 @@ I recommend using [GNU Stow](https://www.gnu.org/software/stow/). With this appl
   * [iptables](https://git.netfilter.org/iptables/) rules
     * Hardening to reduce potential external connections
     * Allow connections in a local network to some socket addresses needed by various applications
+* [termite](https://github.com/thestinger/termite)
+  * Slightly modified [Atom colours](https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/schemes/Atom.itermcolors)
 * [top](http://linux.about.com/od/commands/l/blcmdl1_top.htm)
   * 4 panels
 * [vimperator](http://www.vimperator.org/vimperator/)

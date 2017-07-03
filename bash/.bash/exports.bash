@@ -6,3 +6,5 @@ export QT_QPA_PLATFORMTHEME=gnome
 # enable video acceleration for radeon driver:
 export LIBVA_DRIVER_NAME=vdpau
 export VDPAU_DRIVER=r600
+# i3 variable:
+export TERMINAL=termite
