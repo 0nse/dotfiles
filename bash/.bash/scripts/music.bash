@@ -1,7 +1,3 @@
-function backupMusic {
-  rsync -vrau --delete $HOME/Music/. /run/media/`whoami`/ehdd/music/.
-}
-
 # Size down album art and reduce its quality.
 function resizeAlbumArt {
   convert -resize "1024x1024>" -quality 87 album.* _toUpload.jpg
