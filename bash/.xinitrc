@@ -1,14 +1,21 @@
 #!/usr/bin/env bash
 launchWM() {
+  loadGnomeKeyRing
+  disableClientSideDecoration
   case "${XDG_VTNR}" in
-    2) # TTY2
-      exec fluxbox
+    1) # TTY1
+      exec awesome
       ;;
     *)
-      compton &
       exec i3
       ;;
   esac
+}
+
+loadGnomeKeyRing() {
+  dbus-update-activation-environment --systemd DISPLAY
+  eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+  export SSH_AUTH_SOCK
 }
 
 loadPreferences() {
@@ -33,6 +40,7 @@ launchPrograms() {
   # Enable keyboard mouse navigation (launch after setDisplays.sh so that it
   # uses the correct screen resolution):
   keynav &
+  compton &
 }
 
 launchRedshift() {
@@ -49,5 +57,4 @@ disableClientSideDecoration() {
 
 loadPreferences
 launchPrograms
-disableClientSideDecoration
 launchWM
