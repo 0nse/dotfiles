@@ -1,13 +1,21 @@
 # Dotfiles
 This repository contains my dotfiles of which I still use (and improve) most.
+Recursively clone this project to ensure that all submodules are pulled.
+Be aware that [Awesome WM Copycats](https://github.com/lcpz/awesome-copycats) contains submodules itself.
 
 ## Installation
-I recommend using [GNU Stow](https://www.gnu.org/software/stow/). With this application installed, using e.g. my bash dotfiles is as easy as executing `stow -t ~ bash` in the repository root. Nota bene: both `fonts` and `system` must be executed with the target directory parameter set to `/`. For more information, please refer to the [GNU Stow manual](https://www.gnu.org/software/stow/manual/stow.html).
+I recommend using [GNU Stow](https://www.gnu.org/software/stow/).
+With this application installed, using e.g. my bash dotfiles is as easy as executing `stow -t ~ bash` in the repository root.
+Nota bene: both `fonts` and `system` must be executed with the target directory parameter set to `/`.
+For more information, please refer to the [GNU Stow manual](https://www.gnu.org/software/stow/manual/stow.html).
 
 ## Included programs' dotfiles
 * [ag](http://betterthanack.com/)
-  * Basic  ignore file
+  * Basic ignore file
   * Other configuration can be found in `.bashrc` and `init.vim`
+* [awesome](https://awesomewm.org/)
+  * Based on [Awesome WM Copycats](https://github.com/lcpz/awesome-copycats)
+  * Adapted to fit my taste and the shortcuts which I'm used to, mostly from i3
 * bash
   * General terminal configuration including promptline
   * Global variables
