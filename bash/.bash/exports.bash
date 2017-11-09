@@ -8,3 +8,5 @@ export LIBVA_DRIVER_NAME=vdpau
 export VDPAU_DRIVER=r600
 # i3 variable:
 export TERMINAL=termite
+# even-better-ls
+LS_COLORS=$(ls_colors_generator)
